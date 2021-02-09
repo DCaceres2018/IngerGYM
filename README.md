@@ -11,8 +11,7 @@ Debido a las reestricciones por el covid y la limitación de aforo, una aplicaci
  Ver horarios de clases, como contactar con el gimnasio, ver tarifas , inscribirte al gimnasio, darte de baja. 
 
 -Privadas:
-
-  Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver profesores/monitores, ver pistas disponibles.
+Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver profesores/monitores, ver pistas disponibles.
 
 Entidades:
 PERSONA(id VARCHAR2(25), contraseña VARCHAR2(25),edad NUMBER(2),situacion_Laboral VARCHAR2(25),Rol VARCHAR2(25),Tarifa VARCHAR2(25));
