@@ -7,6 +7,7 @@ Temática:
 
 Debido a las reestricciones por el covid y la limitación de aforo, una aplicación web para el control de las salas y las clases de un gimnasio. 
 -Públicas:
+
   Ver horarios de clases, como contactar con el gimnasio, ver tarifas , inscribirte al gimnasio, darte de baja. 
 
 -Privadas:
