@@ -30,7 +30,7 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 - CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
 (Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
 
-# Integrante
+# Integrantes
 - Daniel Cáceres González; d.caceres.2018@alumnos.urjc.es
 github: DCaceres2018
 
