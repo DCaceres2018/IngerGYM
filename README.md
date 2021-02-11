@@ -17,18 +17,18 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 
 # Entidades:
 
-PERSONA(id VARCHAR2(25), contraseña VARCHAR2(25),edad NUMBER(2),situacion_Laboral VARCHAR2(25),Rol VARCHAR2(25),Tarifa VARCHAR2(25));
+- PERSONA(id VARCHAR2(25), contraseña VARCHAR2(25),edad NUMBER(2),situacion_Laboral VARCHAR2(25),Rol VARCHAR2(25),Tarifa VARCHAR2(25));
 
-SALAS(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),numSala NUMBER(3));
+- SALAS(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),numSala NUMBER(3));
 
-CLASES(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),profesor VARCHAR2(25),numSala NUMBER(3));
-Se relaciona con "SALAS" mediante AforoMax y numSala que los hereda de ella.
+- CLASES(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),profesor VARCHAR2(25),numSala NUMBER(3));
+(Se relaciona con "SALAS" mediante AforoMax y numSala que los hereda de ella.)
 
-TURNOS(id VARCHAR2(25),Horarios VARCHAR2(25),DiasTrabajo VARCHAR2(25),Rol VARCHAR2(25));
-Hereda de Persona el id y el Rol de los trabajadores.
+- TURNOS(id VARCHAR2(25),Horarios VARCHAR2(25),DiasTrabajo VARCHAR2(25),Rol VARCHAR2(25));
+(Hereda de Persona el id y el Rol de los trabajadores.)
 
-CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
-Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado,
+- CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
+(Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
 
 # Integrante
 - Daniel Cáceres González; d.caceres.2018@alumnos.urjc.es
