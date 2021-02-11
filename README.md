@@ -9,10 +9,10 @@ La aplicación web simularia la gestión de un gimnasio y brindaría la oportuni
 # Temática: 
 
 Debido a las reestricciones por el covid y la limitación de aforo, una aplicación web para el control de las salas y las clases de un gimnasio. 
--Públicas:
+- Públicas:
 Ver horarios de clases, como contactar con el gimnasio, ver tarifas , inscribirte al gimnasio. 
 
--Privadas:
+- Privadas:
 Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver profesores/monitores, ver pistas disponibles, darte de baja.
 
 # Entidades:
