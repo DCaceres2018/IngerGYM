@@ -17,9 +17,13 @@ public class AnuncioController {
 
 		return "anuncio";
 	}
-}
-/*
+	@PostMapping("/salas")
+	public String clases(Model model, @RequestParam String nombre, @RequestParam String asunto) {
 
-prueba para commits
-asdasdzxczxc
-*/
+		model.addAttribute("nombre", nombre);
+		model.addAttribute("asunto", asunto);
+		
+
+		return "salas";
+	}
+}
