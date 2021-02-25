@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AnuncioController {
 
-	@PostMapping("/guardaranuncio")
+	@PostMapping("/bienvenidos")
 	public String guardarAnuncio(Model model, @RequestParam String nombre, @RequestParam String asunto) {
 
 		model.addAttribute("nombre", nombre);
@@ -44,6 +44,13 @@ public class AnuncioController {
 		
 
 		return "piscina";
+	}
+	@GetMapping("/gimnasio")
+	public String gimnasio() {
+
+		
+
+		return "gimnasio";
 	}
 	
 	@PostMapping("/registro")
