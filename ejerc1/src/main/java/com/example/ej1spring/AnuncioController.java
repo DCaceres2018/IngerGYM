@@ -18,12 +18,25 @@ public class AnuncioController {
 
 		return "anuncio";
 	}
+	@GetMapping("/bienvenido")
+	public String anuncio() {
+		
+
+		return "anuncio";
+	}
 	@GetMapping("/salas")
 	public String salas() {
 
 		
 
 		return "sala";
+	}
+	@GetMapping("/clase")
+	public String clase() {
+
+		
+
+		return "clase";
 	}
 	
 	@PostMapping("/registro")
@@ -32,6 +45,14 @@ public class AnuncioController {
 		
 
 		return "registro";
+	}
+	
+	@PostMapping("/horario")
+	public String horario() {
+
+		
+
+		return "horario";
 	}
 	
 }
