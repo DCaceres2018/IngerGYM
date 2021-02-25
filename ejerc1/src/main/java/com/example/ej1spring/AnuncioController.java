@@ -31,6 +31,13 @@ public class AnuncioController {
 
 		return "sala";
 	}
+	@PostMapping("/contacto")
+	public String cont() {
+
+		
+
+		return "contacto";
+	}
 	@GetMapping("/clase")
 	public String clase() {
 
