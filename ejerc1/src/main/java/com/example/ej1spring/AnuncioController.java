@@ -38,6 +38,13 @@ public class AnuncioController {
 
 		return "clase";
 	}
+	@GetMapping("/piscina")
+	public String piscina() {
+
+		
+
+		return "piscina";
+	}
 	
 	@PostMapping("/registro")
 	public String registro() {
