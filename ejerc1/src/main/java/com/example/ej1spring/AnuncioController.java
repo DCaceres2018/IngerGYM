@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AnuncioController {
 
 	@PostMapping("/bienvenidos")
-	public String guardarAnuncio(Model model, @RequestParam String nombre, @RequestParam String asunto) {
+	public String bienvenidos(Model model, @RequestParam String nombre, @RequestParam String contraseña) {
 
-		model.addAttribute("nombre", nombre);
-		model.addAttribute("asunto", asunto);
-		
+			model.addAttribute("nombre", nombre);
+			model.addAttribute("asunto", contraseña);
+			
 
-		return "anuncio";
+			return "bienvenido";
+	
 	}
 	@GetMapping("/bienvenido")
 	public String anuncio() {
 		
 
-		return "anuncio";
+		return "bienvenido";
 	}
 	@GetMapping("/salas")
 	public String salas() {
