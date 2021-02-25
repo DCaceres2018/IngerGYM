@@ -6,13 +6,14 @@ public class Cliente {
 	private String email;
 	private String edad;
 	private String nTelefono;
+	private String contrasena;
 	
-	Cliente(String usuario,String email,String edad, String nTelefono){
+	Cliente(String usuario,String email,String edad, String nTelefono, String contrasena){
 		this.usuario= usuario;
 		this.email=email;
 		this.edad=edad;
 		this.nTelefono= nTelefono;
-	
+		this.contrasena= nTelefono;
 	}
 
 	public String getUsuario() {
