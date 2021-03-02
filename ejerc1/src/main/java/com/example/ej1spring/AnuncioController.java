@@ -19,6 +19,12 @@ public class AnuncioController {
 			return "bienvenido";
 	
 	}
+	@PostMapping("/bienvenidos_")
+	public String bien() {
+
+			return "bienvenido";
+	
+	}
 	@GetMapping("/bienvenido")
 	public String anuncio() {
 		
@@ -38,6 +44,13 @@ public class AnuncioController {
 		
 
 		return "contacto";
+	}
+	@PostMapping("/contactoInv")
+	public String contI() {
+
+		
+
+		return "contactoInv";
 	}
 	@GetMapping("/clase")
 	public String clase() {
