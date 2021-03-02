@@ -69,6 +69,14 @@ public class AnuncioController {
 		return "registro";
 	}
 	
+	@PostMapping("/invitados")
+	public String invitados() {
+
+		
+
+		return "invitados";
+	}
+	
 	@PostMapping("/horario")
 	public String horario() {
 
