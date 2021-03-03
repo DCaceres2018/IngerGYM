@@ -1,11 +1,22 @@
 package servicios;
 
-import org.springframework.data.domain.Page;
-import entidades.Clases;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
 
-public class ServicioClases  {
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import entidades.*;
+import repositorios.*;
+
+@Service
+public class ServicioClases {
+	
 
 	
 }
