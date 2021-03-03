@@ -1,16 +1,28 @@
-package com.example.ej1spring;
+package entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Salas {
 	
 	private int aforoMAX;
 	private String nombre;
 	private int horarios[][]=new int [7][13];
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	
 	public Salas(String a,int n) {
 	this.nombre=a;
 	this.aforoMAX=n;
 	}
 
+	
 	public boolean compHora(int d, int h) {
 		if(horarios[d][h]==0) {
 			return true;

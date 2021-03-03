@@ -1,4 +1,4 @@
-package com.example.ej1spring;
+package entidades;
 
 public class Cliente {
 

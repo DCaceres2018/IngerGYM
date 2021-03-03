@@ -1,4 +1,5 @@
-package com.example.ej1spring;
+package entidades;
+
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
