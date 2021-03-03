@@ -1,12 +1,26 @@
 package com.example.ej1spring;
 
-public class Clases {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Clases {
+	
 	private String profesor;
 	private String tipo; 
 	private Salas sala;
 	private int dia;
 	private int hora;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	 private long id;
 	
 	public Clases (Salas sala,String prof,String tipo,int dia, int hora) {
 		
