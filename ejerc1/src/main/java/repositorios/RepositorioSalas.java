@@ -1,5 +1,10 @@
 package repositorios;
 
-public class RepositorioSalas {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import entidades.Salas;
+
+
+public interface RepositorioSalas extends JpaRepository<Salas, Long> {
+	
 }

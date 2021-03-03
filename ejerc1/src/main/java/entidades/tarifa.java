@@ -2,6 +2,8 @@ package entidades;
 
 public class tarifa {
 
+	
+	
 	public int tarifa(int edad,boolean trabajo) {
 		int n=0;
 		if(edad<18) {

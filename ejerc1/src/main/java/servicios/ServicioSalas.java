@@ -1,11 +1,38 @@
 package servicios;
 
-import org.springframework.data.domain.Page;
-import entidades.Salas;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
 
-public interface ServicioSalas extends JpaRepository<Salas, Long> {
+import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import entidades.*;
+import repositorios.*;
+
+@Service
+public class ServicioSalas {
+	
+	@Autowired
+	private RepositorioSalas RepositorioSalas;
+
+	public Optional<Salas> buscarClase(long id) {
+
+		return RepositorioSalas.findById(id);
+		
+	}
+	
+	public void anadirSala(Salas sala) {
+		
+		RepositorioSalas.save(sala);
+	}
+
+	public void eliminarSala(Salas sala){
+		RepositorioSalas.delete(sala);
+	}
 	
 }

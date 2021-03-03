@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
@@ -17,11 +18,15 @@ public class Cliente {
 	private tarifa tarifa;
 	private int precio;
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
+	@ManyToOne
+	private Salas Sala;
+	
+	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
 		this.usuario= usuario;
 		this.situacionLaboral=trabajo;
 		this.email=email;
@@ -55,6 +60,14 @@ public class Cliente {
 		this.edad = edad;
 	}
 
+	public Salas getSala() {
+		return Sala;
+	}
+
+	public void setSala(Salas sala) {
+		Sala = sala;
+	}
+
 	public String getnTelefono() {
 		return nTelefono;
 	}
@@ -63,5 +76,8 @@ public class Cliente {
 		this.nTelefono = nTelefono;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Cliente [tlf=" + tarifa + ", name=" + "usuario ]";
+	}
 }

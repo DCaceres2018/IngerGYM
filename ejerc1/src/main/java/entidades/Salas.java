@@ -1,9 +1,13 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Salas {
@@ -12,10 +16,14 @@ public class Salas {
 	private String nombre;
 	private int horarios[][]=new int [7][13];
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	//la clase principal es cliente
+	@OneToMany(mappedBy="Salas")
+	private List<Cliente> clientes=new ArrayList<>();
 	
 	public Salas(String a,int n) {
 	this.nombre=a;
