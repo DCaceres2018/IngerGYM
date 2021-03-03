@@ -4,16 +4,21 @@ public class Cliente {
 
 	private String usuario;
 	private String email;
-	private String edad;
+	private boolean situacionLaboral;
+	private int edad;
 	private String nTelefono;
 	private String contrasena;
+	private tarifa tarifa;
+	private int precio;
 	
-	Cliente(String usuario,String email,String edad, String nTelefono, String contrasena){
+	Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
 		this.usuario= usuario;
+		this.situacionLaboral=trabajo;
 		this.email=email;
 		this.edad=edad;
 		this.nTelefono= nTelefono;
 		this.contrasena= nTelefono;
+		this.precio=tarifa.tarifa(edad,trabajo);
 	}
 
 	public String getUsuario() {
@@ -32,11 +37,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getEdad() {
+	public int getEdad() {
 		return edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 

@@ -15,9 +15,17 @@ public class Clases {
 			sala.cogerHora(dia, hora);
 			this.profesor=prof;
 			this.tipo=tipo;
+			this.dia=dia;
+			this.hora=hora;
 		}
 		
 	
+	}
+	public int [] queclase(){
+		int i[]=new int [1];
+		i[1]=hora;
+		i[0]=dia;
+		return i;
 	}
 
 	public String getProfesor() {
