@@ -1,5 +1,11 @@
 package entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
 
 	private String usuario;
@@ -10,6 +16,10 @@ public class Cliente {
 	private String contrasena;
 	private tarifa tarifa;
 	private int precio;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	
 	Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
 		this.usuario= usuario;
