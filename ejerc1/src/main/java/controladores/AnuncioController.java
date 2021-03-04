@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AnuncioController {
+	
+	@GetMapping("/")
+	public String principal()
+	{
+		return "inicio";
+	}
 
 	@PostMapping("/bienvenidos")
 	public String bienvenidos(Model model, @RequestParam String nombre, @RequestParam String contraseña) {
