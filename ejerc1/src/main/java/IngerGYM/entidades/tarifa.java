@@ -1,4 +1,4 @@
-package entidades;
+package IngerGYM.entidades;
 
 public class tarifa {
 

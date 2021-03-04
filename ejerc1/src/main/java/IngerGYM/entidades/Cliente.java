@@ -1,4 +1,4 @@
-package entidades;
+package IngerGYM.entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

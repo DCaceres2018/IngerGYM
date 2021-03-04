@@ -1,8 +1,8 @@
-package repositorios;
+package IngerGYM.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entidades.Cliente;
+import IngerGYM.entidades.Cliente;
 
 
 public interface RepositorioClientes extends JpaRepository<Cliente, Long> {

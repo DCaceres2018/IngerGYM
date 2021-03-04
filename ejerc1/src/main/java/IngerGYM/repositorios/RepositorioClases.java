@@ -1,8 +1,8 @@
-package repositorios;
+package IngerGYM.repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import entidades.Clases;
+import IngerGYM.entidades.Clases;
 
 
 public interface RepositorioClases extends JpaRepository<Clases, Long> {

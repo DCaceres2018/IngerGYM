@@ -1,4 +1,4 @@
-package entidades;
+package IngerGYM.entidades;
 
 import java.util.ArrayList;
 import java.util.List;

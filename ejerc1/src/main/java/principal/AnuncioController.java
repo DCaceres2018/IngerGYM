@@ -1,4 +1,5 @@
-package controladores;
+package principal;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
