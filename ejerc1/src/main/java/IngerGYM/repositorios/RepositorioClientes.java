@@ -11,7 +11,5 @@ import IngerGYM.entidades.Cliente;
 
 public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
 	
-	
-	Cliente findByUser(String nombre);
-	List<Cliente> findByEmail(String email);
+
 }
