@@ -22,9 +22,9 @@ public class Salas {
 	private long id;
 	
 	//la clase principal es cliente
-	@OneToMany(mappedBy="Salas")
+	/*@OneToMany(mappedBy="Salas")
 	private List<Cliente> clientes=new ArrayList<>();
-	
+	*/
 	public Salas(String a,int n) {
 	this.nombre=a;
 	this.aforoMAX=n;

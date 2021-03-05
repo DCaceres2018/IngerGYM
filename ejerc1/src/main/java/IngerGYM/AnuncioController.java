@@ -1,4 +1,4 @@
-package principal;
+package IngerGYM;
 
 
 import org.springframework.stereotype.Controller;

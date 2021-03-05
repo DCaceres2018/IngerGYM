@@ -15,7 +15,7 @@ public class Clases {
 	
 	private String profesor;
 	private String tipo; 
-	private Salas sala;
+	//private Salas sala;
 	private int dia;
 	private int hora;
 	
@@ -23,7 +23,16 @@ public class Clases {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 private long id;
 	
-	public Clases (Salas sala,String prof,String tipo,int dia, int hora) {
+	public Clases (String prof,String tipo,int dia, int hora) {
+		
+			this.profesor=prof;
+			this.tipo=tipo;
+			this.dia=dia;
+			this.hora=hora;
+		
+	
+	}
+	/*public Clases (Salas sala,String prof,String tipo,int dia, int hora) {
 		
 		this.sala=sala;
 		if(sala.compHora(dia, hora)==true) {
@@ -35,7 +44,7 @@ public class Clases {
 		}
 		
 	
-	}
+	}*/
 	public int [] queclase(){
 		int i[]=new int [1];
 		i[1]=hora;
@@ -58,12 +67,12 @@ public class Clases {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
+/*
 	public Salas getSala() {
 		return sala;
 	}
 
 	public void setSala(Salas sala) {
 		this.sala = sala;
-	}
+	}*/
 }
