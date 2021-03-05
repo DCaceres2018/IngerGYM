@@ -51,31 +51,27 @@ public class RegistroColntroller {
 			return "incorrecto";
 		}
 		else {
-			List<Cliente> nombres = repositorioC.findByUser(Usuario);
-			int i=0;
-			for(Cliente nombre:nombres) {
-				i++;
-			}
-			List<Cliente> emails = repositorioC.findByUser(Email);
-			int j=0;
-			for(Cliente email:emails) {
-				j++;
-			}
 			
-			if(i>0||j>0) {
-				return "DatosExistentes";
+			List<Cliente> a=repositorioC.findAll();
+			
+			for(int f=a.size();f>0;f--) {
+				Cliente alt=a.get(f-1);
+				if(alt.getUsuario().equals(Usuario)||alt.getEmail().equals(Email)) {
+						return "incorrecto";
+					}
+				
 			}
-			else {
+		
 				boolean si=true;
 				//crear usuario
 				Cliente nuevo=new Cliente(Usuario,Email,edad,nTelefono,Contraseña,si);
 				repositorioC.save(nuevo);
 				return "correcto";
-			}
 		}
 		
 		
 	}
+	}
 	
+
 	
-}
