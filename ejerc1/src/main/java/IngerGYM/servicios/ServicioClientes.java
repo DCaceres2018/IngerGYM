@@ -20,9 +20,10 @@ public class ServicioClientes {
 	@Autowired
 	private RepositorioClientes clientes;
 
-	public Cliente findByUser(String nombre) {
+	public Cliente findByUser(String nombr) {
 
-		return clientes.findByUser(nombre);
+		return clientes.findByUser(nombr);
+		
 	}
 
 	public void saveClient(Cliente cliente) {
