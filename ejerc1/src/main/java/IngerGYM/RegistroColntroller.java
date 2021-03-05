@@ -14,64 +14,56 @@ import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.repositorios.RepositorioSalas;
+import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.entidades.*;
 
 @Controller
 public class RegistroColntroller {
+	private boolean datosIncorrectos = false;
 
-	@Autowired
-	private RepositorioClientes repositorioC;
 	
-	@Autowired
-	private RepositorioClases repositorioCl;
 	
-	@Autowired
-	private RepositorioSalas repositorioS;
 	
-	@PostConstruct
-	public void init() {
-		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
-		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
-		repositorioC.save(paco);
+	
+	private String nombre;
+	private String email;
+	private int edad;
+	private String nTelefono;
+	private String contraseña;
+	
+	
 		
-		Salas piscina=new Salas("Piscina",20);
-		repositorioS.save(piscina);
-		
-		//public Clases (String prof,String tipo,int dia, int hora)
-		Clases AquaGym=new Clases("Maria","AquaGYM",3,7);
-		repositorioCl.save(AquaGym);
-		
-	}
-	
-	
-	@PostMapping("/registrarse")
-	public String registrarse(@RequestParam String Usuario,@RequestParam String Email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String Contraseña)
+	/*@PostMapping("/moco")
+	public String registrarse( Cliente cliente)
 	{
-		if(Usuario==""||Email=="") {
+		return "horario";
+		/*if(cliente.getUsuario().trim().equals("") || cliente.getEmail().trim().equals("")) {
+			datosIncorrectos = true;
+			model.addAttribute("datosIncorrectos", datosIncorrectos);
+			datosIncorrectos = false;
 			return "incorrecto";
 		}
+		
 		else {
 			
-			List<Cliente> a=repositorioC.findAll();
-			
-			for(int f=a.size();f>0;f--) {
-				Cliente alt=a.get(f-1);
-				if(alt.getUsuario().equals(Usuario)||alt.getEmail().equals(Email)) {
-						return "incorrecto";
-					}
-				
-			}
-		
-				boolean si=true;
-				//crear usuario
-				Cliente nuevo=new Cliente(Usuario,Email,edad,nTelefono,Contraseña,si);
-				repositorioC.save(nuevo);
+			if(servicioClientes.existeCliente(cliente)==false) {
+				servicioClientes.guardarCliente(cliente);
 				return "correcto";
-		}
+			}
+			else {
+				return "DatosExistentes";
+			}
+		}*/
+		
+			
+		
+		
+		
+		
 		
 		
 	}
-	}
+	
 	
 
 	

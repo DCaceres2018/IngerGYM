@@ -16,7 +16,7 @@ public class Salas {
 	private String nombre;
 	private int Dia[]=new int [7];
 	private int Hora[]=new int [13];
-	private int horario[][]=new int [7][8];
+	//private int horario[][]=new int [7][8];
 	
 	
 	@Id

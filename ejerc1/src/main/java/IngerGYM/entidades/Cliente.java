@@ -26,7 +26,11 @@ public class Cliente {
 /*	@ManyToOne
 	private Salas Sala;
 	*/
+	public Cliente() {
+		
+	}
 	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
+		super();
 		this.usuario= usuario;
 		this.situacionLaboral=trabajo;
 		this.email=email;
