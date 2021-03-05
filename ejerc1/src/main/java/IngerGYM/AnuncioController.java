@@ -18,10 +18,6 @@ public class AnuncioController {
 
 	@PostMapping("/bienvenidos")
 	public String bienvenidos() {
-
-		
-			
-
 			return "bienvenido";
 	
 	}
@@ -103,5 +99,7 @@ public class AnuncioController {
 
 		return "horario";
 	}
+	
+
 	
 }
