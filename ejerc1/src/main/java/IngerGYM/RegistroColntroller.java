@@ -1,5 +1,7 @@
 package IngerGYM;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +45,36 @@ public class RegistroColntroller {
 	
 	
 	@PostMapping("/registrarse")
-	public String registrarse(@RequestParam nombre)
+	public String registrarse(@RequestParam String Usuario,@RequestParam String Email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String Contraseña)
 	{
+		if(Usuario==""||Email=="") {
+			return "incorrecto";
+		}
+		else {
+			List<Cliente> nombres = repositorioC.findByUser(Usuario);
+			int i=0;
+			for(Cliente nombre:nombres) {
+				i++;
+			}
+			List<Cliente> emails = repositorioC.findByUser(Email);
+			int j=0;
+			for(Cliente email:emails) {
+				j++;
+			}
+			
+			if(i>0||j>0) {
+				return "DatosExistentes";
+			}
+			else {
+				boolean si=true;
+				//crear usuario
+				Cliente nuevo=new Cliente(Usuario,Email,edad,nTelefono,Contraseña,si);
+				repositorioC.save(nuevo);
+				return "correcto";
+			}
+		}
 		
 		
-		return "correcto";
 	}
 	
 	
