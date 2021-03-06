@@ -14,6 +14,7 @@ import IngerGYM.entidades.*;
 public class LoginController {
 
 	private boolean usuarioNoExiste=false;
+	private Cliente cliente;
 
 	@Autowired
 	private ServicioClientes servicioClientes;
@@ -22,7 +23,10 @@ public class LoginController {
 	public String registrarse(Model model,@RequestParam String nombre,@RequestParam String contraseña){
 		
 		int resultado=servicioClientes.clienteCorrecto(nombre,contraseña);
-		
+		int numero= servicioClientes.posCliente(nombre);
+		if(numero!=-1) {
+			this.cliente =servicioClientes.getCliente(numero);
+		}
 		 if(resultado==0) {
 			 
 			return "errorUsuario";
@@ -35,5 +39,19 @@ public class LoginController {
 		
 		return "incorrecto";
 		
+	}
+	
+	@PostMapping("/tarifa")
+	public String tarifa() {
+		Cliente cl=this.cliente;
+		if(cl.getEdad()<18) {
+			return "tarifaNiños";
+		}
+		else if(cl.getEdad()>65) {
+			return "tarifaAncianos";
+		}
+		else {
+			return "tarifaAdultos";
+		}
 	}
 }

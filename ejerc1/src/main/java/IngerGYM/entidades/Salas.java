@@ -14,8 +14,10 @@ public class Salas {
 	
 	private int aforoMAX;
 	private String nombre;
-	private int Dia[]=new int [7];
-	private int Hora[]=new int [13];
+	
+	
+
+	
 	//private int horario[][]=new int [7][8];
 	
 	
@@ -34,22 +36,18 @@ public class Salas {
 	}
 
 	
-	/*public boolean compHora(int d, int h) {
-		if(horarios[d][h]==0) {
-			return true;
-		}
-		else {
-			return false;
-		}
-		
+	public boolean compHora(int d, int h) {
+		 Auxiliar aux=new Auxiliar();
+		int reserva=d*7+h;
+		return aux.estaLibre(reserva);	
 	}
-	public void cogerHora(int d, int h) {
-		if(horarios[d][h]==0) {
-			horarios[d][h]=1;
-		}
-		
 	
-	}*/
+	
+	public void cogerHora(int d, int h) {
+		int reserva=d*7+h;
+		Auxiliar aux=new Auxiliar();
+		aux.reservar(reserva);
+	}
 	
 	public int getAforoMAX() {
 		return aforoMAX;
@@ -67,12 +65,6 @@ public class Salas {
 		this.nombre = nombre;
 	}
 
-	/*public int[][] getHorarios() {
-		return horarios;
-	}
 
-	public void setHorarios(int[][] horarios) {
-		this.horarios = horarios;
-	}*/
 	
 }

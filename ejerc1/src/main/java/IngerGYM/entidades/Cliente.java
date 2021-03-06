@@ -15,7 +15,6 @@ public class Cliente {
 	private int edad;
 	private String nTelefono;
 	private String contrasena;
-	//private tarifa tarifa;
 	private int precio;
 	
 	
@@ -37,7 +36,27 @@ public class Cliente {
 		this.edad=edad;
 		this.nTelefono= nTelefono;
 		this.contrasena= contrasena;
-		//this.precio=tarifa.tarifa(edad,trabajo);
+		
+		
+		if(edad<18) {
+			this.precio=15;
+		}
+		else if(edad>65) {
+			this.precio=10;
+		}
+		else {
+			
+			if(trabajo==false) {
+				this.precio=18;
+			}
+			else {
+				this.precio=25;
+			}
+			
+		
+		}
+		
+		
 	}
 
 	public String getContrasena() {
