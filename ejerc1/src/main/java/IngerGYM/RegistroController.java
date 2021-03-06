@@ -19,6 +19,16 @@ public class RegistroController {
 	@PostMapping("/registrarse")
 	public String registrarse(@RequestParam String usuario,@RequestParam String email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String contraseña)
 	{
+		if(usuario.equals("")) {
+			return "errorRegistro";
+		}
+		if(email.equals("")) {
+			return "errorRegistro";
+		}
+		if(nTelefono.equals("")) {
+			return "errorRegistro";
+		}
+		
 		if(servicioClientes.existeCliente(usuario,email)==false) {
 			Cliente cliente=new Cliente(usuario,email,edad,nTelefono,contraseña,true);
 			servicioClientes.guardarCliente(cliente);

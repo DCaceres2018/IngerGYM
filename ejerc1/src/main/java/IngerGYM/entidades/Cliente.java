@@ -36,7 +36,7 @@ public class Cliente {
 		this.email=email;
 		this.edad=edad;
 		this.nTelefono= nTelefono;
-		this.contrasena= nTelefono;
+		this.contrasena= contrasena;
 		//this.precio=tarifa.tarifa(edad,trabajo);
 	}
 
