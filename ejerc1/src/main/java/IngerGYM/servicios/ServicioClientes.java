@@ -68,22 +68,34 @@ public class ServicioClientes {
 	}
 
 	public boolean existeCliente(String usuario,String email) {
+		
 		List <Cliente> listaClientes=repositorioClientes.findAll();
 		boolean encontrado=false;
-		
-		/*for(int i=0;i<listaClientes.size();i++) {
-			
-			String ada=listaClientes.get(i).getUsuario();
-			if(ada.equals(nombre)) {
-				encontrado=true;
-				break;
-			}
-			
-		}*/
 		for(Cliente cliente : listaClientes) {
 			
 			if(cliente.getUsuario().equals(usuario) ||cliente.getEmail().equals(email)  ) {
 				encontrado = true;
+				break;
+			}
+		}
+		
+		return encontrado;
+	}
+	
+	public int clienteCorrecto(String usuario,String contrasena) {
+		
+		List <Cliente> listaClientes=repositorioClientes.findAll();
+		int encontrado=-1;
+		
+		//Si = 0 usuario correcto 
+		//Si =1 usuario y contraseña correcto
+		for(Cliente cliente : listaClientes) {
+			
+			if(cliente.getUsuario().equals(usuario) ) {
+				encontrado = 0;
+				if(cliente.getContrasena().equals(contrasena) ) {
+					encontrado = 1;
+				}
 				break;
 			}
 		}

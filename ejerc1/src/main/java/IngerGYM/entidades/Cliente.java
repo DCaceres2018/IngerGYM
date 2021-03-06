@@ -40,6 +40,14 @@ public class Cliente {
 		//this.precio=tarifa.tarifa(edad,trabajo);
 	}
 
+	public String getContrasena() {
+		return contrasena;
+	}
+	
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	
 	public String getUsuario() {
 		return usuario;
 	}

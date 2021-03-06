@@ -23,11 +23,6 @@ public class AnuncioController {
 		return "inicio";
 	}
 
-	@PostMapping("/bienvenidos")
-	public String bienvenidos() {
-			return "bienvenido";
-	
-	}
 	@PostMapping("/bienvenidos_")
 	public String bien() {
 
