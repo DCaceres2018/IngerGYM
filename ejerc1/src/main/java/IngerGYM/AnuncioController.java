@@ -40,45 +40,39 @@ public class AnuncioController {
 
 		return "bienvenido";
 	}
+	
 	@GetMapping("/salas")
 	public String salas() {
 
-		
-
 		return "sala";
 	}
+	
 	@PostMapping("/contacto")
 	public String cont() {
 
-		
-
 		return "contacto";
 	}
+	
 	@PostMapping("/contactoInv")
 	public String contI() {
 
-		
-
 		return "contactoInv";
 	}
+	
 	@GetMapping("/clase")
 	public String clase() {
 
-		
-
 		return "clase";
 	}
+	
 	@GetMapping("/piscina")
 	public String piscina() {
 
-		
-
 		return "piscina";
 	}
+	
 	@GetMapping("/gimnasio")
 	public String gimnasio() {
-
-		
 
 		return "gimnasio";
 	}
@@ -86,15 +80,11 @@ public class AnuncioController {
 	@PostMapping("/registro")
 	public String registro() {
 
-		
-
 		return "registro";
 	}
 	
 	@PostMapping("/invitados")
 	public String invitados() {
-
-		
 
 		return "invitados";
 	}
@@ -102,40 +92,13 @@ public class AnuncioController {
 	@PostMapping("/horario")
 	public String horario() {
 
-		
-
 		return "horario";
 	}
 	
 	@PostMapping("/error")
 	public String error() {
 
-		
-
 		return "incorrecto";
 	}
-	
-	@PostMapping("/registrarse")
-	public String registrarse(@RequestParam String usuario,@RequestParam String email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String contraseña)
-	{
-		
-		
-		
-		
-			if(servicioClientes.existeCliente(usuario)==false) {
-				Cliente cliente=new Cliente(usuario,email,edad,nTelefono,contraseña,true);
-				servicioClientes.guardarCliente(cliente);
-				return "correcto";
-			}
-			
-				return "DatosExistentes";
-			
-		
-		
-			
-		
-		}
-	
-
 	
 }

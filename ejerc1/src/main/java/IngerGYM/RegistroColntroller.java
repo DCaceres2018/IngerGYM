@@ -19,51 +19,25 @@ import IngerGYM.entidades.*;
 
 @Controller
 public class RegistroColntroller {
-	private boolean datosIncorrectos = false;
 
+
+	@Autowired
+	private ServicioClientes servicioClientes;
 	
-	
-	
-	
-	private String nombre;
-	private String email;
-	private int edad;
-	private String nTelefono;
-	private String contraseña;
-	
-	
-		
-	/*@PostMapping("/moco")
-	public String registrarse( Cliente cliente)
+	@PostMapping("/registrarse")
+	public String registrarse(@RequestParam String usuario,@RequestParam String email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String contraseña)
 	{
-		return "horario";
-		/*if(cliente.getUsuario().trim().equals("") || cliente.getEmail().trim().equals("")) {
-			datosIncorrectos = true;
-			model.addAttribute("datosIncorrectos", datosIncorrectos);
-			datosIncorrectos = false;
-			return "incorrecto";
-		}
-		
-		else {
-			
-			if(servicioClientes.existeCliente(cliente)==false) {
-				servicioClientes.guardarCliente(cliente);
-				return "correcto";
+		if(servicioClientes.existeCliente(usuario,email)==false) {
+			Cliente cliente=new Cliente(usuario,email,edad,nTelefono,contraseña,true);
+			servicioClientes.guardarCliente(cliente);
+			return "correcto";
+		}else {
+			return "DatosExistentes";
 			}
-			else {
-				return "DatosExistentes";
-			}
-		}*/
-		
-			
-		
-		
-		
-		
-		
-		
 	}
-	
+}
+
+		
 	
 
 	

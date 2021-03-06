@@ -23,7 +23,7 @@ public class ServicioClientes {
 	private Cliente cliente;
 	
 	@Autowired
-	private RepositorioClientes repositorio;
+	private RepositorioClientes repositorioClientes;
 
 
 	@PostConstruct
@@ -31,7 +31,7 @@ public class ServicioClientes {
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
-		repositorio.save(paco);
+		repositorioClientes.save(paco);
 		
 		/*Salas piscina=new Salas("Piscina",20);
 		repositorioS.save(piscina);
@@ -41,12 +41,12 @@ public class ServicioClientes {
 		repositorioCl.save(AquaGym);*/
 	}
 	public Collection<Cliente> getUsuarios() {
-		return repositorio.findAll();
+		return repositorioClientes.findAll();
 	}
 		
 	
 	public void guardarCliente(Cliente cl) {
-		repositorio.save(cl);
+		repositorioClientes.save(cl);
 	}
 	
 
@@ -67,17 +67,28 @@ public class ServicioClientes {
 		this.cliente = cliente;
 	}
 
-	public boolean existeCliente(String nombre) {
-		List <Cliente> cliente1=repositorio.findAll();
-		for(int i=0;i<cliente1.size();i++) {
+	public boolean existeCliente(String usuario,String email) {
+		List <Cliente> listaClientes=repositorioClientes.findAll();
+		boolean encontrado=false;
+		
+		/*for(int i=0;i<listaClientes.size();i++) {
 			
-			String ada=cliente1.get(i).getUsuario();
+			String ada=listaClientes.get(i).getUsuario();
 			if(ada.equals(nombre)) {
-				return true;
+				encontrado=true;
+				break;
 			}
 			
+		}*/
+		for(Cliente cliente : listaClientes) {
+			
+			if(cliente.getUsuario().equals(usuario) ||cliente.getEmail().equals(email)  ) {
+				encontrado = true;
+				break;
+			}
 		}
-		return false;
+		
+		return encontrado;
 	}
 
 	
