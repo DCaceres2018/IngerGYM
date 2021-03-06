@@ -14,11 +14,7 @@ public class Salas {
 	
 	private int aforoMAX;
 	private String nombre;
-	
-	
 
-	
-	//private int horario[][]=new int [7][8];
 	
 	
 	@Id
@@ -47,6 +43,11 @@ public class Salas {
 		int reserva=d*7+h;
 		Auxiliar aux=new Auxiliar();
 		aux.reservar(reserva);
+	}
+	public void cogerHora() {
+		
+		Auxiliar aux=new Auxiliar();
+		aux.reservar();
 	}
 	
 	public int getAforoMAX() {

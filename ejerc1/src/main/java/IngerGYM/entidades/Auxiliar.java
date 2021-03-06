@@ -9,10 +9,21 @@ public class Auxiliar {
 	public void reservar(int reserva) {
 		reservas[reserva]=1;
 	}
+	public void reservar() {
+		for(int i=0;i<56;i++) {
+			reservas[i]=1;	
+		}
+	}
 	public boolean estaLibre(int reserva) {
 		if(reservas[reserva]==0) {
 			return true;
 		}
 		else return false;
 	}
+	/*public void reservarClase(int d,int h,Salas sala) {
+
+		for(int i=0;i<56;i++) {
+			reservas[i]=1;	
+		}
+	}*/
 }

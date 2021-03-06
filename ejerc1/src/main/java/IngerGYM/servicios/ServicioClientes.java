@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
@@ -25,6 +26,10 @@ import IngerGYM.repositorios.RepositorioSalas;
 public class ServicioClientes {
 
 	private Cliente cliente;
+	ContadorAforo Nado;
+	ContadorAforo Zumb;
+	ContadorAforo Gym;
+	ContadorAforo Aq;
 	
 	@Autowired
 	private RepositorioClientes repositorioClientes;
@@ -36,7 +41,7 @@ public class ServicioClientes {
 	
 	@PostConstruct
 	public void init() {
-		/*
+		
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
@@ -51,15 +56,29 @@ public class ServicioClientes {
 		repositorioS.save(comun);
 		
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
-		Clases AquaGymMiercoles=new Clases(piscina,"Maria","AquaGYM",3,7);
-		repositorioCl.save(AquaGymMiercoles);
+		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,7);
+		repositorioCl.save(AquaGym);
 		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,2);
 		repositorioCl.save(NadoLibre);
 		Clases Zumba=new Clases(comun,"Aitor","Zumba",1,8);
 		repositorioCl.save(Zumba);
-		*/
+		Clases gym=new Clases(gimnasio,"-","gym");
+		repositorioCl.save(gym);
+		 Nado=new ContadorAforo(NadoLibre);
+		 Zumb=new ContadorAforo(Zumba);
+		 Gym=new ContadorAforo(gym);
+		 Aq=new ContadorAforo(AquaGym);
 	}
 
+	public boolean reservarPiscina(int d,int h) {
+		if(Nado.hayHueco(d,h)==true) {
+			Nado.cogeAforo(d,h);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	public Collection<Cliente> getUsuarios() {
 		return repositorioClientes.findAll();

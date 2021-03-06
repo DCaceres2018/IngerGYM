@@ -17,8 +17,8 @@ public class Clases {
 	private String tipo; 
 	private String nombreSala;
 	//private Salas sala;
-	private int dia;
-	private int hora;
+	private int dia=0;
+	private int hora=0;
 	private int aforo;
 	
 	@Id
@@ -32,6 +32,20 @@ public class Clases {
 			this.dia=dia;
 			this.hora=hora;
 
+	}
+	public Clases (Salas sala,String prof,String tipo) {
+		
+			this.nombreSala=sala.getNombre();
+		
+			sala.cogerHora();
+			this.profesor=prof;
+			this.tipo=tipo;
+			this.dia=dia;
+			this.hora=hora;
+			this.aforo=sala.getAforoMAX();
+		
+		
+	
 	}
 	
 	public Clases (Salas sala,String prof,String tipo,int dia, int hora) {
@@ -68,6 +82,9 @@ public class Clases {
 		return tipo;
 	}
 
+	public int getAf() {
+		return aforo;
+	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
