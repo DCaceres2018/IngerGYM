@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+</head>
+
+
+<body>
+	
+	<br>
+	<form action="opiniones" method="post">
+	
+		<br>
+		<p>Usuario:</p>
+		<input type='text' name='usuario'/>
+		<p>Valoración:</p>
+		<textarea name='texto' rows=5 cols=40></textarea>
+
+		<input type='submit' value='Save'/>
+	</form>
+	
+<br>
+<br>
+<br>
+<br>
+
+	<p>People in list:</p>
+	<ul>
+	{{#opinionesDisponibles}}
+		
+		<li>
+		<p>Usuario: {{nombre}} ---- Comentario: {{comentario}}</p>
+		</li>
+		
+	{{/opinionesDisponibles}}
+	</ul>
+	
+<center><a href="bienvenido">Volver</a><center>
+</body>
+</html>

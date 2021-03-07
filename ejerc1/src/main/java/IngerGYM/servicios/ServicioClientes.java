@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.Opinion;
 import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClases;
@@ -25,7 +26,7 @@ import IngerGYM.repositorios.RepositorioSalas;
 @Service
 public class ServicioClientes {
 
-	private Cliente cliente;
+	private Opinion cliente;
 	ContadorAforo Nado;
 	ContadorAforo Zumb;
 	ContadorAforo Gym;
@@ -85,8 +86,8 @@ public class ServicioClientes {
 	}
 		
 	
-	public void guardarCliente(Cliente cl) {
-		repositorioClientes.save(cl);
+	public void guardarCliente(Cliente cliente2) {
+		repositorioClientes.save(cliente2);
 	}
 	
 
@@ -115,7 +116,7 @@ public class ServicioClientes {
 
 
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Opinion cliente) {
 		this.cliente = cliente;
 	}
 
