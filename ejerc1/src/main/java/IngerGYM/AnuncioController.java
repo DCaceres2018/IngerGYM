@@ -29,14 +29,18 @@ public class AnuncioController {
 	}
 
 	@PostMapping("/zumba")
-	public String zumba()
+	public String zumba(Model model)
 	{
+		int plazasDisponibles=servicioClientes.getPlazasZumba();
+		model.addAttribute("aforo", plazasDisponibles);
 		return "zumba";
 	}
 	
 	@PostMapping("/aquagym")
-	public String aquagym()
+	public String aquagym(Model model)
 	{
+		int plazasDisponibles=servicioClientes.getPlazasAquagym();
+		model.addAttribute("aforo", plazasDisponibles);
 		return "aquagym";
 	}
 	

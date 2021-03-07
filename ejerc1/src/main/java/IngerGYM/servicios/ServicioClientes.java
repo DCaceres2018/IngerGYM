@@ -184,5 +184,17 @@ public class ServicioClientes {
 		return encontrado;
 	}
 
+	public int getPlazasZumba() {
+		int d=1;
+		int h=8;
+		
+		return Zumb.getAforo(d, h);
+	} 
 	
+	public int getPlazasAquagym() {
+		int d=3;
+		int h=7;
+		
+		return Aq.getAforo(d, h);
+	} 
 }

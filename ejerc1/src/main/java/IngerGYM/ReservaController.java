@@ -2,6 +2,7 @@ package IngerGYM;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,8 +17,8 @@ public class ReservaController {
 	private ServicioClientes servicioCliente;
 	
 	@PostMapping("/reservarPiscina")
-	public String reservarPiscina(@RequestParam int dia,@RequestParam int hora)
-	{
+	public String reservarPiscina(Model model,@RequestParam int dia,@RequestParam int hora){
+		
 		int d=dia;
 		int h=hora-9;
 		
