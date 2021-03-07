@@ -1,6 +1,7 @@
 package IngerGYM.servicios;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,9 @@ public class ServicioOpiniones {
 		repositorioOpiniones.save(carlos);
 	}
 	
-	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda en caso contrario saltará error
+	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda y encontrado= false; en caso contrario encontrado = true
 	public boolean existeOpinion(Opinion opinion) {
+		
 		
 		List<Opinion> listaOpiniones = repositorioOpiniones.findAll();
 		boolean encontrado=false;
@@ -33,7 +35,7 @@ public class ServicioOpiniones {
 				encontrado=true;
 				break;
 			}
-		}
+	}
 		
 		if(encontrado==false) {
 			repositorioOpiniones.save(opinion);

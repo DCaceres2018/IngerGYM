@@ -121,14 +121,15 @@ public class ServicioClientes {
 
 	public int posCliente(String nombre) {
 		List <Cliente> listaClientes=repositorioClientes.findAll();
-		for(int i=0;i<listaClientes.size();i++) {
-			
-			Cliente prueba=listaClientes.get(i);
-			if(prueba.getUsuario().equals(nombre)) {
-				return i;
+		int posicion=0;
+		
+		for(Cliente cliente: listaClientes) {
+
+			if(cliente.getUsuario().equals(nombre)) {
+				return posicion;
 			}
 			
-			
+			posicion++;
 		}
 		return -1;
 			
@@ -169,7 +170,7 @@ public class ServicioClientes {
 		int encontrado=-1;
 		
 		//Si = 0 usuario correcto 
-		//Si =1 usuario y contraseña correcto
+		//Si = 1 usuario y contraseña correcto
 		for(Cliente cliente : listaClientes) {
 			
 			if(cliente.getUsuario().equals(usuario) ) {

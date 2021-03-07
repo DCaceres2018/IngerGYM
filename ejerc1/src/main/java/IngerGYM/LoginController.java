@@ -2,6 +2,8 @@ package IngerGYM;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +22,12 @@ public class LoginController {
 	private ServicioClientes servicioClientes;
 	
 	@PostMapping("/bienvenidos")
-	public String registrarse(Model model,@RequestParam String nombre,@RequestParam String contraseña){
+	public String registrarse(Model model,@RequestParam String nombre,@RequestParam String contraseña, HttpSession sesion){
 		
 		int resultado=servicioClientes.clienteCorrecto(nombre,contraseña);
 		int numero= servicioClientes.posCliente(nombre);
 		if(numero!=-1) {
+			sesion.setAttribute("usuarioActual", nombre);
 			this.cliente =servicioClientes.getCliente(numero);
 		}
 		 if(resultado==0) {
@@ -32,6 +35,7 @@ public class LoginController {
 			return "errorUsuario";
 			
 		}else if(resultado==1) {
+			
 			
 			return "bienvenido";
 			

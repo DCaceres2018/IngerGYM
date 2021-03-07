@@ -130,4 +130,10 @@ public class AnuncioController {
 		return "incorrecto";
 	}
 	
+	@PostMapping("/cerrarSesion")
+	public String cerrarSesion() {
+
+		return "cerrarSesion";
+	}
+	
 }
