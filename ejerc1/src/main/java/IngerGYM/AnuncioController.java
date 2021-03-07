@@ -1,6 +1,8 @@
 package IngerGYM;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,14 +10,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.*;
+import IngerGYM.entidades.Opinion;
 import IngerGYM.servicios.ServicioClientes;
+import IngerGYM.servicios.ServicioContacto;
 
 @Controller
 public class AnuncioController {
 	
 	@Autowired
 	private ServicioClientes servicioClientes;
+	private Contacto contacto=new Contacto();
 	
 	@PostMapping("/inicio")
 	public String principal()
@@ -23,6 +28,18 @@ public class AnuncioController {
 		return "inicio";
 	}
 
+	@PostMapping("/zumba")
+	public String zumba()
+	{
+		return "zumba";
+	}
+	
+	@PostMapping("/aquagym")
+	public String aquagym()
+	{
+		return "aquagym";
+	}
+	
 	@PostMapping("/bienvenidos_")
 	public String bien() {
 
@@ -42,10 +59,23 @@ public class AnuncioController {
 		return "sala";
 	}
 	
-	@PostMapping("/contacto")
+	/*@PostMapping("/contacto")
 	public String cont() {
 
 		return "contacto";
+	}*/
+	
+	@PostMapping("/contacto")
+	public String Contacto(Model model){
+		
+		String numero = contacto.getNumero();
+		String email= contacto.getEmail();
+		
+		model.addAttribute("email",email);
+		model.addAttribute("numero",numero);
+		
+		return "contacto";
+		
 	}
 	
 	@PostMapping("/contactoInv")

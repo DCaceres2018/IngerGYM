@@ -47,7 +47,7 @@ public class ServicioClientes {
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
 		repositorioClientes.save(paco);
-		Salas piscina=new Salas("Piscina",20);
+		Salas piscina=new Salas("Piscina",2);
 		repositorioS.save(piscina);
 		
 		Salas gimnasio=new Salas("Gym",40);
@@ -74,6 +74,34 @@ public class ServicioClientes {
 	public boolean reservarPiscina(int d,int h) {
 		if(Nado.hayHueco(d,h)==true) {
 			Nado.cogeAforo(d,h);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public boolean reservarAqua(int d,int h) {
+		if(Aq.hayHueco(d,h)==true) {
+			Aq.cogeAforo(d,h);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public boolean reservarZumba(int d,int h) {
+		if(Zumb.hayHueco(d,h)==true) {
+			Zumb.cogeAforo(d,h);
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean reservarGimnasio(int d,int h) {
+		if(Gym.hayHueco(d,h)==true) {
+			Gym.cogeAforo(d,h);
 			return true;
 		}
 		else {

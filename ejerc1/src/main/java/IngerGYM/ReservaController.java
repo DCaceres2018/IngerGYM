@@ -30,4 +30,49 @@ public class ReservaController {
 		}
 		
 	}
+	@PostMapping("/reservarZumba")
+	public String reservarZumba()
+	{
+		int d=1;
+		int h=8;
+		
+		boolean hay=servicioCliente.reservarZumba(d, h);
+		if(hay==true) {
+			return "ReservaRealizada";
+		}
+		else {
+			return "AforoTope";
+		}
+		
+	}
+	@PostMapping("/reservarAquagym")
+	public String reservarAquaGym()
+	{
+		int d=3;
+		int h=7;
+		
+		boolean hay=servicioCliente.reservarAqua(d, h);
+		if(hay==true) {
+			return "ReservaRealizada";
+		}
+		else {
+			return "AforoTope";
+		}
+		
+	}
+	@PostMapping("/reservarGimnasio")
+	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora)
+	{
+		int d=dia;
+		int h=hora-9;
+		
+		boolean hay=servicioCliente.reservarGimnasio(d, h);
+		if(hay==true) {
+			return "ReservaRealizada";
+		}
+		else {
+			return "AforoTope";
+		}
+		
+	}
 }
