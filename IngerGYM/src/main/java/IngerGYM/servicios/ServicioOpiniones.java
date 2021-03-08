@@ -20,7 +20,7 @@ public class ServicioOpiniones {
 	public void init() {
 		
 		Opinion carlos=new Opinion("carlos","vaya tio vayyaaa");
-		repositorioOpiniones.save(carlos);
+		//repositorioOpiniones.save(carlos);
 	}
 	
 	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda y encontrado= false; en caso contrario encontrado = true

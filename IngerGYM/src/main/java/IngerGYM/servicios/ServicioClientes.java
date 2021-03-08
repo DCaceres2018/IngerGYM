@@ -45,25 +45,25 @@ public class ServicioClientes {
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
-		repositorioClientes.save(paco);
+		//repositorioClientes.save(paco);
 		Salas piscina=new Salas("Piscina",2);
-		repositorioS.save(piscina);
+		//repositorioS.save(piscina);
 		
 		Salas gimnasio=new Salas("Gym",40);
-		repositorioS.save(gimnasio);
+		//repositorioS.save(gimnasio);
 		
 		Salas comun=new Salas("Zumba",50);
-		repositorioS.save(comun);
+		//repositorioS.save(comun);
 		
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
 		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,7);
-		repositorioCl.save(AquaGym);
+		//repositorioCl.save(AquaGym);
 		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,2);
-		repositorioCl.save(NadoLibre);
+		//repositorioCl.save(NadoLibre);
 		Clases Zumba=new Clases(comun,"Aitor","Zumba",1,8);
-		repositorioCl.save(Zumba);
+		//repositorioCl.save(Zumba);
 		Clases gym=new Clases(gimnasio,"-","gym");
-		repositorioCl.save(gym);
+		//repositorioCl.save(gym);
 		 Nado=new ContadorAforo(NadoLibre);
 		 Zumb=new ContadorAforo(Zumba);
 		 Gym=new ContadorAforo(gym);
