@@ -24,6 +24,8 @@ public class LoginController {
 	@PostMapping("/bienvenidos")
 	public String registrarse(Model model,@RequestParam String nombre,@RequestParam String contraseña, HttpSession sesion){
 		
+	
+		
 		int resultado=servicioClientes.clienteCorrecto(nombre,contraseña);
 		int numero= servicioClientes.posCliente(nombre);
 		if(numero!=-1) {
@@ -36,8 +38,11 @@ public class LoginController {
 			
 		}else if(resultado==1) {
 			
+			String usuarioActual= (String)sesion.getAttribute("usuarioActual");
 			
-			return "bienvenido";
+			model.addAttribute("usuarioActual",usuarioActual);
+			
+			return "bienvenidos";
 			
 		}
 		
