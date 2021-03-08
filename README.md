@@ -24,7 +24,7 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 - CLASES(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),profesor VARCHAR2(25),numSala NUMBER(3));
 (Se relaciona con "SALAS" mediante AforoMax y numSala que los hereda de ella.)
 
-- TURNOS(id VARCHAR2(25),Horarios VARCHAR2(25),DiasTrabajo VARCHAR2(25),Rol VARCHAR2(25));
+- OPINION(id VARCHAR2(25),Horarios VARCHAR2(25),DiasTrabajo VARCHAR2(25),Rol VARCHAR2(25));
 (Hereda de Persona el id y el Rol de los trabajadores.)
 
 - CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
@@ -39,3 +39,8 @@ github: DCaceres2018
 
 - Carlos Manuel Barrameda Portieles; cm.barrameda.2018@alumnos.urjc.es
 github: CarlosMbp
+
+
+#IMAGENES DE
+
+![image](https://user-images.githubusercontent.com/78802315/110342172-64eaf180-802b-11eb-8618-da96f3aef5b5.png)
