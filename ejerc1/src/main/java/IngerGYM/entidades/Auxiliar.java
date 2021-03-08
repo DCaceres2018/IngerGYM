@@ -20,10 +20,4 @@ public class Auxiliar {
 		}
 		else return false;
 	}
-	/*public void reservarClase(int d,int h,Salas sala) {
-
-		for(int i=0;i<56;i++) {
-			reservas[i]=1;	
-		}
-	}*/
 }

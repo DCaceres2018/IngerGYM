@@ -29,7 +29,7 @@ public class RegistroController {
 			return "errorRegistro";
 		}
 		
-		if(servicioClientes.existeCliente(usuario,email)==false) {
+		if(servicioClientes.existeCliente(usuario,email)==-1) {
 			Cliente cliente=new Cliente(usuario,email,edad,nTelefono,contraseña,true);
 			servicioClientes.guardarCliente(cliente);
 			return "correcto";

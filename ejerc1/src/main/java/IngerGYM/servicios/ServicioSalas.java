@@ -17,6 +17,7 @@ import IngerGYM.repositorios.*;
 @Service
 public class ServicioSalas {
 	private int aforoActual;
+	
 	@Autowired
 	private RepositorioSalas repositorio;
 	

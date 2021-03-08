@@ -26,8 +26,6 @@ public class Opinion {
 		this.comentario = comentario;
 	}
 
-
-	
 	public long getId() {
 		return id;
 	}

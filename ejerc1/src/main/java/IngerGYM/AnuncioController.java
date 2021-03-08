@@ -64,12 +64,6 @@ public class AnuncioController {
 		return "sala";
 	}
 	
-	/*@PostMapping("/contacto")
-	public String cont() {
-
-		return "contacto";
-	}*/
-	
 	@PostMapping("/contacto")
 	public String Contacto(Model model){
 		

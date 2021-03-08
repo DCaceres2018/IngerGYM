@@ -15,7 +15,6 @@ import IngerGYM.entidades.*;
 @Controller
 public class LoginController {
 
-	private boolean usuarioNoExiste=false;
 	private Cliente cliente;
 
 	@Autowired
@@ -24,30 +23,25 @@ public class LoginController {
 	@PostMapping("/bienvenidos")
 	public String registrarse(Model model,@RequestParam String nombre,@RequestParam String contraseña, HttpSession sesion){
 		
-	
+		sesion.setAttribute("usuarioActual",nombre);
 		
-		int resultado=servicioClientes.clienteCorrecto(nombre,contraseña);
-		int numero= servicioClientes.posCliente(nombre);
-		if(numero!=-1) {
-			sesion.setAttribute("usuarioActual", nombre);
-			this.cliente =servicioClientes.getCliente(numero);
-		}
-		 if(resultado==0) {
-			 
-			return "errorUsuario";
+		int resultado=servicioClientes.existeCliente(nombre,"");
+		
+		if(resultado!=-1 ) {
+			this.cliente =servicioClientes.getCliente(resultado);
 			
-		}else if(resultado==1) {
-			
-			String usuarioActual= (String)sesion.getAttribute("usuarioActual");
-			
-			model.addAttribute("usuarioActual",usuarioActual);
-			
+			//Comprobamos la contraseña
+			if(this.cliente.getContrasena().equals(contraseña)==false) {
+				return "incorrecto";
+			}
+			//Si hemos llegado aqui, usuario y contraseña son correctos
+			model.addAttribute("usuarioActual", nombre);
 			return "bienvenidos";
 			
+		}else {
+			
+			return "incorrecto";
 		}
-		
-		return "incorrecto";
-		
 	}
 	
 	@PostMapping("/tarifa")

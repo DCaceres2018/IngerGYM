@@ -10,7 +10,4 @@ import IngerGYM.entidades.Cliente;
 @Repository
 public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
 	
-//public Cliente findByNombre(String nombre);
-
-//public boolean existsByNombreAndEmail(String nombre,String email);
 }

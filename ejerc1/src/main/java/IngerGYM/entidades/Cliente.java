@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
@@ -17,17 +16,14 @@ public class Cliente {
 	private String contrasena;
 	private int precio;
 	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-/*	@ManyToOne
-	private Salas Sala;
-	*/
 	public Cliente() {
 		
 	}
+	
 	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
 		super();
 		this.usuario= usuario;
@@ -36,7 +32,6 @@ public class Cliente {
 		this.edad=edad;
 		this.nTelefono= nTelefono;
 		this.contrasena= contrasena;
-		
 		
 		if(edad<18) {
 			this.precio=15;
@@ -52,13 +47,8 @@ public class Cliente {
 			else {
 				this.precio=25;
 			}
-			
-		
 		}
-		
-		
 	}
-
 	public String getContrasena() {
 		return contrasena;
 	}
@@ -90,15 +80,7 @@ public class Cliente {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-/*
-	public Salas getSala() {
-		return Sala;
-	}
-
-	public void setSala(Salas sala) {
-		Sala = sala;
-	}
-*/
+	
 	public String getnTelefono() {
 		return nTelefono;
 	}
@@ -110,6 +92,5 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [tlf="  + ", name=" + "usuario ]";
-		//return "Cliente [tlf=" + tarifa + ", name=" + "usuario ]";
 	}
 }

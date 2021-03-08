@@ -26,7 +26,6 @@ import IngerGYM.repositorios.RepositorioSalas;
 @Service
 public class ServicioClientes {
 
-	private Opinion cliente;
 	ContadorAforo Nado;
 	ContadorAforo Zumb;
 	ContadorAforo Gym;
@@ -118,71 +117,30 @@ public class ServicioClientes {
 		repositorioClientes.save(cliente2);
 	}
 	
-
-	public int posCliente(String nombre) {
-		List <Cliente> listaClientes=repositorioClientes.findAll();
-		int posicion=0;
-		
-		for(Cliente cliente: listaClientes) {
-
-			if(cliente.getUsuario().equals(nombre)) {
-				return posicion;
-			}
-			
-			posicion++;
-		}
-		return -1;
-			
-		//return repositorio.findByName(nombre);
-	}
-	
 	public Cliente getCliente(int numero) {
 		List <Cliente> listaClientes=repositorioClientes.findAll();
+		
 		return listaClientes.get(numero);
-			
-		//return repositorio.findByName(nombre);
 	}
 
-
-
-	public void setCliente(Opinion cliente) {
-		this.cliente = cliente;
-	}
-
-	public boolean existeCliente(String usuario,String email) {
+	public int existeCliente(String usuario,String email) {
 		
 		List <Cliente> listaClientes=repositorioClientes.findAll();
 		boolean encontrado=false;
+		int pos=0;
 		for(Cliente cliente : listaClientes) {
 			
-			if(cliente.getUsuario().equals(usuario) ||cliente.getEmail().equals(email)  ) {
+			if(cliente.getUsuario().equals(usuario) || cliente.getEmail().equals(email)  ) {
 				encontrado = true;
 				break;
 			}
+			pos++;
 		}
-		
-		return encontrado;
-	}
-	
-	public int clienteCorrecto(String usuario,String contrasena) {
-		
-		List <Cliente> listaClientes=repositorioClientes.findAll();
-		int encontrado=-1;
-		
-		//Si = 0 usuario correcto 
-		//Si = 1 usuario y contraseña correcto
-		for(Cliente cliente : listaClientes) {
-			
-			if(cliente.getUsuario().equals(usuario) ) {
-				encontrado = 0;
-				if(cliente.getContrasena().equals(contrasena) ) {
-					encontrado = 1;
-				}
-				break;
-			}
+		if(encontrado==true) {
+			return pos;
+		}else {
+			return -1;
 		}
-		
-		return encontrado;
 	}
 
 	public int getPlazasZumba() {

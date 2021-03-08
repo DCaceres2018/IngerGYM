@@ -4,11 +4,7 @@ package IngerGYM.entidades;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Clases {
@@ -16,7 +12,6 @@ public class Clases {
 	private String profesor;
 	private String tipo; 
 	private String nombreSala;
-	//private Salas sala;
 	private int dia=0;
 	private int hora=0;
 	private int aforo;
@@ -62,14 +57,7 @@ public class Clases {
 		
 	
 	}
-	/*
-	public int [] queclase(){
-		int i[]=new int [1];
-		i[1]=hora;
-		i[0]=dia;
-		return i;
-	}*/
-
+	
 	public String getProfesor() {
 		return profesor;
 	}
@@ -88,12 +76,4 @@ public class Clases {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-/*
-	public Salas getSala() {
-		return sala;
-	}
-
-	public void setSala(Salas sala) {
-		this.sala = sala;
-	}*/
 }
