@@ -24,8 +24,8 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 - CLASES(AforoMax NUMBER(3),Horarios VARCHAR2(25),TipoSala VARCHAR2(25),profesor VARCHAR2(25),numSala NUMBER(3));
 (Se relaciona con "SALAS" mediante AforoMax y numSala que los hereda de ella.)
 
-- OPINION(id VARCHAR2(25),Horarios VARCHAR2(25),DiasTrabajo VARCHAR2(25),Rol VARCHAR2(25));
-(Hereda de Persona el id y el Rol de los trabajadores.)
+- OPINION(id VARCHAR2(25),Texto VARCHAR2(25));
+
 
 - CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
 (Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
