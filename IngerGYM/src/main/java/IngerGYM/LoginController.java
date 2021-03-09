@@ -25,7 +25,7 @@ public class LoginController {
 		
 		sesion.setAttribute("usuarioActual",nombre);
 		
-		int resultado=servicioClientes.existeCliente(nombre,"");
+		int resultado=servicioClientes.existeCliente(nombre);
 		
 		if(resultado!=-1 ) {
 			this.cliente =servicioClientes.getCliente(resultado);

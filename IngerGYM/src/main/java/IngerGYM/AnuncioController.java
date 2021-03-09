@@ -22,6 +22,7 @@ public class AnuncioController {
 	
 	@Autowired
 	private ServicioClientes servicioClientes;
+	
 	private Contacto contacto=new Contacto();
 	
 	@PostMapping("/inicio")
@@ -30,6 +31,23 @@ public class AnuncioController {
 		return "inicio";
 	}
 
+	@PostMapping("/crearSala")
+	public String crearSala()
+	{
+		return "crearSala";
+	}
+	@PostMapping("/crear")
+	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora)
+	{
+		int n=servicioClientes.posSala(nombreSala);
+		if(n==-1) {
+			return "bienvenido";
+		}
+		Salas sala=servicioClientes.getSala(n);
+		Clases a=new Clases(sala,prof,tipo,dia,hora);
+		servicioClientes.guardarClase(a);
+		return "claseCreada";
+	}
 	@PostMapping("/zumba")
 	public String zumba(Model model)
 	{
@@ -83,11 +101,11 @@ public class AnuncioController {
 		return "contactoInv";
 	}
 	
-	@GetMapping("/clase")
+	/*@GetMapping("/clase")
 	public String clase() {
 
 		return "clase";
-	}
+	}*/
 	
 	@GetMapping("/piscina")
 	public String piscina() {

@@ -20,18 +20,22 @@ public class OpinionController {
 
 	@Autowired
 	private ServicioOpiniones servicioOpiniones;
+	@Autowired
+	private ServicioClientes servicioClientes;
 	
 	@PostMapping("/opiniones")
 	public String guardarOpinion(@RequestParam String texto, HttpSession sesion){
 		
-		//Creamos una opinión con el usaurio actual, si ya ha realiizado alguna opinion no podrá incluir otra
+		//Creamos una opinión con el usaurio actual, si ya ha realizado alguna opinion no podrá incluir otra
 		
-		/*String usuarioActual= (String)sesion.getAttribute("usuarioActual");
-		Opinion opinion= new Opinion (texto);*/
+		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
+		int n=servicioClientes.posCliente(usuarioActual);
+		Cliente cliente=servicioClientes.getCliente(n);
+		Opinion opinion= new Opinion(texto,cliente);
 		
-		/*if(servicioOpiniones.existeOpinion(opinion)==true) {
+		if(servicioOpiniones.existeOpinion(opinion)==true) {
 			return "ErrorOpinion";
-		}*/
+		}
 		
 		return "opinionEnviada";
 		
@@ -39,10 +43,10 @@ public class OpinionController {
 	
 	@PostMapping("/enviarOpinion")
 	public String enviarOpinion(Model model, HttpSession sesion){
-		/*String usuarioActual= (String)sesion.getAttribute("usuarioActual");
+		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
 		List<Opinion> opiniones = servicioOpiniones.getOpiniones();
 		model.addAttribute("usuarioActual",usuarioActual);
-		model.addAttribute("opinionesDisponibles",opiniones);*/
+		model.addAttribute("opinionesDisponibles",opiniones);
 		
 		return "enviarOpinion";
 		

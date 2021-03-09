@@ -18,6 +18,7 @@ import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Opinion;
 import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
+
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.repositorios.RepositorioOpiniones;
@@ -46,16 +47,19 @@ public class ServicioClientes {
 	@PostConstruct
 	public void init() {
 		
+		Cliente admin=new Cliente(true);
+		repositorioClientes.save(admin);
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
-		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
-	
+		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd");
+		
 		repositorioClientes.save(paco);
+		
 		Opinion op=new Opinion("lo mejor",paco);
 		
 		repositorioOp.save(op);
 		
-		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"434343","abcd",true);
+		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"434343","abcd");
 		
 		repositorioClientes.save(jesus);
 		Opinion op1=new Opinion("lo peor",jesus);
@@ -64,7 +68,7 @@ public class ServicioClientes {
 		
 		
 		//paco.setOpinion(op);
-		 /*Salas piscina=new Salas("Piscina",2);
+		 Salas piscina=new Salas("Piscina",2);
 		repositorioS.save(piscina);
 		
 		Salas gimnasio=new Salas("Gym",40);
@@ -72,22 +76,29 @@ public class ServicioClientes {
 		
 		Salas comun=new Salas("Zumba",50);
 		repositorioS.save(comun);
-		*/
-		/*
+		
+		
+		
+		
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
 		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,7);
-		//repositorioCl.save(AquaGym);
+		repositorioCl.save(AquaGym);
 		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,2);
-		//repositorioCl.save(NadoLibre);
+		repositorioCl.save(NadoLibre);
 		Clases Zumba=new Clases(comun,"Aitor","Zumba",1,8);
-		//repositorioCl.save(Zumba);
+		repositorioCl.save(Zumba);
 		Clases gym=new Clases(gimnasio,"-","gym");
-		//repositorioCl.save(gym);
+		repositorioCl.save(gym);
 		 Nado=new ContadorAforo(NadoLibre);
 		 Zumb=new ContadorAforo(Zumba);
 		 Gym=new ContadorAforo(gym);
 		 Aq=new ContadorAforo(AquaGym);
-		 */
+		 //paco.setClass(gym);
+	
+	}
+	
+	public List<Clases> getClases() {
+		return repositorioCl.findAll();
 	}
 	
 	public void setOpinion(String opinion) {
@@ -147,14 +158,14 @@ public class ServicioClientes {
 		return listaClientes.get(numero);
 	}
 
-	public int existeCliente(String usuario,String email) {
+	public int existeCliente(String usuario) {
 		
 		List <Cliente> listaClientes=repositorioClientes.findAll();
 		boolean encontrado=false;
 		int pos=0;
 		for(Cliente cliente : listaClientes) {
 			
-			if(cliente.getUsuario().equals(usuario) || cliente.getEmail().equals(email)  ) {
+			if(cliente.getUsuario().equals(usuario)  ) {
 				encontrado = true;
 				break;
 			}
@@ -199,4 +210,63 @@ public class ServicioClientes {
 		
 		return Aq.getAforo(d, h);
 	} 
+	
+	
+	public Salas getSala(int numero) {
+		List <Salas> listaSala=repositorioS.findAll();
+		Salas sala=listaSala.get(numero);
+		return sala;
+	}
+
+	public void guardarClase(Clases clase) {
+		
+		repositorioCl.save(clase);
+
+	}
+
+	public int posSala(String nombre) {
+		
+		List <Salas> listaSala=repositorioS.findAll();
+		boolean encontrado=false;
+		int pos=0;
+		for(Salas sala : listaSala) {
+			
+			if(sala.getNombre().equals(nombre) ) {
+				encontrado = true;
+				break;
+			}
+			pos++;
+		}
+		if(encontrado==true) {
+			return pos;
+		}else {
+			return -1;
+		}
+	}
+	
+	public Clases getClase(int numero) {
+		List <Clases> listaClase=repositorioCl.findAll();
+		Clases clase=listaClase.get(numero);
+		return clase;
+	}
+	
+public int posClase(String nombre) {
+		
+		List <Clases> listaClase=repositorioCl.findAll();
+		boolean encontrado=false;
+		int pos=0;
+		for(Clases clase : listaClase) {
+			
+			if(clase.getTipo().equals(nombre) ) {
+				encontrado = true;
+				break;
+			}
+			pos++;
+		}
+		if(encontrado==true) {
+			return pos;
+		}else {
+			return -1;
+		}
+	}
 }

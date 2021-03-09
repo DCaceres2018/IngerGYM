@@ -27,7 +27,10 @@ public class Salas {
 	this.aforoMAX=n;
 	
 	}
-
+	
+	public Salas() {
+		
+	}
 	
 	public boolean compHora(int d, int h) {
 		 Auxiliar aux=new Auxiliar();
@@ -60,6 +63,10 @@ public class Salas {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public long getId() {
+		return id;
 	}
 
 	public void setNombre(String nombre) {

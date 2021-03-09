@@ -1,11 +1,14 @@
 package IngerGYM.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
+import javax.persistence.CascadeType;
+import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -15,34 +18,43 @@ public class Cliente {
 
 	private String usuario;
 	private String email;
-	private boolean situacionLaboral;
 	private int edad;
-	private String nTelefono;
 	private String contrasena;
 	private int precio;
+	private boolean admin;
+	
 	
 	@OneToMany
-	private List<Clases> clases;
+	protected List<Clases> clases;
 	
 	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
 	public Cliente() {
 		
 	}
+	public Cliente(boolean admin) {
+		
+		this.usuario="admin";
+		this.contrasena="abcd";
+		this.email="IngerGym@gmail.com";
+		this.edad=0;
+		this.admin=true;
+		this.precio=0;
+		
+	}
 	
-	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo){
+	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena){
 		super();
 		this.usuario= usuario;
-		this.situacionLaboral=trabajo;
+		
 		this.email=email;
 		this.edad=edad;
-		this.nTelefono= nTelefono;
+	
 		this.contrasena= contrasena;
-		
+		this.admin=false;
 		
 		if(edad<18) {
 			this.precio=15;
@@ -51,20 +63,16 @@ public class Cliente {
 			this.precio=10;
 		}
 		else {
-			
-			if(trabajo==false) {
-				this.precio=18;
-			}
-			else {
 				this.precio=25;
-			}
+			
 		}
 	}
-	public void setClass(Clases clase) {
+	
+	public void addClass(Clases clase) {
 		clases.add(clase);
 	}
 	public List<Clases> getListaClases(){
-		return this.clases;
+		return clases;
 	}
 	
 	/*public void setOpinion(Opinion opinion) {
@@ -102,13 +110,6 @@ public class Cliente {
 		this.edad = edad;
 	}
 	
-	public String getnTelefono() {
-		return nTelefono;
-	}
-
-	public void setnTelefono(String nTelefono) {
-		this.nTelefono = nTelefono;
-	}
 	
 	@Override
 	public String toString() {

@@ -24,9 +24,9 @@ public class ServicioOpiniones {
 	}
 	
 	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda y encontrado= false; en caso contrario encontrado = true
-	//public boolean existeOpinion(Opinion opinion) {
+	public boolean existeOpinion(Opinion opinion) {
 		
-	/*	
+	
 		List<Opinion> listaOpiniones = repositorioOpiniones.findAll();
 		boolean encontrado=false;
 		
@@ -40,8 +40,8 @@ public class ServicioOpiniones {
 		if(encontrado==false) {
 			repositorioOpiniones.save(opinion);
 		}
-		return encontrado;*/
-//	}
+		return encontrado;
+	}
 	
 	public List<Opinion> getOpiniones(){
 		

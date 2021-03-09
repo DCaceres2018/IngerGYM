@@ -17,21 +17,12 @@ public class RegistroController {
 	private ServicioClientes servicioClientes;
 	
 	@PostMapping("/registrarse")
-	public String registrarse(@RequestParam String usuario,@RequestParam String email,@RequestParam int edad,@RequestParam String nTelefono,@RequestParam String contraseña)
+	public String registrarse(Cliente usuario)
 	{
-		if(usuario.equals("")) {
-			return "errorRegistro";
-		}
-		if(email.equals("")) {
-			return "errorRegistro";
-		}
-		if(nTelefono.equals("")) {
-			return "errorRegistro";
-		}
 		
-		if(servicioClientes.existeCliente(usuario,email)==-1) {
-			Cliente cliente=new Cliente(usuario,email,edad,nTelefono,contraseña,true);
-			servicioClientes.guardarCliente(cliente);
+		if(servicioClientes.existeCliente(usuario.getUsuario())==-1) {
+			
+			servicioClientes.guardarCliente(usuario);
 			return "correcto";
 		}else {
 			return "DatosExistentes";

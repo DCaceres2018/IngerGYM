@@ -45,14 +45,11 @@ public class Opinion {
 		this.id = id;
 	}
 
-	/*public String getNombre() {
-		return nombre;
+	public String getNombre() {
+		return cliente.getUsuario();
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}*/
-
+	
 	public String getComentario() {
 		return comentario;
 	}

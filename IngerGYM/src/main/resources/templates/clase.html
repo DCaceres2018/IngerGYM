@@ -1,25 +1,37 @@
 <html>
-
-
 <head>
 	<meta charset="UTF-8"/>
 </head>
-<body>
-	<center><h1>CLASES</h1></center>
-	
-<center><form action="zumba" method="post"></center>
-		<br/>
-		
-		<center><input type='submit' value='ZUMBA'/></center>
-	</form>
-<br>
-<center><form action="aquagym" method="post"></center>
-		
-		
-		<center><input type='submit' value='AQUAGYM'/></center>
-	</form>
-</body>
 
+
+<body>
+	
+	<br>
+	
 <br>
-<center><a href="/bienvenido">Volver</a></center>
+<br>
+<br>
+<br>
+
+	<p>Clases disponibles:</p>
+	<ul>
+	{{#clasesDisponibles}}
+		
+		<li>
+		<p>Clase: {{tipo}} ---- dia: {{dia}} ---- hora: {{hora}}</p>
+		</li>
+		
+	{{/clasesDisponibles}}
+	</ul>
+	
+	<form action="suscribirse" method="post">
+		<br/>
+		<p>Indique el nombre de la clase a la que quiere inscribirse: </p>
+		<center><input type='text' name='nombres'/></center>
+		<br>
+		<center><input type='submit' value='Suscribirse'/></center>
+</form>
+	<br>
+<center><a href="bienvenido">Volver</a><center>
+</body>
 </html>
