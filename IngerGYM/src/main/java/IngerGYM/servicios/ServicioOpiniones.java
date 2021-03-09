@@ -19,14 +19,14 @@ public class ServicioOpiniones {
 	@PostConstruct
 	public void init() {
 		
-		Opinion carlos=new Opinion("carlos","vaya tio vayyaaa");
+		//Opinion carlos=new Opinion("carlos","vaya tio vayyaaa");
 		//repositorioOpiniones.save(carlos);
 	}
 	
 	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda y encontrado= false; en caso contrario encontrado = true
-	public boolean existeOpinion(Opinion opinion) {
+	//public boolean existeOpinion(Opinion opinion) {
 		
-		
+	/*	
 		List<Opinion> listaOpiniones = repositorioOpiniones.findAll();
 		boolean encontrado=false;
 		
@@ -40,8 +40,8 @@ public class ServicioOpiniones {
 		if(encontrado==false) {
 			repositorioOpiniones.save(opinion);
 		}
-		return encontrado;
-	}
+		return encontrado;*/
+//	}
 	
 	public List<Opinion> getOpiniones(){
 		

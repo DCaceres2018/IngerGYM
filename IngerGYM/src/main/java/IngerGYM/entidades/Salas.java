@@ -1,10 +1,13 @@
 package IngerGYM.entidades;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -12,6 +15,8 @@ public class Salas {
 	
 	private int aforoMAX;
 	private String nombre;
+	@OneToMany
+	private List<Clases> clases;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +35,9 @@ public class Salas {
 		return aux.estaLibre(reserva);	
 	}
 	
+	public void setClase(Clases clase) {
+		clases.add(clase);
+	}
 	
 	public void cogerHora(int d, int h) {
 		int reserva=d*7+h;

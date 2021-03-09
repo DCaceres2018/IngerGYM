@@ -20,6 +20,7 @@ import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
+import IngerGYM.repositorios.RepositorioOpiniones;
 import IngerGYM.repositorios.RepositorioSalas;
 
 
@@ -39,22 +40,40 @@ public class ServicioClientes {
 	@Autowired
 	private RepositorioClases repositorioCl;
 	
+	@Autowired
+	private RepositorioOpiniones repositorioOp;
+	
 	@PostConstruct
 	public void init() {
 		
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd",true);
-		//repositorioClientes.save(paco);
-		Salas piscina=new Salas("Piscina",2);
-		//repositorioS.save(piscina);
+	
+		repositorioClientes.save(paco);
+		Opinion op=new Opinion("lo mejor",paco);
+		
+		repositorioOp.save(op);
+		
+		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"434343","abcd",true);
+		
+		repositorioClientes.save(jesus);
+		Opinion op1=new Opinion("lo peor",jesus);
+		
+		repositorioOp.save(op1);
+		
+		
+		//paco.setOpinion(op);
+		 /*Salas piscina=new Salas("Piscina",2);
+		repositorioS.save(piscina);
 		
 		Salas gimnasio=new Salas("Gym",40);
-		//repositorioS.save(gimnasio);
+		repositorioS.save(gimnasio);
 		
 		Salas comun=new Salas("Zumba",50);
-		//repositorioS.save(comun);
-		
+		repositorioS.save(comun);
+		*/
+		/*
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
 		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,7);
 		//repositorioCl.save(AquaGym);
@@ -68,6 +87,11 @@ public class ServicioClientes {
 		 Zumb=new ContadorAforo(Zumba);
 		 Gym=new ContadorAforo(gym);
 		 Aq=new ContadorAforo(AquaGym);
+		 */
+	}
+	
+	public void setOpinion(String opinion) {
+		
 	}
 
 	public boolean reservarPiscina(int d,int h) {
@@ -143,6 +167,25 @@ public class ServicioClientes {
 		}
 	}
 
+	public int posCliente(String usuario) {
+		
+		List <Cliente> listaClientes=repositorioClientes.findAll();
+		boolean encontrado=false;
+		int pos=0;
+		for(Cliente cliente : listaClientes) {
+			
+			if(cliente.getUsuario().equals(usuario) ) {
+				encontrado = true;
+				break;
+			}
+			pos++;
+		}
+		if(encontrado==true) {
+			return pos;
+		}else {
+			return -1;
+		}
+	}
 	public int getPlazasZumba() {
 		int d=1;
 		int h=8;

@@ -26,12 +26,12 @@ public class OpinionController {
 		
 		//Creamos una opinión con el usaurio actual, si ya ha realiizado alguna opinion no podrá incluir otra
 		
-		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
-		Opinion opinion= new Opinion (usuarioActual,texto);
+		/*String usuarioActual= (String)sesion.getAttribute("usuarioActual");
+		Opinion opinion= new Opinion (texto);*/
 		
-		if(servicioOpiniones.existeOpinion(opinion)==true) {
+		/*if(servicioOpiniones.existeOpinion(opinion)==true) {
 			return "ErrorOpinion";
-		}
+		}*/
 		
 		return "opinionEnviada";
 		
@@ -39,10 +39,10 @@ public class OpinionController {
 	
 	@PostMapping("/enviarOpinion")
 	public String enviarOpinion(Model model, HttpSession sesion){
-		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
+		/*String usuarioActual= (String)sesion.getAttribute("usuarioActual");
 		List<Opinion> opiniones = servicioOpiniones.getOpiniones();
 		model.addAttribute("usuarioActual",usuarioActual);
-		model.addAttribute("opinionesDisponibles",opiniones);
+		model.addAttribute("opinionesDisponibles",opiniones);*/
 		
 		return "enviarOpinion";
 		

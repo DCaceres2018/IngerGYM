@@ -1,9 +1,15 @@
 package IngerGYM.entidades;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import IngerGYM.repositorios.RepositorioClientes;
+import IngerGYM.servicios.ServicioClientes;
 
 
 @Entity
@@ -13,16 +19,21 @@ public class Opinion {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String nombre;
+	
+	//private ServicioClientes servicio;
+	@OneToOne
+	private Cliente cliente;
+	
+	
 	private String comentario;
 
 	public Opinion() {
 
 	}
 
-	public Opinion(String nombre, String comentario) {
+	public Opinion(String comentario,Cliente cliente) {
 		super();
-		this.nombre = nombre;
+		this.cliente=cliente;
 		this.comentario = comentario;
 	}
 
@@ -34,13 +45,13 @@ public class Opinion {
 		this.id = id;
 	}
 
-	public String getNombre() {
+	/*public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}*/
 
 	public String getComentario() {
 		return comentario;
@@ -50,9 +61,6 @@ public class Opinion {
 		this.comentario = comentario;
 	}
 
-	@Override
-	public String toString() {
-		return "Opinion [user=" + this.nombre + ", comentario=" + this.comentario + "]";
-	}
+	
 
 }

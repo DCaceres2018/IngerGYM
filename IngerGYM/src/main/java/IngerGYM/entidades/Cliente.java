@@ -1,9 +1,14 @@
 package IngerGYM.entidades;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente {
@@ -15,6 +20,11 @@ public class Cliente {
 	private String nTelefono;
 	private String contrasena;
 	private int precio;
+	
+	@OneToMany
+	private List<Clases> clases;
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +43,7 @@ public class Cliente {
 		this.nTelefono= nTelefono;
 		this.contrasena= contrasena;
 		
+		
 		if(edad<18) {
 			this.precio=15;
 		}
@@ -49,6 +60,16 @@ public class Cliente {
 			}
 		}
 	}
+	public void setClass(Clases clase) {
+		clases.add(clase);
+	}
+	public List<Clases> getListaClases(){
+		return this.clases;
+	}
+	
+	/*public void setOpinion(Opinion opinion) {
+		this.opinion=opinion;
+	}*/
 	public String getContrasena() {
 		return contrasena;
 	}
