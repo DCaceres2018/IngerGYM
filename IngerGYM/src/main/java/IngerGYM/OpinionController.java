@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.entidades.*;
@@ -19,36 +18,29 @@ public class OpinionController {
 
 
 	@Autowired
-	private ServicioOpiniones servicioOpiniones;
-	@Autowired
-	private ServicioClientes servicioClientes;
+	private ServicioClientes servicioCliente;
 	
-	@PostMapping("/opiniones")
-	public String guardarOpinion(@RequestParam String texto, HttpSession sesion){
+	@Autowired
+	private ServicioOpiniones servicioOpiniones;
+	
+	@GetMapping("/opiniones/{id}/opinionEnviada")
+	public String enviarOpinion(Model model,HttpSession sesion,String opinion,@PathVariable long id) {
 		
-		//Creamos una opinión con el usaurio actual, si ya ha realizado alguna opinion no podrá incluir otra
+		Opinion opinionObjeto= new Opinion(opinion);
 		
-		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
-		int n=servicioClientes.posCliente(usuarioActual);
-		Cliente cliente=servicioClientes.getCliente(n);
-		Opinion opinion= new Opinion(texto,cliente);
-		
-		if(servicioOpiniones.existeOpinion(opinion)==true) {
-			return "ErrorOpinion";
-		}
+		opinionObjeto.setCliente(servicioCliente.findById(id));
+		servicioOpiniones.save(opinionObjeto);
 		
 		return "opinionEnviada";
-		
+	
 	}
 	
-	@PostMapping("/enviarOpinion")
-	public String enviarOpinion(Model model, HttpSession sesion){
-		String usuarioActual= (String)sesion.getAttribute("usuarioActual");
-		List<Opinion> opiniones = servicioOpiniones.getOpiniones();
-		model.addAttribute("usuarioActual",usuarioActual);
+	@GetMapping("/opiniones/{id}")
+	public String verOpiniones(Model model,@PathVariable long id){
+		
+		
+		List<Opinion> opiniones = servicioOpiniones.findAll();
 		model.addAttribute("opinionesDisponibles",opiniones);
-		
-		return "enviarOpinion";
-		
+		return "opiniones";
 	}
 }

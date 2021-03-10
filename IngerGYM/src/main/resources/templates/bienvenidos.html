@@ -5,7 +5,7 @@
 	<meta charset="UTF-8"/>
 </head>
 <body>
-	<center><h1>Bienvenido {{usuarioActual}}</h1></center>
+	<center><h1>Bienvenido </h1></center>
 	
 
 </body>
@@ -17,7 +17,7 @@
 </form>
 
 
-<form action="clase" method="post">
+<form action="clase" method="get">
 		<br/>
 		
 		<center><input type='submit' value='CLASES'/></center>
@@ -30,18 +30,29 @@
 		<center><input type='submit' value='CONTACTO'/></center>
 </form>
 
-<form action="tarifa" method="post">
+<form action="tarifa" method="get">
 		<br/>
 		
 		<center><input type='submit' value='MI TARIFA'/></center>
 </form>
 
 
-<form action="enviarOpinion" method="post">
+	{{#clienteActual}}
+	<form action="/opiniones/{{id}}" method="get">
 		<br/>
 		
-		<center><input type='submit' value='OPINIONES'/></center>
+		<center><input type='submit' value='Opiniones'/></center>
+	</form>
+	{{/clienteActual}}
+
+<br>
+
+<form action="/usuariosDisponibles" method="get">
+		<br/>
+		
+		<center><input type='submit' value='Usuarios disponibles'/></center>
 </form>
+
 <form action="verClase" method="post">
 		<br/>
 		

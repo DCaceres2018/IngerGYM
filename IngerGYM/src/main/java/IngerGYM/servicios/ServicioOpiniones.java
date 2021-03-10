@@ -1,14 +1,15 @@
 package IngerGYM.servicios;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Opinion;
 import IngerGYM.repositorios.RepositorioOpiniones;
-
 import java.util.List;
+
+
 @Service
 public class ServicioOpiniones {
 
@@ -16,36 +17,38 @@ public class ServicioOpiniones {
 	@Autowired
 	private RepositorioOpiniones repositorioOpiniones;
 	
-	@PostConstruct
-	public void init() {
-		
-		//Opinion carlos=new Opinion("carlos","vaya tio vayyaaa");
-		//repositorioOpiniones.save(carlos);
-	}
 	
-	//Comprobamos si ya ha realizado una opinion, si no la ha realizado se guarda y encontrado= false; en caso contrario encontrado = true
-	public boolean existeOpinion(Opinion opinion) {
-		
-	
-		List<Opinion> listaOpiniones = repositorioOpiniones.findAll();
-		boolean encontrado=false;
-		
-		for(Opinion opiniones: listaOpiniones) {
-			if( opiniones.getNombre().equals(opinion.getNombre())) {
-				encontrado=true;
-				break;
-			}
-	}
-		
-		if(encontrado==false) {
-			repositorioOpiniones.save(opinion);
-		}
-		return encontrado;
-	}
-	
-	public List<Opinion> getOpiniones(){
-		
+	public List<Opinion> findAll(){
 		return repositorioOpiniones.findAll();
 	}
 	
+	public Opinion findById(long id){
+		return repositorioOpiniones.findById(id);
+	}
+	
+	public void save(Opinion opinion) {
+		repositorioOpiniones.save(opinion);
+	}
+	
+	public void deleteById(long id) {
+		repositorioOpiniones.deleteById(id);
+	}
+	
+	//Para eliminar un usuario, primero eliminaremos sus opiniones
+	//Devuelve 1 si se ha eliminado correctamente
+	//Devuelve -1 si el cliente nop tenia opinion
+	public int deleteByUserId(long idUser) {
+		List<Opinion> opiniones = repositorioOpiniones.findAll();
+	
+		for(Opinion opinion: opiniones) {
+			if(opinion.getIdCliente()==idUser) {
+				//Si el id del cliente de la opinion= al id pasado la eliminamos
+				repositorioOpiniones.deleteById(opinion.getId());;
+				return 1;
+			}
+		}
+		
+		return -1;
+		
+	}
 }

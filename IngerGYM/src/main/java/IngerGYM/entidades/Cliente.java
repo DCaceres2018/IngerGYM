@@ -83,9 +83,6 @@ public class Cliente {
 		return clases;
 	}
 	
-	/*public void setOpinion(Opinion opinion) {
-		this.opinion=opinion;
-	}*/
 	public String getContrasena() {
 		return contrasena;
 	}
@@ -117,7 +114,6 @@ public class Cliente {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	
 	
 	@Override
 	public String toString() {

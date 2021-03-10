@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="UTF-8"/>
+</head>
+
+
+<body>
+	
+	<br>
+	<form action="/opiniones/{{id}}/opinionEnviada" method="get">
+	
+		<center><p>Comentario a realizar:</p></center>
+		<center><textarea name='opinion' rows=5 cols=40></textarea></center>
+		<br>
+		<center><input type='submit' value='Save'/></center>
+	</form>
+	
+<br>
+<br>
+<br>
+<br>
+
+	<p>Opiniones realizadas al gimnasio:</p>
+	<ul>
+	{{#opinionesDisponibles}}
+		
+		<li>
+		<p> ---- Comentario: {{comentario}}</p>
+		</li>
+		
+	{{/opinionesDisponibles}}
+	</ul>
+	
+	<br>
+	
+	<form action="/bienvenido/{{id}}" method="get">
+		<center><input type='submit' value='Volver'/></center>
+	</form>
+
+</body>
+</html>

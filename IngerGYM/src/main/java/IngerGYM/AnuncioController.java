@@ -1,41 +1,27 @@
 package IngerGYM;
 
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import IngerGYM.entidades.*;
-import IngerGYM.entidades.Opinion;
 import IngerGYM.servicios.ServicioClientes;
-import IngerGYM.servicios.ServicioContacto;
 
 @Controller
 public class AnuncioController {
 	
 	@Autowired
 	private ServicioClientes servicioClientes;
-	
-	private Contacto contacto=new Contacto();
-	
-	@PostMapping("/inicio")
-	public String principal()
-	{
-		return "inicio";
-	}
 
 	@PostMapping("/crearSala")
-	public String crearSala()
-	{
+	public String crearSala(){
+		
 		return "crearSala";
 	}
+	
 	@PostMapping("/crear")
 	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora)
 	{
@@ -64,18 +50,6 @@ public class AnuncioController {
 		return "aquagym";
 	}
 	
-	@PostMapping("/bienvenidos_")
-	public String bien() {
-
-			return "bienvenido";
-	
-	}
-	@GetMapping("/bienvenido")
-	public String anuncio(){
-		
-		return "bienvenido";
-	}
-	
 	@GetMapping("/salas")
 	public String salas() {
 
@@ -84,6 +58,7 @@ public class AnuncioController {
 	
 	@PostMapping("/contacto")
 	public String Contacto(Model model){
+		Contacto contacto=new Contacto();
 		
 		String numero = contacto.getNumero();
 		String email= contacto.getEmail();
@@ -101,12 +76,6 @@ public class AnuncioController {
 		return "contactoInv";
 	}
 	
-	/*@GetMapping("/clase")
-	public String clase() {
-
-		return "clase";
-	}*/
-	
 	@GetMapping("/piscina")
 	public String piscina() {
 
@@ -119,12 +88,6 @@ public class AnuncioController {
 		return "gimnasio";
 	}
 	
-	@PostMapping("/registro")
-	public String registro() {
-
-		return "registro";
-	}
-	
 	@PostMapping("/invitados")
 	public String invitados() {
 
@@ -135,18 +98,6 @@ public class AnuncioController {
 	public String horario() {
 
 		return "horario";
-	}
-	
-	@PostMapping("/error")
-	public String error() {
-
-		return "incorrecto";
-	}
-	
-	@PostMapping("/cerrarSesion")
-	public String cerrarSesion() {
-
-		return "cerrarSesion";
 	}
 	
 }

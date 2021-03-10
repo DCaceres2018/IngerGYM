@@ -10,4 +10,7 @@ import IngerGYM.entidades.Cliente;
 @Repository
 public interface RepositorioClientes extends JpaRepository<Cliente, Long> {
 	
+	
+	
+	Cliente findById(long id);
 }

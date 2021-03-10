@@ -7,26 +7,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.servicios.ServicioClientes;
+import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.entidades.*;
 
 @Controller
 public class RegistroController {
 
-
 	@Autowired
 	private ServicioClientes servicioClientes;
 	
-	@PostMapping("/registrarse")
+	@Autowired
+	private ServicioOpiniones servicioOpiniones;
+	
+	
+	@PostMapping("/registro")
 	public String registrarse(Cliente usuario)
 	{
 		
-		if(servicioClientes.existeCliente(usuario.getUsuario())==-1) {
-			
-			servicioClientes.guardarCliente(usuario);
-			return "correcto";
-		}else {
-			return "DatosExistentes";
-			}
+		Cliente cliente=new Cliente("carlos","email",5,"123");
+		Cliente cliente1=new Cliente("jositote","email",5,"123");
+		Opinion opinion= new Opinion("devil que hase");
+		
+		
+		servicioClientes.save(usuario);
+		servicioClientes.save(cliente);
+		servicioClientes.save(cliente1);
+		
+		opinion.setCliente(servicioClientes.findById(2));
+		servicioOpiniones.save(opinion);
+		
+		return "usuarioRegistrado";
 	}
 }
 

@@ -55,16 +55,16 @@ public class ServicioClientes {
 		
 		repositorioClientes.save(paco);
 		
-		Opinion op=new Opinion("lo mejor",paco);
+		//Opinion op=new Opinion("lo mejor",paco);
 		
-		repositorioOp.save(op);
+		//repositorioOp.save(op);
 		
 		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(jesus);
-		Opinion op1=new Opinion("lo peor",jesus);
+		//Opinion op1=new Opinion("lo peor",jesus);
 		
-		repositorioOp.save(op1);
+	//	repositorioOp.save(op1);
 		
 		
 		//paco.setOpinion(op);
@@ -269,4 +269,35 @@ public int posClase(String nombre) {
 			return -1;
 		}
 	}
+	
+
+	public List<Cliente> findAll(){
+		return repositorioClientes.findAll();
+	}
+	
+	public Cliente findById(long id){
+		return repositorioClientes.findById(id);
+	}
+	
+	public Cliente findByNombre(String nombre){
+		List<Cliente> clientes= this.repositorioClientes.findAll();
+		for(Cliente cliente: clientes) {
+			if(cliente.getUsuario().equals(nombre)) {
+				return cliente;
+			}
+		}
+		//Si hemos llegado aqui devolvemos null
+		return null;
+	}
+	
+	public void save(Cliente usuario) {
+		repositorioClientes.save(usuario);
+	}
+	
+	public void deleteById(long id) {
+		repositorioClientes.deleteById(id);
+	}
+
+
+
 }

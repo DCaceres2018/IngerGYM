@@ -1,0 +1,20 @@
+<html>
+<body>
+	<h1>Clientes del gimnasio</h1>
+	
+	{{#clientes}}
+	<a href="/clientes/{{id}}">{{usuario}}</a>  <br><br>
+	{{/clientes}}
+	
+	{{^clientes}}
+	<p>No hay usuarios inscritos al gimnasio.</p>
+	{{/clientes}}
+	
+<form action="/bienvenido/{{id}}" method="get">
+		<br/>
+		
+		<center><input type='submit' value='Volver'/></center>
+</form>
+
+</body>
+</html>

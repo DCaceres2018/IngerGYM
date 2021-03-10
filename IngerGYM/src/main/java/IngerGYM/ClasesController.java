@@ -83,21 +83,3 @@ public class ClasesController {
 		
 	}
 }
-/*
-
-HttpSession sesion){
-		
-		sesion.setAttribute("usuarioActual",nombre);
-		
-		int resultado=servicioClientes.existeCliente(nombre);
-		
-		if(resultado!=-1 ) {
-			this.cliente =servicioClientes.getCliente(resultado);
-			
-			//Comprobamos la contraseña
-			if(this.cliente.getContrasena().equals(contraseña)==false) {
-				return "incorrecto";
-			}
-			//Si hemos llegado aqui, usuario y contraseña son correctos
-			model.addAttribute("usuarioActual", nombre);
-			return "bienvenidos";*/

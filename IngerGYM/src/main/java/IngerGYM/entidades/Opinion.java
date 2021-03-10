@@ -1,39 +1,45 @@
 package IngerGYM.entidades;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import IngerGYM.repositorios.RepositorioClientes;
-import IngerGYM.servicios.ServicioClientes;
 
 
 @Entity
 public class Opinion {
-
+	
+	//Nos ayudará para las templates aunque es un poco redundante
+	private String nombreUsuario;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	
-	//private ServicioClientes servicio;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Cliente cliente;
 	
-	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
+
+	//private ServicioClientes servicio;
 	private String comentario;
 
 	public Opinion() {
 
 	}
 
-	public Opinion(String comentario,Cliente cliente) {
+	public Opinion(String comentario) {
 		super();
-		this.cliente=cliente;
 		this.comentario = comentario;
 	}
 
@@ -45,11 +51,6 @@ public class Opinion {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return cliente.getUsuario();
-	}
-
-	
 	public String getComentario() {
 		return comentario;
 	}
@@ -58,6 +59,12 @@ public class Opinion {
 		this.comentario = comentario;
 	}
 
-	
+	public long getIdCliente() {
+		return this.cliente.getId();
+	}
 
+	@Override
+	public String toString() {
+		return "Opinion [cliente=, comentario=" + comentario + "]";
+	}
 }
