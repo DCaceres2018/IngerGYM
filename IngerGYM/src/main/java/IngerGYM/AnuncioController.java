@@ -50,7 +50,7 @@ public class AnuncioController {
 		return "aquagym";
 	}
 	
-	@GetMapping("/salas")
+	@PostMapping("/salas")
 	public String salas() {
 
 		return "sala";

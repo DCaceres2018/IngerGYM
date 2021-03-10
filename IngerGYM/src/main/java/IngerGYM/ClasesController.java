@@ -37,7 +37,7 @@ public class ClasesController {
 	}
 	@PostMapping("/suscribirse")
 	public String suscribirse(@RequestParam String nombres,HttpSession sesion){
-		String nombre=(String)sesion.getAttribute("usuarioActual");
+		String nombre=(String)sesion.getAttribute("nombreActual");
 		
 		int m=servicioClases.posCliente(nombre);
 		Cliente cliente=servicioClases.getCliente(m);
@@ -70,7 +70,7 @@ public class ClasesController {
 	}
 	@PostMapping("/verClase")
 	public String verClases(Model model,HttpSession sesion){
-		String nombre=(String)sesion.getAttribute("usuarioActual");
+		String nombre=(String)sesion.getAttribute("nombreActual");
 		
 		int m=servicioClases.posCliente(nombre);
 		Cliente cliente=servicioClases.getCliente(m);

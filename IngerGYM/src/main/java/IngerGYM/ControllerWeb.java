@@ -46,12 +46,18 @@ public class ControllerWeb {
 		Cliente clienteActual=servicioCliente.findByNombre(usuario);
 		if (clienteActual!=null) {
 			sesion.setAttribute("usuarioActual", clienteActual);
+			sesion.setAttribute("nombreActual", usuario);
 			model.addAttribute("clienteActual",clienteActual);
 			return "bienvenidos";
 		}else {
 			return "index";
 		}
 		
+	}
+	@GetMapping("/bienvenido_")
+	public String login() {
+		return "bienvenidos";
+	
 	}
 /*	
 	@PostMapping("/loginBack")
@@ -70,12 +76,12 @@ public class ControllerWeb {
 		return "bienvenidos";
 	}
 	
-	@GetMapping("/usuariosDisponibles")
+	@PostMapping("/usuariosDisponibles")
 	public String listarUsuarios(Model model) {
 	
 		model.addAttribute("clientes",servicioCliente.findAll());
 		
-		return "/usuariosDisponibles";
+		return "usuariosDisponibles";
 	}
 	
 	@GetMapping("/clientes/{id}")
@@ -97,7 +103,7 @@ public class ControllerWeb {
 		}
 	}
 	
-	@PostMapping("/tarifa")
+	@GetMapping("/tarifa")
 	public String tarifa(HttpSession sesion) {
 		Cliente cliente = (Cliente) sesion.getAttribute("usuarioActual");
 
