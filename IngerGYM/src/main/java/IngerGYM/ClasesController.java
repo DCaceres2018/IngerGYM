@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Opinion;
+import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.servicios.ServicioClases;
 import IngerGYM.servicios.ServicioClientes;
 
@@ -21,7 +22,8 @@ import IngerGYM.servicios.ServicioClientes;
 public class ClasesController {
 	@Autowired
 	private ServicioClientes servicioClases;
-	
+	@Autowired
+	private RepositorioClientes repositorio;
 	@PostMapping("/clase")
 	public String enviarOpinion(Model model){
 		
@@ -48,6 +50,10 @@ public class ClasesController {
 		Clases clase=servicioClases.getClase(n);
 		
 		cliente.addClass(clase);
+		
+		
+		repositorio.delete(cliente);
+		repositorio.save(cliente);
 		
 		if(clase.getName().equals("Piscina")) {
 			servicioClases.reservarPiscina(clase.getDia(), clase.getHora());

@@ -51,7 +51,7 @@ public class ServicioClientes {
 		repositorioClientes.save(admin);
 		
 		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
-		Cliente paco=new Cliente("paco","paco@gmail.com",54,"434343","abcd");
+		Cliente paco=new Cliente("paco","paco@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(paco);
 		
@@ -59,7 +59,7 @@ public class ServicioClientes {
 		
 		repositorioOp.save(op);
 		
-		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"434343","abcd");
+		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(jesus);
 		Opinion op1=new Opinion("lo peor",jesus);

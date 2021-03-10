@@ -43,10 +43,10 @@ public class Cliente {
 		this.edad=0;
 		this.admin=true;
 		this.precio=0;
-		
+		this.clases=new ArrayList<>();
 	}
 	
-	public Cliente(String usuario,String email,int edad, String nTelefono, String contrasena){
+	public Cliente(String usuario,String email,int edad, String contrasena){
 		super();
 		this.usuario= usuario;
 		
@@ -66,11 +66,19 @@ public class Cliente {
 				this.precio=25;
 			
 		}
+		this.clases=new ArrayList<>();
 	}
+
 	
-	public void addClass(Clases clase) {
-		clases.add(clase);
+	public long getId() {
+		return id;
 	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public void addClass(Clases clase) {
+		 clases.add(clase);
+			}
 	public List<Clases> getListaClases(){
 		return clases;
 	}
