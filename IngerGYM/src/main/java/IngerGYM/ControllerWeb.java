@@ -46,6 +46,7 @@ public class ControllerWeb {
 		Cliente clienteActual=servicioCliente.findByNombre(usuario);
 		if (clienteActual!=null) {
 			sesion.setAttribute("usuarioActual", clienteActual);
+			sesion.setAttribute("nombreActual", usuario);
 			model.addAttribute("clienteActual",clienteActual);
 			return "bienvenidos";
 		}else {
@@ -53,14 +54,6 @@ public class ControllerWeb {
 		}
 		
 	}
-	
-	@GetMapping("/bienvenido_")
-	public String bienvenido() {
-
-	
-		return "bienvenidos";
-	}
-
 	
 	@GetMapping("/bienvenido/{id}")
 	public String login(Model model,HttpSession sesion,@PathVariable long id) {
@@ -70,12 +63,15 @@ public class ControllerWeb {
 		return "bienvenidos";
 	}
 	
-	@GetMapping("/usuariosDisponibles")
-	public String listarUsuarios(Model model) {
+	@GetMapping("/usuariosDisponibles/{id}")
+	public String listarUsuarios(Model model,HttpSession sesion) {
 	
 		model.addAttribute("clientes",servicioCliente.findAll());
 		
-		return "/usuariosDisponibles";
+		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
+		model.addAttribute("clienteActual",clienteActual);
+		
+		return "usuariosDisponibles";
 	}
 	
 	@GetMapping("/clientes/{id}")
@@ -87,8 +83,11 @@ public class ControllerWeb {
 	}
 	
 	@GetMapping("/clientes/{id}/darDeBaja")
-	public String darDeBaja(Model model, @PathVariable long id) {
+	public String darDeBaja(Model model, @PathVariable long id,HttpSession sesion) {
 
+		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
+		model.addAttribute("clienteActual",clienteActual);
+		
 		if(servicioOpiniones.deleteByUserId(id)==1) {
 			return "eliminadoCorrectamente";
 		}else {
@@ -97,7 +96,7 @@ public class ControllerWeb {
 		}
 	}
 	
-	@PostMapping("/tarifa")
+	@GetMapping("/tarifa")
 	public String tarifa(HttpSession sesion) {
 		Cliente cliente = (Cliente) sesion.getAttribute("usuarioActual");
 
