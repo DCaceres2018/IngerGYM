@@ -47,11 +47,13 @@
 
 <br>
 
-<form action="/usuariosDisponibles" method="post">
+	{{#clienteActual}}
+	<form action="/usuariosDisponibles/{{id}}" method="get">
 		<br/>
 		
 		<center><input type='submit' value='Usuarios disponibles'/></center>
-</form>
+	</form>
+	{{/clienteActual}}
 
 <form action="verClase" method="post">
 		<br/>

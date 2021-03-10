@@ -10,9 +10,14 @@
 	<p>No hay usuarios inscritos al gimnasio.</p>
 	{{/clientes}}
 	
-<form action="/bienvenido_" method="get">
+	
+	{{#clienteActual}}
+	<form action="/bienvenido/{{id}}" method="get">
+		<br/>
+		
 		<center><input type='submit' value='Volver'/></center>
 	</form>
+	{{/clienteActual}}
 
 </body>
 </html>

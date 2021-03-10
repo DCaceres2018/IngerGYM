@@ -26,13 +26,17 @@ public class OpinionController {
 	@GetMapping("/opiniones/{id}/opinionEnviada")
 	public String enviarOpinion(Model model,HttpSession sesion,String opinion,@PathVariable long id) {
 		
-		Opinion opinionObjeto= new Opinion(opinion);
-		
-		opinionObjeto.setCliente(servicioCliente.findById(id));
-		servicioOpiniones.save(opinionObjeto);
-		
-		return "opinionEnviada";
-	
+
+		//Si el usuario ya ha realizado una opinión no puede realizar mas opiniones
+		if(servicioOpiniones.findByUserId(id)==-1) {
+			Opinion opinionObjeto= new Opinion(opinion);
+			opinionObjeto.setCliente(servicioCliente.findById(id));
+			servicioOpiniones.save(opinionObjeto);
+			return "opinionEnviada";
+		}else {
+			
+			return "errorOpinion";
+		}
 	}
 	
 	@GetMapping("/opiniones/{id}")
