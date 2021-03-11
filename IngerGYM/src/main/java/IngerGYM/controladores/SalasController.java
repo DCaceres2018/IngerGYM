@@ -1,4 +1,4 @@
-package IngerGYM;
+package IngerGYM.controladores;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,29 +11,11 @@ import IngerGYM.entidades.*;
 import IngerGYM.servicios.ServicioClientes;
 
 @Controller
-public class AnuncioController {
+public class SalasController {
 	
 	@Autowired
 	private ServicioClientes servicioClientes;
-
-	@PostMapping("/crearSala")
-	public String crearSala(){
-		
-		return "crearSala";
-	}
 	
-	@PostMapping("/crear")
-	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora)
-	{
-		int n=servicioClientes.posSala(nombreSala);
-		if(n==-1) {
-			return "bienvenido";
-		}
-		Salas sala=servicioClientes.getSala(n);
-		Clases a=new Clases(sala,prof,tipo,dia,hora);
-		servicioClientes.guardarClase(a);
-		return "claseCreada";
-	}
 	@PostMapping("/zumba")
 	public String zumba(Model model)
 	{
@@ -66,40 +48,6 @@ public class AnuncioController {
 	public String gimnasio() {
 
 		return "gimnasio";
-	}
-	
-	@PostMapping("/contacto")
-	public String Contacto(Model model){
-		Contacto contacto=new Contacto();
-		
-		String numero = contacto.getNumero();
-		String email= contacto.getEmail();
-		
-		model.addAttribute("email",email);
-		model.addAttribute("numero",numero);
-		
-		return "contacto";
-		
-	}
-	
-	@PostMapping("/contactoInv")
-	public String contI() {
-
-		return "contactoInv";
-	}
-	
-	
-	
-	@PostMapping("/invitados")
-	public String invitados() {
-
-		return "invitados";
-	}
-	
-	@PostMapping("/horario")
-	public String horario() {
-
-		return "horario";
 	}
 	
 }

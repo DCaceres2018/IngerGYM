@@ -1,4 +1,4 @@
-package IngerGYM;
+package IngerGYM.controladores;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,14 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
-import IngerGYM.entidades.Opinion;
+import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClientes;
-import IngerGYM.servicios.ServicioClases;
 import IngerGYM.servicios.ServicioClientes;
 
 
@@ -25,6 +24,9 @@ public class ClasesController {
 	private ServicioClientes servicioClases;
 	@Autowired
 	private RepositorioClientes repositorio;
+	
+	@Autowired
+	private ServicioClientes servicioClientes;
 	
 	@PostMapping("/clase")
 	public String enviarOpinion(Model model){
@@ -43,6 +45,7 @@ public class ClasesController {
 		return "clase";
 		
 	}
+	
 	@PostMapping("/suscribirse")
 	public String suscribirse(@RequestParam String nombres,HttpSession sesion){
 		String nombre=(String)sesion.getAttribute("nombreActual");
@@ -76,8 +79,10 @@ public class ClasesController {
 		return "ReservaRealizada";
 		
 	}
-	@PostMapping("/verClase")
+	
+	@GetMapping("/verClases/{id}")
 	public String verClases(Model model,HttpSession sesion){
+		
 		String nombre=(String)sesion.getAttribute("nombreActual");
 		
 		int m=servicioClases.posCliente(nombre);
@@ -90,5 +95,22 @@ public class ClasesController {
 		
 		return "verClases";
 		
+	}
+	
+	
+	@GetMapping("/crear")
+	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora){
+		
+		int n=servicioClientes.posSala(nombreSala);
+		if(n==-1) {
+			return "bienvenido";
+		}
+		
+		Salas sala=servicioClientes.getSala(n);
+		Clases a=new Clases(sala,prof,tipo,dia,hora);
+		servicioClientes.guardarClase(a);
+		
+		return "claseCreada";
+
 	}
 }

@@ -3,14 +3,10 @@ package IngerGYM.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -20,15 +16,12 @@ public class Cliente {
 	private String email;
 	private int edad;
 	private String contrasena;
-	private int precio;
 	private boolean admin;
 	
 	
-	@OneToMany
+	@ManyToMany
 	protected List<Clases> clases;
-	
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -42,31 +35,18 @@ public class Cliente {
 		this.email="IngerGym@gmail.com";
 		this.edad=0;
 		this.admin=true;
-		this.precio=0;
 		this.clases=new ArrayList<>();
 	}
 	
 	public Cliente(String usuario,String email,int edad, String contrasena){
 		super();
 		this.usuario= usuario;
-		
 		this.email=email;
 		this.edad=edad;
-	
 		this.contrasena= contrasena;
 		this.admin=false;
-		
-		if(edad<18) {
-			this.precio=15;
-		}
-		else if(edad>65) {
-			this.precio=10;
-		}
-		else {
-				this.precio=25;
-			
-		}
 		this.clases=new ArrayList<>();
+		
 	}
 
 	
@@ -115,6 +95,13 @@ public class Cliente {
 		this.edad = edad;
 	}
 	
+	
+	public List<Clases> getClases() {
+		return clases;
+	}
+	public void setClases(List<Clases> clases) {
+		this.clases = clases;
+	}
 	@Override
 	public String toString() {
 		return "Cliente [tlf="  + ", name=" + "usuario ]";

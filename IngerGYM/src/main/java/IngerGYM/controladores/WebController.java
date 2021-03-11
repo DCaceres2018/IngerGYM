@@ -1,4 +1,4 @@
-package IngerGYM;
+package IngerGYM.controladores;
 
 
 import java.util.List;
@@ -15,18 +15,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import IngerGYM.entidades.Cliente;
-import IngerGYM.entidades.Opinion;
+import IngerGYM.entidades.Tarifa;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
+import IngerGYM.servicios.ServicioTarifas;
 
 @Controller
-public class ControllerWeb {
+public class WebController {
 	
 	@Autowired
 	private ServicioClientes servicioCliente;
 	
 	@Autowired
 	private ServicioOpiniones servicioOpiniones;
+	
+	@Autowired
+	private ServicioTarifas servicioTarifas;
 	
 	@PostConstruct
 	public void init() {
@@ -54,21 +58,8 @@ public class ControllerWeb {
 		}
 		
 	}
-	@GetMapping("/bienvenido_")
-	public String bienvenido2(Model model,HttpSession sesion) {
-		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
-		model.addAttribute("clienteActual",clienteActual);
-		return "bienvenidos";
-	}
-/*	
-	@PostMapping("/loginBack")
-	public String loginBack() {
 
 	
-		return "bienvenido";
-	}
-
-	*/
 	@GetMapping("/bienvenido")
 	public String login(Model model,HttpSession sesion) {
 	
@@ -120,20 +111,17 @@ public class ControllerWeb {
 	}
 	
 	@PostMapping("/tarifa")
-	public String tarifa(HttpSession sesion) {
-		Cliente cliente = (Cliente) sesion.getAttribute("usuarioActual");
-
-		if(cliente.getEdad()<18) {
-			return "tarifaNiños";
-		}
-		else if(cliente.getEdad()>65) {
-			return "tarifaAncianos";
-		}
-		else {
-			return "tarifaAdultos";
-		}
+	public String tarifa(Model model,HttpSession sesion) {
+		List<Tarifa> tarifas= servicioTarifas.findAll();
+		model.addAttribute("tarifas",tarifas);
+		
+		return "tarifa";
 	}
-	
-	
+
+	@PostMapping("/horario")
+	public String horario() {
+
+		return "horario";
+	}
 	
 }

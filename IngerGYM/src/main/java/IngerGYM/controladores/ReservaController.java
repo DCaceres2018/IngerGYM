@@ -1,4 +1,4 @@
-package IngerGYM;
+package IngerGYM.controladores;
 
 import java.util.List;
 

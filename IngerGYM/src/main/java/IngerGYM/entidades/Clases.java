@@ -21,17 +21,13 @@ public class Clases {
 	private int dia=0;
 	private int hora=0;
 	private int aforo;
-	
 
-
-	
-	
 	@OneToOne
 	private Salas sala;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	 private long id;
+	private long id;
 	
 	public Clases () {
 		

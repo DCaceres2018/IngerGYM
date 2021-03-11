@@ -15,6 +15,7 @@ public class Salas {
 	
 	private int aforoMAX;
 	private String nombre;
+	
 	@OneToMany
 	private List<Clases> clases;
 

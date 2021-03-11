@@ -1,4 +1,4 @@
-package IngerGYM;
+package IngerGYM.controladores;
 
 import java.util.List;
 
@@ -8,17 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.entidades.*;
 
 @Controller
 public class OpinionController {
-
-
-	@Autowired
-	private ServicioClientes servicioCliente;
 	
 	@Autowired
 	private ServicioOpiniones servicioOpiniones;
@@ -38,7 +32,6 @@ public class OpinionController {
 	
 	@GetMapping("/opiniones")
 	public String verOpiniones(Model model){
-		
 		
 		List<Opinion> opiniones = servicioOpiniones.findAll();
 		model.addAttribute("opinionesDisponibles",opiniones);

@@ -1,0 +1,23 @@
+<html>
+
+
+<head>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+	<center><h1>Tarifas y usuarios de cada tarifa:</h1></center>
+	<br>
+	
+	<center><p>Precios y tarifas:</p></center>
+	
+	{{#tarifas}}
+	<center><a href="/tarifas/{{id}}">{{precio}}</a>  </center><br><br>
+	{{/tarifas}}
+	
+</body>
+
+<br>
+<form action="/bienvenido" method="get">
+		<center><input type='submit' value='Volver'/></center>
+	</form>
+</html>

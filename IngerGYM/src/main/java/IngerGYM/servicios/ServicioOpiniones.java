@@ -49,6 +49,5 @@ public class ServicioOpiniones {
 		}
 		
 		return -1;
-		
 	}
 }

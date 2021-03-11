@@ -18,11 +18,12 @@ import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Opinion;
 import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
-
+import IngerGYM.entidades.Tarifa;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.repositorios.RepositorioOpiniones;
 import IngerGYM.repositorios.RepositorioSalas;
+import IngerGYM.repositorios.RepositorioTarifa;
 
 
 @Service
@@ -42,6 +43,9 @@ public class ServicioClientes {
 	private RepositorioClases repositorioCl;
 	
 	@Autowired
+	private RepositorioTarifa repositorioTarifa;
+	
+	@Autowired
 	private RepositorioOpiniones repositorioOp;
 	
 	@PostConstruct
@@ -50,24 +54,15 @@ public class ServicioClientes {
 		Cliente admin=new Cliente(true);
 		repositorioClientes.save(admin);
 		
-		//String usuario,String email,int edad, String nTelefono, String contrasena,boolean trabajo
+		
 		Cliente paco=new Cliente("paco","paco@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(paco);
 		
-		//Opinion op=new Opinion("lo mejor",paco);
-		
-		//repositorioOp.save(op);
-		
 		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(jesus);
-		//Opinion op1=new Opinion("lo peor",jesus);
-		
-	//	repositorioOp.save(op1);
-		
-		
-		//paco.setOpinion(op);
+
 		 Salas piscina=new Salas("Piscina",2);
 		repositorioS.save(piscina);
 		
@@ -93,7 +88,6 @@ public class ServicioClientes {
 		 Zumb=new ContadorAforo(Zumba);
 		 Gym=new ContadorAforo(gym);
 		 Aq=new ContadorAforo(AquaGym);
-		 //paco.setClass(gym);
 	
 	}
 	
@@ -298,6 +292,9 @@ public int posClase(String nombre) {
 		repositorioClientes.deleteById(id);
 	}
 
-
-
+	public void setTarifa(long id) {
+		
+		
+	}
+	
 }

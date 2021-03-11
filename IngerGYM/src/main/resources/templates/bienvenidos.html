@@ -30,10 +30,11 @@
 		<center><input type='submit' value='CONTACTO'/></center>
 </form>
 
+
 <form action="tarifa" method="post">
 		<br/>
 		
-		<center><input type='submit' value='MI TARIFA'/></center>
+		<center><input type='submit' value='Tarifas'/></center>
 </form>
 
 
@@ -55,16 +56,21 @@
 	</form>
 	{{/clienteActual}}
 
-<form action="verClase" method="post">
+	
+	{{#clienteActual}}
+	<form action="/verClases/{{id}}" method="get">
 		<br/>
 		
-		<center><input type='submit' value='Ver mis clases'/></center>
-</form>		
-<form action="crearSala" method="post">
+		<center><input type='submit' value='Ver clases'/></center>
+	</form>
+	{{/clienteActual}}
+	
+<form action="crearClase.html" method="get">
 		<br/>
 		
 		<center><input type='submit' value='Crear Clase'/></center>
 </form>
+
 <br>
 
 <center><a href="/">Cerrar sesión</a></center>
