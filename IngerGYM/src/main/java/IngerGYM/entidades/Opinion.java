@@ -41,6 +41,7 @@ public class Opinion {
 	public Opinion(String comentario) {
 		super();
 		this.comentario = comentario;
+		
 	}
 
 	public long getId() {

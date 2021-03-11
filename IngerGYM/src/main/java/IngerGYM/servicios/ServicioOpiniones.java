@@ -49,20 +49,6 @@ public class ServicioOpiniones {
 		}
 		
 		return -1;
-	}
-	
-	//Devuelve 1 si se ha encontrado una opinión
-	//Devuelve -1 si el cliente no tenia opinion
-	public int findByUserId(long idUser) {
-		List<Opinion> opiniones = repositorioOpiniones.findAll();
-	
-		for(Opinion opinion: opiniones) {
-			if(opinion.getIdCliente()==idUser) {
-				//Si el id del cliente de la opinion= al id pasado la eliminamos
-				
-				return 1;
-			}
-		}
-		return -1;
+		
 	}
 }

@@ -23,24 +23,21 @@ public class OpinionController {
 	@Autowired
 	private ServicioOpiniones servicioOpiniones;
 	
-	@GetMapping("/opiniones/{id}/opinionEnviada")
-	public String enviarOpinion(Model model,HttpSession sesion,String opinion,@PathVariable long id) {
+	@GetMapping("/opiniones/opinionEnviada")
+	public String enviarOpinion(Model model,HttpSession sesion,String opinion) {
 		
-
-		//Si el usuario ya ha realizado una opinión no puede realizar mas opiniones
-		if(servicioOpiniones.findByUserId(id)==-1) {
-			Opinion opinionObjeto= new Opinion(opinion);
-			opinionObjeto.setCliente(servicioCliente.findById(id));
-			servicioOpiniones.save(opinionObjeto);
-			return "opinionEnviada";
-		}else {
-			
-			return "errorOpinion";
-		}
+		Opinion opinionObjeto= new Opinion(opinion);
+		
+		
+		servicioOpiniones.save(opinionObjeto);
+		opinionObjeto.setCliente((Cliente)sesion.getAttribute("usuarioActual"));
+		servicioOpiniones.save(opinionObjeto);
+		return "opinionEnviada";
+	
 	}
 	
-	@GetMapping("/opiniones/{id}")
-	public String verOpiniones(Model model,@PathVariable long id){
+	@GetMapping("/opiniones")
+	public String verOpiniones(Model model){
 		
 		
 		List<Opinion> opiniones = servicioOpiniones.findAll();

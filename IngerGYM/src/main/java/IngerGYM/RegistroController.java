@@ -24,23 +24,25 @@ public class RegistroController {
 	public String registrarse(Cliente usuario)
 	{
 		
-		Cliente cliente=new Cliente("carlos","email",5,"123");
+		/*Cliente cliente=new Cliente("carlos","email",5,"123");
 		Cliente cliente1=new Cliente("jositote","email",5,"123");
-		Opinion opinion= new Opinion("devil que hase");
+		Opinion opinion= new Opinion("devil que hase",cliente);*/
 		
 		
 		servicioClientes.save(usuario);
-		servicioClientes.save(cliente);
-		servicioClientes.save(cliente1);
+		/*servicioClientes.save(cliente);
+		servicioClientes.save(cliente1);*/
 		
-		opinion.setCliente(servicioClientes.findById(2));
-		servicioOpiniones.save(opinion);
+		
+		//servicioOpiniones.save(opinion);
 		
 		return "usuarioRegistrado";
 	}
 }
 
 		
+	
+
 	
 
 	

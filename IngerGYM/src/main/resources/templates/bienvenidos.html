@@ -17,7 +17,7 @@
 </form>
 
 
-<form action="clase" method="get">
+<form action="clase" method="post">
 		<br/>
 		
 		<center><input type='submit' value='CLASES'/></center>
@@ -37,13 +37,13 @@
 </form>
 
 
-	{{#clienteActual}}
-	<form action="/opiniones/{{id}}" method="get">
+	
+	<form action="/opiniones" method="get">
 		<br/>
 		
 		<center><input type='submit' value='Opiniones'/></center>
 	</form>
-	{{/clienteActual}}
+	
 
 <br>
 
@@ -55,12 +55,12 @@
 	</form>
 	{{/clienteActual}}
 
-<form action="verClase" method="get">
+<form action="verClase" method="post">
 		<br/>
 		
 		<center><input type='submit' value='Ver mis clases'/></center>
 </form>		
-<form action="crearSala" method="get">
+<form action="crearSala" method="post">
 		<br/>
 		
 		<center><input type='submit' value='Crear Clase'/></center>
