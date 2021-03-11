@@ -1,5 +1,6 @@
 package IngerGYM;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -30,8 +31,14 @@ public class ClasesController {
 		
 		
 		List<Clases> clases= servicioClases.getClases();
+		List<Clases> copia=new ArrayList<>();
+		for(Clases clase:clases) {
+			if(!clase.getProfesor().equals("null")) {
+				copia.add(clase);
+			}
+		}
 		
-		model.addAttribute("clasesDisponibles",clases);
+		model.addAttribute("clasesDisponibles",copia);
 		
 		return "clase";
 		
@@ -77,6 +84,7 @@ public class ClasesController {
 		Cliente cliente=servicioClases.getCliente(m);
 		
 		List<Clases> clases= cliente.getListaClases();
+		
 		
 		model.addAttribute("clases",clases);
 		

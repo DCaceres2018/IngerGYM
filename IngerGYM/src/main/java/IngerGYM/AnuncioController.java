@@ -56,6 +56,18 @@ public class AnuncioController {
 		return "sala";
 	}
 	
+	@GetMapping("/piscina")
+	public String piscina() {
+
+		return "piscina";
+	}
+	
+	@GetMapping("/gimnasio")
+	public String gimnasio() {
+
+		return "gimnasio";
+	}
+	
 	@PostMapping("/contacto")
 	public String Contacto(Model model){
 		Contacto contacto=new Contacto();
@@ -76,17 +88,7 @@ public class AnuncioController {
 		return "contactoInv";
 	}
 	
-	@GetMapping("/piscina")
-	public String piscina() {
-
-		return "piscina";
-	}
 	
-	@GetMapping("/gimnasio")
-	public String gimnasio() {
-
-		return "gimnasio";
-	}
 	
 	@PostMapping("/invitados")
 	public String invitados() {

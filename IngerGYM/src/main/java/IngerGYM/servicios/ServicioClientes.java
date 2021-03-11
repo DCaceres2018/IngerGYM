@@ -81,11 +81,11 @@ public class ServicioClientes {
 		
 		
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
-		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,7);
+		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,17);
 		repositorioCl.save(AquaGym);
-		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,2);
+		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,12);
 		repositorioCl.save(NadoLibre);
-		Clases Zumba=new Clases(comun,"Aitor","Zumba",1,8);
+		Clases Zumba=new Clases(comun,"Aitor","Zumba",1,18);
 		repositorioCl.save(Zumba);
 		Clases gym=new Clases(gimnasio,"-","gym");
 		repositorioCl.save(gym);
