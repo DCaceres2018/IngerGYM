@@ -119,13 +119,5 @@ public class WebController {
 		
 		return "tarifa";
 	}
-
-	@PostMapping("/horario")
-	public String horario(Model model) {
-
-		model.addAttribute("clasesDisponibles",servicioClases.findAll());
-		
-		return "horario";
-	}
 	
 }

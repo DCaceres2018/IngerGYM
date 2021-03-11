@@ -36,7 +36,7 @@ public class ClasesController {
 		
 		List<Clases> clases= servicioClases.findAll();
 		List<Clases> copia= new ArrayList();
-		model.addAttribute("clasesDisponibles",clases);
+		
 		
 		for(Clases clase: clases) {
 			if(!clase.getProfesor().equals("null")) {
@@ -44,7 +44,26 @@ public class ClasesController {
 			}
 		}
 		
+		model.addAttribute("clasesDisponibles",copia);
 		return "clase";	
+	}
+	
+	@PostMapping("/horario")
+	public String horario(Model model) {
+
+		List<Clases> clases= servicioClases.findAll();
+		List<Clases> copia= new ArrayList();
+		
+		
+		for(Clases clase: clases) {
+			if(!clase.getProfesor().equals("null")) {
+				copia.add(clase);
+			}
+		}
+		
+		model.addAttribute("clasesDisponibles",copia);model.addAttribute("clasesDisponibles",servicioClases.findAll());
+		
+		return "horario";
 	}
 	
 	@PostMapping("/suscribirse")
