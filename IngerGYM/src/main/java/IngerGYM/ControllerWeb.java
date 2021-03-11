@@ -55,9 +55,10 @@ public class ControllerWeb {
 		
 	}
 	@GetMapping("/bienvenido_")
-	public String login() {
+	public String bienvenido2(Model model,HttpSession sesion) {
+		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
+		model.addAttribute("clienteActual",clienteActual);
 		return "bienvenidos";
-	
 	}
 /*	
 	@PostMapping("/loginBack")
@@ -84,6 +85,17 @@ public class ControllerWeb {
 		return "usuariosDisponibles";
 	}
 	
+	@GetMapping("/usuariosDisponibles/{id}")
+	public String listarUsuarios(Model model,HttpSession sesion) {
+	
+		model.addAttribute("clientes",servicioCliente.findAll());
+		
+		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
+		model.addAttribute("clienteActual",clienteActual);
+		
+		return "usuariosDisponibles";
+	}
+	
 	@GetMapping("/clientes/{id}")
 	public String mostrarUsuario(Model model, @PathVariable long id) {
 
@@ -93,8 +105,11 @@ public class ControllerWeb {
 	}
 	
 	@GetMapping("/clientes/{id}/darDeBaja")
-	public String darDeBaja(Model model, @PathVariable long id) {
+	public String darDeBaja(Model model, @PathVariable long id,HttpSession sesion) {
 
+		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
+		model.addAttribute("clienteActual",clienteActual);
+		
 		if(servicioOpiniones.deleteByUserId(id)==1) {
 			return "eliminadoCorrectamente";
 		}else {
