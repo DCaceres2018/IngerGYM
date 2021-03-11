@@ -56,11 +56,9 @@ public class Cliente {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public void addClass(Clases clase) {
+	
+	public void addClase(Clases clase) {
 		 clases.add(clase);
-			}
-	public List<Clases> getListaClases(){
-		return clases;
 	}
 	
 	public String getContrasena() {
@@ -95,10 +93,10 @@ public class Cliente {
 		this.edad = edad;
 	}
 	
-	
 	public List<Clases> getClases() {
 		return clases;
 	}
+	
 	public void setClases(List<Clases> clases) {
 		this.clases = clases;
 	}

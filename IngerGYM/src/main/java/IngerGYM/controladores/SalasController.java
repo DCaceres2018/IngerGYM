@@ -38,16 +38,4 @@ public class SalasController {
 		return "sala";
 	}
 	
-	@GetMapping("/piscina")
-	public String piscina() {
-
-		return "piscina";
-	}
-	
-	@GetMapping("/gimnasio")
-	public String gimnasio() {
-
-		return "gimnasio";
-	}
-	
 }

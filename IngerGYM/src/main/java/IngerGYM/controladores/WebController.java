@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Tarifa;
+import IngerGYM.servicios.ServicioClases;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.servicios.ServicioTarifas;
@@ -32,10 +33,12 @@ public class WebController {
 	@Autowired
 	private ServicioTarifas servicioTarifas;
 	
+	@Autowired
+	private ServicioClases servicioClases;
+	
 	@PostConstruct
 	public void init() {
-		/*Cliente cliente=new Cliente("carlos","email",5,"123");
-		clienteS.save(cliente);*/
+		
 	}
 	
 	@GetMapping("/")
@@ -96,8 +99,7 @@ public class WebController {
 	}
 	
 	@GetMapping("/clientes/{id}/darDeBaja")
-	public String darDeBaja(Model model, @PathVariable long id,HttpSession sesion) {
-
+	public String darDeBaja(Model model,HttpSession sesion, @PathVariable long id) {
 	
 		Cliente cliente=servicioCliente.findById(id);
 		model.addAttribute("clienteActual",cliente);
@@ -119,8 +121,10 @@ public class WebController {
 	}
 
 	@PostMapping("/horario")
-	public String horario() {
+	public String horario(Model model) {
 
+		model.addAttribute("clasesDisponibles",servicioClases.findAll());
+		
 		return "horario";
 	}
 	

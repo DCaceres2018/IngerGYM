@@ -39,6 +39,7 @@ public class ServicioClientes {
 
 	@Autowired
 	private RepositorioSalas repositorioS;
+	
 	@Autowired
 	private RepositorioClases repositorioCl;
 	
@@ -91,35 +92,9 @@ public class ServicioClientes {
 	
 	}
 	
-	public List<Clases> getClases() {
-		return repositorioCl.findAll();
-	}
-	
-	public void setOpinion(String opinion) {
-		
-	}
-
 	public boolean reservarPiscina(int d,int h) {
 		if(Nado.hayHueco(d,h)==true) {
 			Nado.cogeAforo(d,h);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	public boolean reservarAqua(int d,int h) {
-		if(Aq.hayHueco(d,h)==true) {
-			Aq.cogeAforo(d,h);
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	public boolean reservarZumba(int d,int h) {
-		if(Zumb.hayHueco(d,h)==true) {
-			Zumb.cogeAforo(d,h);
 			return true;
 		}
 		else {
@@ -135,16 +110,7 @@ public class ServicioClientes {
 		else {
 			return false;
 		}
-	}
-	
-	public Collection<Cliente> getUsuarios() {
-		return repositorioClientes.findAll();
-	}
-		
-	
-	public void guardarCliente(Cliente cliente2) {
-		repositorioClientes.save(cliente2);
-	}
+	}	
 	
 	public Cliente getCliente(int numero) {
 		List <Cliente> listaClientes=repositorioClientes.findAll();
@@ -191,6 +157,7 @@ public class ServicioClientes {
 			return -1;
 		}
 	}
+	
 	public int getPlazasZumba() {
 		int d=1;
 		int h=8;
@@ -244,7 +211,7 @@ public class ServicioClientes {
 		return clase;
 	}
 	
-public int posClase(String nombre) {
+	public int posClase(String nombre) {
 		
 		List <Clases> listaClase=repositorioCl.findAll();
 		boolean encontrado=false;
@@ -292,9 +259,5 @@ public int posClase(String nombre) {
 		repositorioClientes.deleteById(id);
 	}
 
-	public void setTarifa(long id) {
-		
-		
-	}
 	
 }
