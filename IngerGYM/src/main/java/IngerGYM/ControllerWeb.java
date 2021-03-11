@@ -107,8 +107,9 @@ public class ControllerWeb {
 	@GetMapping("/clientes/{id}/darDeBaja")
 	public String darDeBaja(Model model, @PathVariable long id,HttpSession sesion) {
 
-		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
-		model.addAttribute("clienteActual",clienteActual);
+	
+		Cliente cliente=servicioCliente.findById(id);
+		model.addAttribute("clienteActual",cliente);
 		
 		if(servicioOpiniones.deleteByUserId(id)==1) {
 			return "eliminadoCorrectamente";
