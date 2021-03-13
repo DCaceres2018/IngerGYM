@@ -31,8 +31,8 @@ public class ServicioTarifas {
 		Tarifa tarifa3=new Tarifa(67);
 		
 		Cliente cliente= new Cliente("andres","paco@gmail.com",54,"abcd");
-		repositorioTarifa.save(tarifa1);
 		repositorioTarifa.save(tarifa2);
+		repositorioTarifa.save(tarifa1);
 		repositorioTarifa.save(tarifa3);
 	}
 	

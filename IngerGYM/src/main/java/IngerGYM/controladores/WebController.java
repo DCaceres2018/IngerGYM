@@ -1,6 +1,7 @@
 package IngerGYM.controladores;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -109,6 +110,46 @@ public class WebController {
 		model.addAttribute("tarifas",tarifas);
 		
 		return "tarifa";
+	}
+	@GetMapping("/tarifas/{id}")
+	public String tarifa2(Model model,HttpSession sesion,@PathVariable long id) {
+		List<Tarifa> tarifas= servicioTarifas.findAll();
+		List<Cliente> clientes= servicioCliente.findAll();
+		List<Cliente> copia=new ArrayList<>();
+		int edad=0;
+		for(Tarifa f:tarifas) {
+			if(f.getId()==id) {
+				edad=f.getEdad();
+				break;
+			}
+		}
+		if(edad==24) {
+			for(Cliente f:clientes) {
+				if(f.getEdad()<25) {
+					copia.add(f);
+				}
+			}
+		}
+		if(edad==64) {
+			for(Cliente f:clientes) {
+				if(f.getEdad()>=25&&f.getEdad()<65) {
+					copia.add(f);
+				}
+			}
+		}
+		else {
+			for(Cliente f:clientes) {
+				if(f.getEdad()>=65) {
+					copia.add(f);
+				}
+			}
+		}
+		
+		
+		
+		model.addAttribute("clientes",copia);
+		
+		return "tarifaCopia";
 	}
 	
 }

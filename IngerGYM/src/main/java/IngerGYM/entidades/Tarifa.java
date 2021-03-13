@@ -20,6 +20,7 @@ public class Tarifa {
 	private List<Cliente> clientes;
 	
 	private int precio;
+	private int edad;
 
 	public Tarifa() {
 		
@@ -30,14 +31,25 @@ public class Tarifa {
 		
 		if(edad<25) {
 			this.precio=10;
+			this.edad=24;
 		}else if(edad>65) {
 			this.precio=5;
+			this.edad=65;
 		}
 		else {
+			this.edad=64;
 			this.precio=15;
 		}
 	}
 	
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
 	public int getPrecio() {
 		return precio;
 	}

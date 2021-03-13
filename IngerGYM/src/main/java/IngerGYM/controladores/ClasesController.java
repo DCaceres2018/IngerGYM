@@ -85,7 +85,7 @@ public class ClasesController {
 		cliente.addClase(clase);
 		
 		
-		repositorio.delete(cliente);
+		//repositorio.delete(cliente);
 		repositorio.save(cliente);
 		
 		if(clase.getName().equals("Piscina")) {
