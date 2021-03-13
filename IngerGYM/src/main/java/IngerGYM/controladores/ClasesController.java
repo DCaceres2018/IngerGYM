@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.entidades.Clases;
@@ -61,7 +62,7 @@ public class ClasesController {
 			}
 		}
 		
-		model.addAttribute("clasesDisponibles",copia);model.addAttribute("clasesDisponibles",servicioClases.findAll());
+		model.addAttribute("clasesDisponibles",copia);
 		
 		return "horario";
 	}
@@ -98,8 +99,9 @@ public class ClasesController {
 		
 	}
 	
-	@GetMapping("/verClases/{id}")
+	@PostMapping("/verClases")
 	public String verClases(Model model,HttpSession sesion){
+		
 		
 		String nombre=(String)sesion.getAttribute("nombreActual");
 		

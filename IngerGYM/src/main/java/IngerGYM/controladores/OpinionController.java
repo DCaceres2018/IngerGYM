@@ -24,8 +24,8 @@ public class OpinionController {
 		
 		
 		servicioOpiniones.save(opinionObjeto);
-		opinionObjeto.setCliente((Cliente)sesion.getAttribute("usuarioActual"));
-		//servicioOpiniones.save(opinionObjeto);
+		opinionObjeto.setCliente( (Cliente)sesion.getAttribute("usuarioActual"));
+		servicioOpiniones.save(opinionObjeto);
 		return "opinionEnviada";
 	
 	}

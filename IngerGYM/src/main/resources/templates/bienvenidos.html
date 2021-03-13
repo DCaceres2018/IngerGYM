@@ -47,23 +47,20 @@
 	
 
 <br>
-
-	{{#clienteActual}}
-	<form action="/usuariosDisponibles/{{id}}" method="get">
+	
+	<form action="/usuariosDisponibles" method="get">
 		<br/>
 		
 		<center><input type='submit' value='Usuarios disponibles'/></center>
 	</form>
-	{{/clienteActual}}
-
 	
-	{{#clienteActual}}
-	<form action="/verClases/{{id}}" method="get">
+
+	<form action="/verClases" method="post">
 		<br/>
 		
 		<center><input type='submit' value='Ver clases'/></center>
 	</form>
-	{{/clienteActual}}
+
 	
 <form action="crearClase.html" method="get">
 		<br/>

@@ -66,26 +66,17 @@ public class WebController {
 	@GetMapping("/bienvenido")
 	public String login(Model model,HttpSession sesion) {
 	
-		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
-		model.addAttribute("clienteActual",clienteActual);
+		Cliente paco=new Cliente("paco","paco@gmail.com",54,"abcd");
+		
+		model.addAttribute("clientes",paco);
+		
 		return "bienvenidos";
 	}
 	
-	@PostMapping("/usuariosDisponibles")
-	public String listarUsuarios(Model model) {
-	
-		model.addAttribute("clientes",servicioCliente.findAll());
-		
-		return "usuariosDisponibles";
-	}
-	
-	@GetMapping("/usuariosDisponibles/{id}")
+	@GetMapping("/usuariosDisponibles")
 	public String listarUsuarios(Model model,HttpSession sesion) {
 	
 		model.addAttribute("clientes",servicioCliente.findAll());
-		
-		Cliente clienteActual= (Cliente) sesion.getAttribute("usuarioActual");
-		model.addAttribute("clienteActual",clienteActual);
 		
 		return "usuariosDisponibles";
 	}
