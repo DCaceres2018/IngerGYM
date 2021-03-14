@@ -35,10 +35,9 @@ public class ReservaController {
 	@PostMapping("/reservarPiscina")
 	public String reservarPiscina(Model model,@RequestParam int dia,@RequestParam int hora,HttpSession sesion){
 		
-		String nombre=(String)sesion.getAttribute("nombreActual");
+		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
 		
-		int m=servicioCliente.posCliente(nombre);
-		Cliente cliente=servicioCliente.getCliente(m);
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;
@@ -58,9 +57,9 @@ public class ReservaController {
 		
 			cl.save(aux);
 			cliente.addClase(aux);
-			repo.delete(cliente);
 			repo.save(cliente);
 			//cl.delete(aux);
+			
 			return "ReservaRealizada";
 		}
 		else {
@@ -73,10 +72,10 @@ public class ReservaController {
 	@PostMapping("/reservarGimnasio")
 	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora,HttpSession sesion)
 	{
-		String nombre=(String)sesion.getAttribute("nombreActual");
 		
-		int m=servicioCliente.posCliente(nombre);
-		Cliente cliente=servicioCliente.getCliente(m);
+		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
+		
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;
@@ -96,9 +95,9 @@ public class ReservaController {
 		
 			cl.save(aux);
 			cliente.addClase(aux);
-			repo.delete(cliente);
 			repo.save(cliente);
 			//cl.delete(aux);
+			
 			return "ReservaRealizada";
 		}
 		else {

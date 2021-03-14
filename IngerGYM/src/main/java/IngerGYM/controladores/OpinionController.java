@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.entidades.*;
 
@@ -16,15 +18,18 @@ public class OpinionController {
 	
 	@Autowired
 	private ServicioOpiniones servicioOpiniones;
+	@Autowired
+	private ServicioClientes servicioClientes;
 	
 	@GetMapping("/opiniones/opinionEnviada")
 	public String enviarOpinion(Model model,HttpSession sesion,String opinion) {
 		
+		Cliente cliente= (Cliente) sesion.getAttribute("usuarioActual");
 		Opinion opinionObjeto= new Opinion(opinion);
 		
 		
 		servicioOpiniones.save(opinionObjeto);
-		opinionObjeto.setCliente( (Cliente)sesion.getAttribute("usuarioActual"));
+		opinionObjeto.setCliente(servicioClientes.findById(cliente.getId()));
 		servicioOpiniones.save(opinionObjeto);
 		return "opinionEnviada";
 	

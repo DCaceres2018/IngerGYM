@@ -2,14 +2,8 @@ package IngerGYM.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
-import IngerGYM.entidades.ContadorAforo;
-import IngerGYM.entidades.Opinion;
-import IngerGYM.entidades.Salas;
 import IngerGYM.entidades.Tarifa;
-import IngerGYM.repositorios.RepositorioOpiniones;
 import IngerGYM.repositorios.RepositorioTarifa;
 
 import java.util.List;

@@ -3,8 +3,6 @@ package IngerGYM.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Opinion;
 import IngerGYM.repositorios.RepositorioOpiniones;
 import java.util.List;

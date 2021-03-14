@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.entidades.Clases;
@@ -70,22 +69,13 @@ public class ClasesController {
 	@PostMapping("/suscribirse")
 	public String suscribirse(@RequestParam String nombres,HttpSession sesion){
 		
-		String nombre=(String)sesion.getAttribute("nombreActual");
-		
-		int m=servicioClientes.posCliente(nombre);
-		Cliente cliente=servicioClientes.getCliente(m);
-		
-		
-		//List<Clases> clases= servicioClases.getClases();
+		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
 		
 		int n=servicioClientes.posClase(nombres);
-		
 		Clases clase=servicioClientes.getClase(n);
-		
 		cliente.addClase(clase);
-		
-		
-		//repositorio.delete(cliente);
+
 		repositorio.save(cliente);
 		
 		if(clase.getName().equals("Piscina")) {
@@ -103,10 +93,8 @@ public class ClasesController {
 	public String verClases(Model model,HttpSession sesion){
 		
 		
-		String nombre=(String)sesion.getAttribute("nombreActual");
-		
-		int m=servicioClientes.posCliente(nombre);
-		Cliente cliente=servicioClientes.getCliente(m);
+		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
 		
 		List<Clases> clases= cliente.getClases();
 		

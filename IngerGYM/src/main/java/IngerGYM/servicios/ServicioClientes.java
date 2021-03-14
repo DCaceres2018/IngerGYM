@@ -1,24 +1,14 @@
 package IngerGYM.servicios;
 
-import java.util.Collection;
+
 import java.util.List;
-import java.util.Optional;
-
 import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
-
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
-import IngerGYM.entidades.Opinion;
 import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
-import IngerGYM.entidades.Tarifa;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.repositorios.RepositorioOpiniones;
@@ -111,52 +101,6 @@ public class ServicioClientes {
 			return false;
 		}
 	}	
-	
-	public Cliente getCliente(int numero) {
-		List <Cliente> listaClientes=repositorioClientes.findAll();
-		
-		return listaClientes.get(numero);
-	}
-
-	public int existeCliente(String usuario) {
-		
-		List <Cliente> listaClientes=repositorioClientes.findAll();
-		boolean encontrado=false;
-		int pos=0;
-		for(Cliente cliente : listaClientes) {
-			
-			if(cliente.getUsuario().equals(usuario)  ) {
-				encontrado = true;
-				break;
-			}
-			pos++;
-		}
-		if(encontrado==true) {
-			return pos;
-		}else {
-			return -1;
-		}
-	}
-
-	public int posCliente(String usuario) {
-		
-		List <Cliente> listaClientes=repositorioClientes.findAll();
-		boolean encontrado=false;
-		int pos=0;
-		for(Cliente cliente : listaClientes) {
-			
-			if(cliente.getUsuario().equals(usuario) ) {
-				encontrado = true;
-				break;
-			}
-			pos++;
-		}
-		if(encontrado==true) {
-			return pos;
-		}else {
-			return -1;
-		}
-	}
 	
 	public int getPlazasZumba() {
 		int d=1;
