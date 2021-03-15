@@ -27,11 +27,11 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 - OPINION(id VARCHAR2(25),Texto VARCHAR2(25));
 
 
-- CONTACTO(numero NUMBER(9),email VARCHAR2(25),id VARCHAR2(25));
+- Tarifa(edad NUMBER(2),precio NUMBER(2),id VARCHAR2(25));
 (Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
 
 # Funcionalidad de servicio interno:
-El servicio interno se encarga de la gestión del aforo , la reserva de las clases por parte de los usuarios y la aplicación de las tarifas en función del cliente. Además del control de los turnos de los trabajadores.
+El servicio interno se encarga de la gestión del aforo , la reserva de las clases por parte de los usuarios y la aplicación de las tarifas en función del cliente. 
 
 # Integrantes
 - Daniel Cáceres González; d.caceres.2018@alumnos.urjc.es
@@ -45,29 +45,17 @@ github: CarlosMbp
 
 Pantalla principal (1).
 
-![image](https://user-images.githubusercontent.com/78802315/110342172-64eaf180-802b-11eb-8618-da96f3aef5b5.png)
+![image](https://user-images.githubusercontent.com/78802315/111175453-ba357e80-85a8-11eb-9371-9d9a89ac375f.png)
 
-En esta pestaña un usuario puede decidir si Iniciar sesión como invitado, registrarse o iniciar con su usuario y contraseña.
+En esta pestaña un usuario puede decidir si ver horario, registrarse o iniciar con su usuario y contraseña.
 
-Al pulsar sobre el Inicio de invitados. (2)
+Al pulsar sobre el horario. (2)
 
-![image](https://user-images.githubusercontent.com/78802315/110343280-a29c4a00-802c-11eb-92b9-f5ab3d2ce270.png)
+![image](https://user-images.githubusercontent.com/78802315/111175549-d2a59900-85a8-11eb-9ece-da503fa1c5e0.png)
 
-Podrá elegir si quiere ver el horario del gimnasio (clases) o si decide ver el contacto del gimnasio.
+Saldrán todas las clases disponibles en ese momento en el gimnasio.
 
-Si quiere ver el horario (2.1)
-
-![image](https://user-images.githubusercontent.com/78802315/110343578-edb65d00-802c-11eb-8ba6-912604d26e6d.png)
-
-Le redireccionara a una pestaña donde podra verlo y descargarlo (en un futuro ambas cosas)
-
-Si quiere ver el Contacto (2.2)
-
-![image](https://user-images.githubusercontent.com/78802315/110343735-12123980-802d-11eb-96ef-2015e6d5347d.png)
-
-Aqui puede ver las formas de contactar con el gimnasio y sus horarios de apertura y cierre. (No es el mismo que el de clases)
-
-En caso de que en vez de Iniciar como invitado quisiese registrarse (3).
+En caso de que en vez de ver el horario quisiese registrarse (3).
 
 ![image](https://user-images.githubusercontent.com/78802315/110343938-48e84f80-802d-11eb-94cf-584ccedb492c.png)
 
@@ -75,7 +63,7 @@ Tendria que rellenar los campos de texto y numeros correspondiente y se le guard
 
 Para iniciar sesion, usamos el nombre y la contraseña. (4)
 
-![image](https://user-images.githubusercontent.com/78802315/110344207-8d73eb00-802d-11eb-9575-57a39b0a84f7.png)
+![image](https://user-images.githubusercontent.com/78802315/111175739-01bc0a80-85a9-11eb-8ae6-b91344cbdb08.png)
 
 Nos redirecciona a esta página donde podemos elegir que queremos hacer dentro ya del la web bajo nuestro nombre.
 
@@ -91,39 +79,50 @@ Igual que aqui en Piscina igual.
 
 En caso de que querer entrar en clases (4.2)
 
-![image](https://user-images.githubusercontent.com/78802315/110344620-f5c2cc80-802d-11eb-9f7e-c62f76d27163.png)
+![image](https://user-images.githubusercontent.com/78802315/111175879-20220600-85a9-11eb-839b-df7444740f1a.png)
 
-Sigue el esquema de sala pero con el pequeño cambio que aqui ya viene el horario establecido de cada clase
+Salen las clases disponibles y deberiamos introducir el nombre de la clase a la que queremos suscribirnos.
 
-![image](https://user-images.githubusercontent.com/78802315/110344722-12f79b00-802e-11eb-8a22-b24f2edb59b1.png)
 
-En caso de que querer entrar en contacto (4.3)
+En caso de que querer entrar en tarifas (4.3)
 
-![image](https://user-images.githubusercontent.com/78802315/110344801-273b9800-802e-11eb-8299-316f683fad02.png)
+![image](https://user-images.githubusercontent.com/78802315/111176084-5069a480-85a9-11eb-9afc-a704f6e0a5cc.png)
 
-Al igual que el contacto al iniciar sesión como invitado, este también indica los datos y los horarios del gym.
+Nos saldrán unos enlaces con los diferentes precios. Al clickar en alguno nos mostraria la lista de usuarios con esa tarifa.
 
-En caso de que querer comprobar tu tarifa (4.4)
-
-![image](https://user-images.githubusercontent.com/78802315/110344928-518d5580-802e-11eb-8abc-0f2d188db9cc.png)
-
-Le redirecciona a una página la cual te indica cual es tu tarifa ese mes dentro del gym. 
-
-En caso de que querer enviar una opinión (4.5)
+En caso de que querer enviar una opinión (4.4)
 
 ![image](https://user-images.githubusercontent.com/78802315/110345063-77b2f580-802e-11eb-91b7-e159e66c939c.png)
 
 Cada usuario podrá escribir su opinión respecto al gimnasio y esta quedara guardada en la base de datos y se unirá a la lista de opiniones de todos los usuarios. Las cuales se muestras abajo.
 
+En caso de pulsar sobre Usuarios disponibles (4.5) 
 
+![image](https://user-images.githubusercontent.com/78802315/111176335-8870e780-85a9-11eb-869b-8edcdf2d2ebb.png)
 
+Podremos seleccionar cualquier usuario y borrarlo. 
+
+![image](https://user-images.githubusercontent.com/78802315/111176410-9c1c4e00-85a9-11eb-83c0-22e6a1189511.png)
+
+En caso de pulsar sobre Ver mis clases (4.6) 
+
+![image](https://user-images.githubusercontent.com/78802315/111176524-b3f3d200-85a9-11eb-8cb4-45f0b5d0ab3e.png)
+
+Sale una lista con las clases a las que estas inscrito.
+
+En caso de querer crear una clase (4.7)
+
+![image](https://user-images.githubusercontent.com/78802315/111176642-cd951980-85a9-11eb-83d5-24da7c833159.png)
+
+Deberiamos rellenar el formulario y se crearia una sala.
 
 # Diagrama de navegación
 
-![image](https://user-images.githubusercontent.com/78802315/110346155-91087180-802f-11eb-9aca-26e3f71de40a.png)
+![image](https://user-images.githubusercontent.com/78802315/111177727-ce7a7b00-85aa-11eb-9cac-d557a41c405b.png)
 
 # Diagrama de clases
-![image](https://user-images.githubusercontent.com/78802315/110349649-2f4a0680-8033-11eb-8c8c-891e47ae28f0.png)
+
+![image](https://user-images.githubusercontent.com/78802315/111180451-582b4800-85ad-11eb-9c51-f11256c2eeee.png)
 
 # Diagrama Entidad/relacion
 ![image](https://user-images.githubusercontent.com/78802315/110351338-0591df00-8035-11eb-84cf-06178b63a964.png)
