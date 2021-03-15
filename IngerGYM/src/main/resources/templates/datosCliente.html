@@ -1,33 +1,32 @@
 <html>
 
-<body>
+<head>
+	<meta charset="UTF-8"/>
+</head>
 
-	<center><h1>Datos del cliente con id {{cliente.id}}</h1></center>
-	
-	<center><h1>Clases en las que esta apuntada el cliente</h1></center>
-	
+<body>
+	<div align = "center">
+	<h1>Clases en las que esta apuntada el cliente</h1>
 	<ul>
 	{{#clases}}
 		
 		<li>
-		<center><p>Clase: {{tipo}} ---- dia: {{dia}} ---- hora: {{hora}}</p></center>
+		<p>Clase: {{tipo}} ---- dia: {{dia}} ---- hora: {{hora}}</p>
 		</li>
 		
 	{{/clases}}
 	</ul>
 	
-
-<br>
-<center><a href="/usuariosDisponibles">Volver</a></center>
-<br>
-<center><a href="/clientes/{{id}}/darDeBaja">Eliminar usuario</a></center>
-
-</body>
-
-<br>
-
 	
-<form action="/bienvenido" method="get">
-		<center><input type='submit' value='Volver'/></center>
-</form>
+	<br>
+	<a href="/usuariosDisponibles">Volver a usuarios</a>
+	<br>
+	<br>
+	<a href="/clientes/{{id}}/darDeBaja">Eliminar usuario</a>
+	<br>
+	<br>
+	<form action="/bienvenido" method="get">
+			<input type='submit' value='Volver a inicio'/>
+	</form>
+</body>
 </html>

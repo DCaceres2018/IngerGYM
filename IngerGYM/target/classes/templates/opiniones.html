@@ -5,14 +5,15 @@
 
 
 <body>
-	
+	<div align = "center"> 
 	<br>
 	<form action="/opiniones/opinionEnviada" method="get">
 	
-		<center><p>Comentario a realizar:</p></center>
-		<center><textarea name='opinion' rows=5 cols=40></textarea></center>
+		<p>Comentario a realizar:</p>
+		<textarea name='opinion' rows=5 cols=40></textarea>
 		<br>
-		<center><input type='submit' value='Save'/></center>
+		<br>
+		<input type='submit' value='Save'/>
 	</form>
 	
 <br>
@@ -25,7 +26,7 @@
 	{{#opinionesDisponibles}}
 		
 		<li>
-		<p> ---- Comentario: {{comentario}}</p>
+		<p> Comentario: {{comentario}}</p>
 		</li>
 		
 	{{/opinionesDisponibles}}
@@ -34,7 +35,7 @@
 	<br>
 	
 	<form action="/bienvenido" method="get">
-		<center><input type='submit' value='Volver'/></center>
+		<input type='submit' value='Volver'/>
 	</form>
 
 </body>

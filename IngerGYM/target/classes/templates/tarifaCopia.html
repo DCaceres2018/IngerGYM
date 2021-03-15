@@ -5,19 +5,20 @@
 	<meta charset="UTF-8"/>
 </head>
 <body>
-	<center><h1>Usuarios de esta tarifa:</h1></center>
+	<div align = "center">
+	<h1>Usuarios de esta tarifa:</h1>
 	<br>
 	
-	<center><p>Precios y tarifas:</p></center>
+	<p>Precios y tarifas:</p>
 	
 	{{#clientes}}
-	<center><p>{{usuario}}</p> </center><br><br>
+	<p>{{usuario}}</p> <br><br>
 	{{/clientes}}
 	
-</body>
 
-<br>
-<form action="/bienvenido" method="get">
-		<center><input type='submit' value='Volver'/></center>
+	<br>
+	<form action="/tarifa" method="post">
+		<input type='submit' value='Volver'/>
 	</form>
+</body>
 </html>

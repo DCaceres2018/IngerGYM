@@ -5,13 +5,9 @@
 
 
 <body>
-	
+	<div align = "center">	
 	<br>
-	
-<br>
-<br>
-<br>
-<br>
+	<br>
 
 	<p>Clases disponibles:</p>
 	<ul>
@@ -23,17 +19,19 @@
 		
 	{{/clasesDisponibles}}
 	</ul>
-	
-	<form action="suscribirse" method="post">
-		<br/>
-		<p>Indique el nombre de la clase a la que quiere inscribirse: </p>
-		<center><input type='text' name='nombres'/></center>
-		<br>
-		<center><input type='submit' value='Suscribirse'/></center>
-</form>
 	<br>
-<form action="/bienvenido" method="get">
-		<center><input type='submit' value='Volver'/></center>
+	<form action="suscribirse" method="post">
+		<br>
+		<br>
+		<p>Indique el nombre de la clase a la que quiere inscribirse: </p>
+		<input type='text' name='nombres'/>
+		<br>
+		<br>
+		<input type='submit' value='Suscribirse'/>
+	</form>
+		<br>
+	<form action="/bienvenido" method="get">
+		<input type='submit' value='Volver'/>
 	</form>
 </body>
 </html>
