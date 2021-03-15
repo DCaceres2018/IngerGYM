@@ -1,7 +1,7 @@
 # IngerGYM
 
+![image](https://user-images.githubusercontent.com/78802315/111182794-90cc2100-85af-11eb-8592-9eb71d1e0eaa.png)
 
-Nombre: "IngerGYM"
 
 # Descripción
 La aplicación web simularia la gestión de un gimnasio y brindaría la oportunidad de elegir a sus clientes los horarios y las clases a las que quieren acceder respetando las medidas de aforo y sanidad impuestas. 
@@ -125,7 +125,9 @@ Deberiamos rellenar el formulario y se crearia una sala.
 ![image](https://user-images.githubusercontent.com/78802315/111180451-582b4800-85ad-11eb-9c51-f11256c2eeee.png)
 
 # Diagrama Entidad/relacion
-![image](https://user-images.githubusercontent.com/78802315/110351338-0591df00-8035-11eb-84cf-06178b63a964.png)
+
+![image](https://user-images.githubusercontent.com/78802315/111182770-89a51300-85af-11eb-9402-dd9539f37810.png)
+
 
 
 
