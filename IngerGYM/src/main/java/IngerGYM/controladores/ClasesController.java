@@ -109,6 +109,7 @@ public class ClasesController {
 	@GetMapping("/crear")
 	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora){
 		
+		
 		int n=servicioClientes.posSala(nombreSala);
 		if(n==-1) {
 			return "bienvenido";
