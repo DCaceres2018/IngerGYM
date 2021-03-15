@@ -3,10 +3,22 @@
 <body>
 
 	<center><h1>Datos del cliente con id {{cliente.id}}</h1></center>
+	
 	<center><h1>Clases en las que esta apuntada el cliente</h1></center>
+	
+	<ul>
+	{{#clases}}
+		
+		<li>
+		<center><p>Clase: {{tipo}} ---- dia: {{dia}} ---- hora: {{hora}}</p></center>
+		</li>
+		
+	{{/clases}}
+	</ul>
+	
+
 <br>
 <center><a href="/usuariosDisponibles">Volver</a></center>
-
 <br>
 <center><a href="/clientes/{{id}}/darDeBaja">Eliminar usuario</a></center>
 

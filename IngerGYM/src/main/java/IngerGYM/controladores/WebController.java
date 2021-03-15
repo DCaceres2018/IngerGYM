@@ -34,9 +34,6 @@ public class WebController {
 	@Autowired
 	private ServicioTarifas servicioTarifas;
 	
-	@Autowired
-	private ServicioClases servicioClases;
-	
 	@PostConstruct
 	public void init() {
 		
@@ -86,6 +83,7 @@ public class WebController {
 	public String mostrarUsuario(Model model, @PathVariable long id) {
 
 		model.addAttribute("cliente",servicioCliente.findById(id));
+		model.addAttribute("clases",servicioCliente.findById(id).getClases());
 		
 		return "datosCliente";
 	}
