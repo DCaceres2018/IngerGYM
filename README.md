@@ -45,7 +45,7 @@ github: CarlosMbp
 
 Pantalla principal (1).
 
-![image](https://user-images.githubusercontent.com/78802315/111175453-ba357e80-85a8-11eb-9371-9d9a89ac375f.png)
+![image](https://user-images.githubusercontent.com/78802315/111185320-22d52900-85b2-11eb-90c7-adc2b27ebf1e.png)
 
 En esta pestaña un usuario puede decidir si ver horario, registrarse o iniciar con su usuario y contraseña.
 
@@ -63,7 +63,7 @@ Tendria que rellenar los campos de texto y numeros correspondiente y se le guard
 
 Para iniciar sesion, usamos el nombre y la contraseña. (4)
 
-![image](https://user-images.githubusercontent.com/78802315/111175739-01bc0a80-85a9-11eb-8ae6-b91344cbdb08.png)
+![image](https://user-images.githubusercontent.com/78802315/111185534-5ca62f80-85b2-11eb-8838-5dfc49993669.png)
 
 Nos redirecciona a esta página donde podemos elegir que queremos hacer dentro ya del la web bajo nuestro nombre.
 
