@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.ComponenteCliente;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.servicios.ServicioClases;
@@ -22,6 +23,9 @@ import IngerGYM.servicios.ServicioClientes;
 @Controller
 public class ClasesController {
 
+	@Autowired
+	private ComponenteCliente userComponent;
+	
 	@Autowired
 	private RepositorioClientes repositorio;
 	
@@ -36,7 +40,6 @@ public class ClasesController {
 		
 		List<Clases> clases= servicioClases.findAll();
 		List<Clases> copia= new ArrayList();
-		
 		
 		for(Clases clase: clases) {
 			if(!clase.getProfesor().equals("null")) {
@@ -54,7 +57,6 @@ public class ClasesController {
 		List<Clases> clases= servicioClases.findAll();
 		List<Clases> copia= new ArrayList();
 		
-		
 		for(Clases clase: clases) {
 			if(!clase.getProfesor().equals("null")) {
 				copia.add(clase);
@@ -69,9 +71,11 @@ public class ClasesController {
 	@PostMapping("/suscribirse")
 	public String suscribirse(@RequestParam String nombres,HttpSession sesion){
 		
+		Cliente cliente = userComponent.getLoggedUser();
+		/*
 		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
 		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
-		
+		*/
 		int n=servicioClientes.posClase(nombres);
 		Clases clase=servicioClientes.getClase(n);
 		cliente.addClase(clase);
@@ -92,17 +96,17 @@ public class ClasesController {
 	@PostMapping("/verClases")
 	public String verClases(Model model,HttpSession sesion){
 		
-		
+		Cliente cliente = userComponent.getLoggedUser();
+		/*
 		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
 		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
-		
+		*/
+
 		List<Clases> clases= cliente.getClases();
-		
-		
+	
 		model.addAttribute("clases",clases);
 		
 		return "verClases";
-		
 	}
 	
 	

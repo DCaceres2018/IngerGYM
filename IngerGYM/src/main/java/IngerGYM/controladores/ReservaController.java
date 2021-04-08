@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.ComponenteCliente;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
@@ -24,7 +25,8 @@ public class ReservaController {
 
 	@Autowired
 	private ServicioClientes servicioCliente;
-	
+	@Autowired
+	private ComponenteCliente userComponent;
 	@Autowired
 	private RepositorioClases cl;
 	@Autowired
@@ -35,9 +37,10 @@ public class ReservaController {
 	@PostMapping("/reservarPiscina")
 	public String reservarPiscina(Model model,@RequestParam int dia,@RequestParam int hora,HttpSession sesion){
 		
-		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= userComponent.getLoggedUser();
+		/*Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
 		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
-		
+		*/
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;
@@ -73,9 +76,10 @@ public class ReservaController {
 	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora,HttpSession sesion)
 	{
 		
-		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= userComponent.getLoggedUser();
+		/*Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
 		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
-		
+		*/
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;

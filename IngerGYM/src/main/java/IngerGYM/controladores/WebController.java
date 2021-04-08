@@ -14,11 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import IngerGYM.entidades.Cliente;
+import IngerGYM.entidades.ComponenteCliente;
 import IngerGYM.entidades.Tarifa;
-import IngerGYM.servicios.ServicioClases;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
 import IngerGYM.servicios.ServicioTarifas;
@@ -48,17 +47,7 @@ public class WebController {
 	@GetMapping("/login")
 	//public String login(Model model, @RequestParam String usuario, @RequestParam String contrasena, HttpSession sesion) {
 	public String login() {
-	 /*
-		//Comprobamos que existe
-		Cliente clienteActual=servicioCliente.findByNombre(usuario);
-		if (clienteActual!=null) {
-			sesion.setAttribute("usuarioActual", clienteActual);
-			sesion.setAttribute("nombreActual", usuario);
-			model.addAttribute("clienteActual",clienteActual);
-			return "bienvenidos";
-		}else {
-			return "index";
-		}*/
+	
 		return "login";
 		
 	}
@@ -77,7 +66,7 @@ public class WebController {
 	}
 	
 	@GetMapping("/usuariosDisponibles")
-	public String listarUsuarios(Model model,HttpSession sesion) {
+	public String listarUsuarios(Model model) {
 	
 		model.addAttribute("clientes",servicioCliente.findAll());
 		

@@ -17,14 +17,16 @@ import IngerGYM.entidades.*;
 public class OpinionController {
 	
 	@Autowired
+	private ComponenteCliente userComponent;
+	@Autowired
 	private ServicioOpiniones servicioOpiniones;
 	@Autowired
 	private ServicioClientes servicioClientes;
 	
 	@GetMapping("/opiniones/opinionEnviada")
-	public String enviarOpinion(Model model,HttpSession sesion,String opinion) {
+	public String enviarOpinion(Model model,String opinion) {
 		
-		Cliente cliente= (Cliente) sesion.getAttribute("usuarioActual");
+		Cliente cliente= userComponent.getLoggedUser();
 		Opinion opinionObjeto= new Opinion(opinion);
 		
 		

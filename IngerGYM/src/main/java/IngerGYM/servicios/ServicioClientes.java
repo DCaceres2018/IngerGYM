@@ -41,15 +41,8 @@ public class ServicioClientes {
 	
 	@PostConstruct
 	public void init() {
-		
-	/*	Cliente admin=new Cliente(true);
-		repositorioClientes.save(admin);
-		
-		
-		Cliente paco=new Cliente("paco","paco@gmail.com",54,"abcd");
-		
-		repositorioClientes.save(paco);
-		
+
+		/*
 		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
 		
 		repositorioClientes.save(jesus);*/
@@ -187,7 +180,7 @@ public class ServicioClientes {
 	public Cliente findByNombre(String nombre){
 		List<Cliente> clientes= this.repositorioClientes.findAll();
 		for(Cliente cliente: clientes) {
-			if(cliente.getUsuario().equals(nombre)) {
+			if(cliente.getName().equals(nombre)) {
 				return cliente;
 			}
 		}
