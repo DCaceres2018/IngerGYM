@@ -42,7 +42,7 @@ public class ServicioClientes {
 	@PostConstruct
 	public void init() {
 		
-		Cliente admin=new Cliente(true);
+	/*	Cliente admin=new Cliente(true);
 		repositorioClientes.save(admin);
 		
 		
@@ -52,7 +52,7 @@ public class ServicioClientes {
 		
 		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
 		
-		repositorioClientes.save(jesus);
+		repositorioClientes.save(jesus);*/
 
 		 Salas piscina=new Salas("Piscina",2);
 		repositorioS.save(piscina);

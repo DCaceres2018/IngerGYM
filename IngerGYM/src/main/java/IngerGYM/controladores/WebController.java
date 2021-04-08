@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +45,10 @@ public class WebController {
 		return "index";
 	}
 	
-	@PostMapping("/login")
-	public String login(Model model, @RequestParam String usuario, @RequestParam String contraseña, HttpSession sesion) {
-	
+	@GetMapping("/login")
+	//public String login(Model model, @RequestParam String usuario, @RequestParam String contrasena, HttpSession sesion) {
+	public String login() {
+	 /*
 		//Comprobamos que existe
 		Cliente clienteActual=servicioCliente.findByNombre(usuario);
 		if (clienteActual!=null) {
@@ -56,18 +58,21 @@ public class WebController {
 			return "bienvenidos";
 		}else {
 			return "index";
-		}
+		}*/
+		return "login";
 		
 	}
 
+    @GetMapping("/loginerror")
+    public String loginerror() {
+    	return "loginerror";
+    }
 	
 	@GetMapping("/bienvenido")
-	public String login(Model model,HttpSession sesion) {
-	
-		Cliente paco=new Cliente("paco","paco@gmail.com",54,"abcd");
+	public String login(Model model,HttpServletRequest request) {
 		
-		model.addAttribute("clientes",paco);
 		
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "bienvenidos";
 	}
 	
@@ -142,8 +147,6 @@ public class WebController {
 				}
 			}
 		}
-		
-		
 		
 		model.addAttribute("clientes",copia);
 		

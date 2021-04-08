@@ -1,4 +1,7 @@
 <html>	
+<head>
+	<meta charset="UTF-8"/>
+</head>
 <body>
 		<div align = "center"> 
 		
@@ -19,29 +22,11 @@
 				
 				<input type='submit' value='CLASES'/>
 		</form>
-		 
-		
-		
-		<form action="tarifa" method="post">
-				<br/>
-				
-				<input type='submit' value='TARIFAS'/>
-		</form>
-		
-		
-			
+		 			
 		<form action="/opiniones" method="get">
 			<br/>
 			
 			<input type='submit' value='OPINIONES'/>
-		</form>
-		
-	
-	
-		<form action="/usuariosDisponibles" method="get">
-			<br/>
-			
-			<input type='submit' value='USUARIOS DISPONIBLES'/>
 		</form>
 		
 	
@@ -51,16 +36,31 @@
 			<input type='submit' value='VER MIS CLASES'/>
 		</form>
 		
+		{{#admin}}
+		<form action="tarifa" method="post">
+			<br/>
+			
+			<input type='submit' value='TARIFAS'/>
+		</form>
+		
+		<form action="/usuariosDisponibles" method="get">
+			<br/>
+			
+			<input type='submit' value='GESTIÓN DE CLIENTES'/>
+		</form>
 			
 		<form action="crearClase.html" method="get">
 				<br/>
 				
 				<input type='submit' value='CREAR CLASE'/>
 		</form>
-		
+		{{/admin}}
 		<br>
 		
-		<a href="/">Desconectarse</a>
+		<form action="/logout" method="post">
+			<input type="submit" value="Desconectar" />
+		</form>
+		
 		</div>
 	
 </body>
