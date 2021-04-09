@@ -26,7 +26,7 @@ public class RegistroController {
 		
 		//Comprobamos si ya existe en la base de datos
 		if(servicioClientes.findByNombre(cliente.getName()) != null) {
-			return ("/registro");
+			return ("/errorRegistro");
 		}else {
 			
 			servicioClientes.save(cliente);
