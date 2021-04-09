@@ -36,7 +36,6 @@ public class WebController {
 	
 	@PostConstruct
 	public void init() {
-		
 	}
 	
 	@GetMapping("/")
@@ -45,7 +44,6 @@ public class WebController {
 	}
 	
 	@GetMapping("/login")
-	//public String login(Model model, @RequestParam String usuario, @RequestParam String contrasena, HttpSession sesion) {
 	public String login() {
 	
 		return "login";
@@ -54,14 +52,15 @@ public class WebController {
 
     @GetMapping("/loginerror")
     public String loginerror() {
+    	
     	return "loginerror";
     }
 	
 	@GetMapping("/bienvenido")
 	public String login(Model model,HttpServletRequest request) {
 		
-		
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
+		
 		return "bienvenidos";
 	}
 	
@@ -98,6 +97,7 @@ public class WebController {
 	
 	@PostMapping("/tarifa")
 	public String tarifa(Model model,HttpSession sesion) {
+		
 		List<Tarifa> tarifas= servicioTarifas.findAll();
 		model.addAttribute("tarifas",tarifas);
 		
@@ -105,10 +105,13 @@ public class WebController {
 	}
 	@GetMapping("/tarifas/{id}")
 	public String tarifa2(Model model,HttpSession sesion,@PathVariable long id) {
+		
 		List<Tarifa> tarifas= servicioTarifas.findAll();
 		List<Cliente> clientes= servicioCliente.findAll();
 		List<Cliente> copia=new ArrayList<>();
+		
 		int edad=0;
+		
 		for(Tarifa f:tarifas) {
 			if(f.getId()==id) {
 				edad=f.getEdad();
