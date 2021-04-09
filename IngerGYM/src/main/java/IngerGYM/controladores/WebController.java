@@ -95,8 +95,8 @@ public class WebController {
 		}
 	}
 	
-	@PostMapping("/tarifa")
-	public String tarifa(Model model,HttpSession sesion) {
+	@GetMapping("/tarifa")
+	public String tarifa(Model model) {
 		
 		List<Tarifa> tarifas= servicioTarifas.findAll();
 		model.addAttribute("tarifas",tarifas);

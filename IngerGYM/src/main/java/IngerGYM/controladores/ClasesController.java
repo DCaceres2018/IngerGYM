@@ -33,7 +33,7 @@ public class ClasesController {
 	@Autowired
 	private ServicioClases servicioClases;
 	
-	@PostMapping("/clase")
+	@GetMapping("/clase")
 	public String mostrarClases(Model model){
 		
 		List<Clases> clases= servicioClases.findAll();
@@ -49,7 +49,7 @@ public class ClasesController {
 		return "clase";	
 	}
 	
-	@PostMapping("/horario")
+	@GetMapping("/horario")
 	public String horario(Model model) {
 
 		List<Clases> clases= servicioClases.findAll();
@@ -89,7 +89,7 @@ public class ClasesController {
 		
 	}
 	
-	@PostMapping("/verClases")
+	@GetMapping("/verClases")
 	public String verClases(Model model){
 		
 		Cliente clienteID = userComponent.getLoggedUser();

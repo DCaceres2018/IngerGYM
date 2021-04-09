@@ -8,52 +8,39 @@
 		<h1>Bienvenido a IngerGYM</h1>
 		
 		<img src="/images/logoPrincipal.png" width="308" height="185"/> 
-	
-	
-		<form action="salas" method="post">
-				<br/>
-				
-				<input type='submit' value='SALAS'/>
-		</form>
+		
+		<br>
+		<button onclick="location.href='/salas'">SALAS</button>
+		<br/>
+		
+		<br>
+		<button onclick="location.href='/clase'">CLASES</button>
+		<br>
+		<br>
+		<button onclick="location.href='/opiniones'">OPINIONES</button>
 		
 		
-		<form action="clase" method="post">
-				<br/>
-				
-				<input type='submit' value='CLASES'/>
-		</form>
-		 			
-		<form action="/opiniones" method="get">
-			<br/>
-			
-			<input type='submit' value='OPINIONES'/>
-		</form>
+		<br/>
+		<br>
+		<button onclick="location.href='/verClases'">VER MIS CLASES</button>
 		
-	
-		<form action="/verClases" method="post">
-			<br/>
-			
-			<input type='submit' value='VER MIS CLASES'/>
-		</form>
-		
+		<br>
+		<br>
+
 		{{#admin}}
-		<form action="tarifa" method="post">
-			<br/>
-			
-			<input type='submit' value='TARIFAS'/>
-		</form>
 		
-		<form action="/usuariosDisponibles" method="get">
-			<br/>
-			
-			<input type='submit' value='GESTIÓN DE CLIENTES'/>
-		</form>
-			
-		<form action="crearClase.html" method="get">
-				<br/>
-				
-				<input type='submit' value='CREAR CLASE'/>
-		</form>
+		<button onclick="location.href='/tarifa'">TARIFAS</button>
+		
+		<br>
+		<br>
+		
+		<button onclick="location.href='/usuariosDisponibles'">GESTIÓN DE CLIENTES</button>
+		
+		<br>
+		<br>
+		
+		<button onclick="location.href='/crearClase.html'">CREAR CLASE</button>
+		<br>
 		{{/admin}}
 		<br>
 		
