@@ -3,8 +3,6 @@ package IngerGYM.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,13 +67,11 @@ public class ClasesController {
 	}
 	
 	@PostMapping("/suscribirse")
-	public String suscribirse(@RequestParam String nombres,HttpSession sesion){
+	public String suscribirse(@RequestParam String nombres){
 		
-		Cliente cliente = userComponent.getLoggedUser();
-		/*
-		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
-		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
-		*/
+		long id = userComponent.getLoggedUser().getId();
+		Cliente cliente= servicioClientes.findById(id);
+		
 		int n=servicioClientes.posClase(nombres);
 		Clases clase=servicioClientes.getClase(n);
 		cliente.addClase(clase);
@@ -94,29 +90,23 @@ public class ClasesController {
 	}
 	
 	@PostMapping("/verClases")
-	public String verClases(Model model,HttpSession sesion){
+	public String verClases(Model model){
 		
-		Cliente cliente = userComponent.getLoggedUser();
-		/*
-		Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
-		Cliente cliente= servicioClientes.findById(usuarioActual.getId());
-		*/
-
+		Cliente clienteID = userComponent.getLoggedUser();
+		Cliente cliente= servicioClientes.findById(clienteID.getId());
+		
 		List<Clases> clases= cliente.getClases();
-	
 		model.addAttribute("clases",clases);
 		
 		return "verClases";
 	}
 	
-	
 	@GetMapping("/crear")
 	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora){
 		
-		
 		int n=servicioClientes.posSala(nombreSala);
 		if(n==-1) {
-			return "bienvenido";
+			return "errorCrearClase";
 		}
 		
 		Salas sala=servicioClientes.getSala(n);

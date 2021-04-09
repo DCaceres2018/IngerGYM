@@ -10,6 +10,5 @@ import IngerGYM.entidades.Tarifa;
 @Repository
 public interface RepositorioTarifa extends JpaRepository<Tarifa, Long> {
 	
-	
 	Tarifa findById(long id);
 }

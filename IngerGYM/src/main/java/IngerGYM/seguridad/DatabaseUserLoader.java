@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import IngerGYM.entidades.Cliente;
 import IngerGYM.repositorios.RepositorioClientes;
 
-
 @Component
 public class DatabaseUserLoader {
 

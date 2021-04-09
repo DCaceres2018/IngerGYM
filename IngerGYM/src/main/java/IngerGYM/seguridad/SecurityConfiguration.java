@@ -41,7 +41,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/zumba").hasAnyRole("USER");
         http.authorizeRequests().antMatchers("/aquagym").hasAnyRole("USER");
         
-        
         /*---------------ADMIN PAGES-------------*/
         http.authorizeRequests().antMatchers("/tarifa").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers("/tarifa/{id}").hasAnyRole("ADMIN");
@@ -67,18 +66,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	
-    	// Enable default password encoder (mandatory since Spring Security 5 to avoid storing passwords in plain text)
-    	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        
-    
-       //auth.inMemoryAuthentication().withUser("user").password(encoder.encode("pass")).roles("USER");
-        //auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("pass")).roles("USER", "ADMIN");
-    	
-        
-        // Database authentication provider
-        auth.authenticationProvider(userRepoAuthProvider);
+    protected void configure(AuthenticationManagerBuilder auth) 
+    		throws Exception {
+        		auth.authenticationProvider(userRepoAuthProvider);
     }
 
 }

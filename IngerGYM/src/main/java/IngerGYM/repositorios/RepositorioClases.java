@@ -7,6 +7,5 @@ import IngerGYM.entidades.Clases;
 @Repository
 public interface RepositorioClases extends JpaRepository<Clases, Long> {
 	
-	
 	Clases findById(long id);
 }

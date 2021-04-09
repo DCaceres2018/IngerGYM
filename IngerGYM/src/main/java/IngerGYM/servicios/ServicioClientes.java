@@ -33,19 +33,8 @@ public class ServicioClientes {
 	@Autowired
 	private RepositorioClases repositorioCl;
 	
-	@Autowired
-	private RepositorioTarifa repositorioTarifa;
-	
-	@Autowired
-	private RepositorioOpiniones repositorioOp;
-	
 	@PostConstruct
 	public void init() {
-
-		/*
-		Cliente jesus=new Cliente("jesus","co@gmail.com",54,"abcd");
-		
-		repositorioClientes.save(jesus);*/
 
 		 Salas piscina=new Salas("Piscina",2);
 		repositorioS.save(piscina);
@@ -56,10 +45,8 @@ public class ServicioClientes {
 		Salas comun=new Salas("Zumba",50);
 		repositorioS.save(comun);
 		
-		
-		
-		
 		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
+		
 		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,17);
 		repositorioCl.save(AquaGym);
 		Clases NadoLibre=new Clases(piscina,"Juan","NadoLibre",5,12);
@@ -76,6 +63,7 @@ public class ServicioClientes {
 	}
 	
 	public boolean reservarPiscina(int d,int h) {
+		
 		if(Nado.hayHueco(d,h)==true) {
 			Nado.cogeAforo(d,h);
 			return true;
@@ -86,6 +74,7 @@ public class ServicioClientes {
 	}
 	
 	public boolean reservarGimnasio(int d,int h) {
+		
 		if(Gym.hayHueco(d,h)==true) {
 			Gym.cogeAforo(d,h);
 			return true;
@@ -96,6 +85,7 @@ public class ServicioClientes {
 	}	
 	
 	public int getPlazasZumba() {
+		
 		int d=1;
 		int h=8;
 		
@@ -103,6 +93,7 @@ public class ServicioClientes {
 	} 
 	
 	public int getPlazasAquagym() {
+		
 		int d=3;
 		int h=7;
 		
@@ -111,6 +102,7 @@ public class ServicioClientes {
 	
 	
 	public Salas getSala(int numero) {
+		
 		List <Salas> listaSala=repositorioS.findAll();
 		Salas sala=listaSala.get(numero);
 		return sala;
@@ -119,12 +111,12 @@ public class ServicioClientes {
 	public void guardarClase(Clases clase) {
 		
 		repositorioCl.save(clase);
-
 	}
 
 	public int posSala(String nombre) {
 		
 		List <Salas> listaSala=repositorioS.findAll();
+		
 		boolean encontrado=false;
 		int pos=0;
 		for(Salas sala : listaSala) {
@@ -143,6 +135,7 @@ public class ServicioClientes {
 	}
 	
 	public Clases getClase(int numero) {
+		
 		List <Clases> listaClase=repositorioCl.findAll();
 		Clases clase=listaClase.get(numero);
 		return clase;
@@ -170,14 +163,17 @@ public class ServicioClientes {
 	
 
 	public List<Cliente> findAll(){
+		
 		return repositorioClientes.findAll();
 	}
 	
 	public Cliente findById(long id){
+		
 		return repositorioClientes.findById(id);
 	}
 	
 	public Cliente findByNombre(String nombre){
+		
 		List<Cliente> clientes= this.repositorioClientes.findAll();
 		for(Cliente cliente: clientes) {
 			if(cliente.getName().equals(nombre)) {
@@ -189,12 +185,12 @@ public class ServicioClientes {
 	}
 	
 	public void save(Cliente usuario) {
+		
 		repositorioClientes.save(usuario);
 	}
 	
 	public void deleteById(long id) {
+		
 		repositorioClientes.deleteById(id);
 	}
-
-	
 }

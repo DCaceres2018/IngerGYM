@@ -12,20 +12,23 @@ public class ServicioClases {
 	@Autowired
 	private RepositorioClases repositorioClases;
 	
-	
 	public List<Clases> findAll(){
+		
 		return repositorioClases.findAll();
 	}
 	
 	public Clases findById(long id){
+		
 		return repositorioClases.findById(id);
 	}
 	
 	public void save(Clases clase) {
+		
 		repositorioClases.save(clase);
 	}
 	
 	public void deleteById(long id) {
+		
 		repositorioClases.deleteById(id);
 	}
 

@@ -23,22 +23,24 @@ public class ServicioTarifas {
 		Tarifa tarifa1=new Tarifa(1);
 		Tarifa tarifa2=new Tarifa(27);
 		Tarifa tarifa3=new Tarifa(67);
-		
-		Cliente cliente= new Cliente("andres","paco@gmail.com",54,"abcd");
+
 		repositorioTarifa.save(tarifa2);
 		repositorioTarifa.save(tarifa1);
 		repositorioTarifa.save(tarifa3);
 	}
 	
 	public List<Tarifa> findAll(){
+		
 		return repositorioTarifa.findAll();
 	}
 	
 	public Tarifa findById(long id){
+		
 		return repositorioTarifa.findById(id);
 	}
 	
 	public void save(Tarifa tarifa) {
+		
 		repositorioTarifa.save(tarifa);
 	}
 	

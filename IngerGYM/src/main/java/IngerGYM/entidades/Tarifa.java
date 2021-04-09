@@ -43,34 +43,42 @@ public class Tarifa {
 	}
 	
 	public int getEdad() {
+		
 		return edad;
 	}
 
 	public void setEdad(int edad) {
+		
 		this.edad = edad;
 	}
 
 	public int getPrecio() {
+		
 		return precio;
 	}
 
 	public void setPrecio(int precio) {
+		
 		this.precio = precio;
 	}
 		
 	public List<Cliente> getClientes() {
+		
 		return clientes;
 	}
 
 	public void setClientes(List<Cliente> clientes) {
+		
 		this.clientes = clientes;
 	}
 	
 	public long getId() {
+		
 		return id;
 	}
 
 	public void setId(long id) {
+		
 		this.id = id;
 	}
 }

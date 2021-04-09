@@ -35,12 +35,11 @@ public class ReservaController {
 	private RepositorioClientes repo;
 	
 	@PostMapping("/reservarPiscina")
-	public String reservarPiscina(Model model,@RequestParam int dia,@RequestParam int hora,HttpSession sesion){
+	public String reservarPiscina(Model model,@RequestParam int dia,@RequestParam int hora){
 		
-		Cliente cliente= userComponent.getLoggedUser();
-		/*Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
-		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
-		*/
+		long id= userComponent.getLoggedUser().getId();
+		Cliente cliente= servicioCliente.findById(id);
+		
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;
@@ -53,7 +52,7 @@ public class ReservaController {
 				break;
 			}
 		}
-		
+	
 		Clases aux=new Clases(s,"null","PiscinaLibre",d,hora);
 		boolean hay=servicioCliente.reservarPiscina(dia, h);
 		if(hay==true) {
@@ -61,25 +60,21 @@ public class ReservaController {
 			cl.save(aux);
 			cliente.addClase(aux);
 			repo.save(cliente);
-			//cl.delete(aux);
 			
 			return "ReservaRealizada";
 		}
 		else {
 			return "AforoTope";
 		}
-		
-		//cl.delete(aux);
 	}
 
 	@PostMapping("/reservarGimnasio")
-	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora,HttpSession sesion)
-	{
+	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora,HttpSession sesion){
 		
-		Cliente cliente= userComponent.getLoggedUser();
-		/*Cliente usuarioActual= (Cliente) sesion.getAttribute("usuarioActual");
-		Cliente cliente= servicioCliente.findById(usuarioActual.getId());
-		*/
+		long id= userComponent.getLoggedUser().getId();
+		Cliente cliente= servicioCliente.findById(id);
+		
+		
 		Salas s=new Salas();
 		int d=dia;
 		int h=hora-9;
@@ -100,14 +95,13 @@ public class ReservaController {
 			cl.save(aux);
 			cliente.addClase(aux);
 			repo.save(cliente);
-			//cl.delete(aux);
-			
+		
 			return "ReservaRealizada";
 		}
 		else {
+			
 			return "AforoTope";
 		}
-		
-		//cl.delete(aux);
+
 	}
 }

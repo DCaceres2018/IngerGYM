@@ -7,7 +7,6 @@ import IngerGYM.entidades.Opinion;
 
 @Repository
 public interface RepositorioOpiniones extends JpaRepository<Opinion, Long> {
-	
-	
+
 	Opinion findById(long id);
 }

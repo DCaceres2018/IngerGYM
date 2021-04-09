@@ -12,8 +12,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class Opinion {
 	
-	//Nos ayudará para las templates aunque es un poco redundante
-	private String nombreUsuario;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -22,26 +20,25 @@ public class Opinion {
 	private Cliente cliente;
 	
 	public Cliente getCliente() {
+		
 		return cliente;
 	}
 
 	public void setCliente(Cliente cliente) {
+		
 		this.cliente = cliente;
 	}
 
-
-
-	//private ServicioClientes servicio;
 	private String comentario;
 
 	public Opinion() {
-
+		
 	}
 
 	public Opinion(String comentario) {
+		
 		super();
 		this.comentario = comentario;
-		
 	}
 
 	public long getId() {
@@ -49,23 +46,28 @@ public class Opinion {
 	}
 
 	public void setId(long id) {
+		
 		this.id = id;
 	}
 
 	public String getComentario() {
+		
 		return comentario;
 	}
 
 	public void setComentario(String comentario) {
+		
 		this.comentario = comentario;
 	}
 
 	public long getIdCliente() {
+		
 		return this.cliente.getId();
 	}
 
 	@Override
 	public String toString() {
+		
 		return "Opinion [cliente=, comentario=" + comentario + "]";
 	}
 }
