@@ -39,12 +39,13 @@
 		<br>
 		<br>
 		
-		<button onclick="location.href='/crearClase.html'">CREAR CLASE</button>
+		<button onclick="location.href='/crearClase'">CREAR CLASE</button>
 		<br>
 		{{/admin}}
 		<br>
 		
 		<form action="/logout" method="post">
+			<input type="hidden" name="_csrf" value="{{token}}"/>
 			<input type="submit" value="Desconectar" />
 		</form>
 		
@@ -52,3 +53,4 @@
 	
 </body>
 </html>
+

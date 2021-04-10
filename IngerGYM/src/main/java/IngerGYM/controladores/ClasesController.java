@@ -3,7 +3,10 @@ package IngerGYM.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +37,7 @@ public class ClasesController {
 	private ServicioClases servicioClases;
 	
 	@GetMapping("/clase")
-	public String mostrarClases(Model model){
+	public String mostrarClases(Model model, HttpServletRequest request){
 		
 		List<Clases> clases= servicioClases.findAll();
 		List<Clases> copia= new ArrayList();
@@ -46,6 +49,8 @@ public class ClasesController {
 		}
 		
 		model.addAttribute("clasesDisponibles",copia);
+    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+    	model.addAttribute("token", token.getToken());
 		return "clase";	
 	}
 	
@@ -101,7 +106,7 @@ public class ClasesController {
 		return "verClases";
 	}
 	
-	@GetMapping("/crear")
+	@GetMapping("/comprobarCrear")
 	public String crear(@RequestParam String nombreSala, @RequestParam String prof, @RequestParam String tipo,@RequestParam int dia,@RequestParam int hora){
 		
 		int n=servicioClientes.posSala(nombreSala);
@@ -114,6 +119,16 @@ public class ClasesController {
 		servicioClientes.guardarClase(a);
 		
 		return "claseCreada";
-
 	}
+	
+	@GetMapping("/crearClase")
+	public String crearClase(Model model, HttpServletRequest request){
+		
+    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+    	model.addAttribute("token", token.getToken());  
+
+		
+		return "crearClase";
+	}
+	
 }

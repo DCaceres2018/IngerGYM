@@ -2,11 +2,14 @@ package IngerGYM.controladores;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -69,11 +72,10 @@ public class ReservaController {
 	}
 
 	@PostMapping("/reservarGimnasio")
-	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora,HttpSession sesion){
+	public String reservarGimnasio(@RequestParam int dia,@RequestParam int hora){
 		
 		long id= userComponent.getLoggedUser().getId();
 		Cliente cliente= servicioCliente.findById(id);
-		
 		
 		Salas s=new Salas();
 		int d=dia;
@@ -94,14 +96,32 @@ public class ReservaController {
 		
 			cl.save(aux);
 			cliente.addClase(aux);
-			repo.save(cliente);
-		
+			repo.save(cliente);			
+			
 			return "ReservaRealizada";
 		}
 		else {
 			
 			return "AforoTope";
-		}
-
+		}  
+		
 	}
+	
+	@GetMapping("/gimnasio")
+	public String gimnasio(Model model,HttpServletRequest request) {
+
+    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+    	model.addAttribute("token", token.getToken()); 
+		return "gimnasio";
+	}
+	
+	@GetMapping("/piscina")
+	public String piscina (Model model,HttpServletRequest request) {
+
+    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+    	model.addAttribute("token", token.getToken()); 
+		return "piscina";
+	}
+	
+	
 }

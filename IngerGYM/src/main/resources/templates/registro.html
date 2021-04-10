@@ -1,5 +1,9 @@
 
 <html>
+<head>
+	<meta charset="UTF-8"/>
+</head>
+
 <body>
 
 	<div align = "center"> 
@@ -16,13 +20,14 @@
 		<p>Edad:</p>
 		<input type='number' name='edad' required/>
 		
-		<p>Contraseña:</p>
+		<p>ContraseÃ±a:</p>
 		<input type='password' name='passwordHash' required/>
 		
 		
 		<br>
 		<br>
 		<input type='submit' value='Guardar'/>
+		<input type="hidden" name="_csrf" value="{{token}}"/>
 	</form>
 	
 	

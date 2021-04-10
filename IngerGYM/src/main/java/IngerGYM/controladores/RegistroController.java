@@ -1,7 +1,12 @@
 package IngerGYM.controladores;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,6 +35,15 @@ public class RegistroController {
 			
 		}
 	}
+	
+    @GetMapping("/areaRegistro")
+    public String areaRegistro(Model model, HttpServletRequest request) {
+    	
+    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+    	model.addAttribute("token", token.getToken());  
+    	
+    	return "registro";
+    }
 }
 
 
