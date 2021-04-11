@@ -23,6 +23,8 @@ import IngerGYM.servicios.ServicioClientes;
 
 @Controller
 public class ClasesController {
+	@Autowired
+	private MailService mail;
 
 	@Autowired
 	private ComponenteCliente userComponent;
@@ -89,6 +91,10 @@ public class ClasesController {
 		if(clase.getName().equals("Gym")) {
 			servicioClientes.reservarGimnasio(clase.getDia(), clase.getHora());
 		}
+		String texto="Su reserva para la clase '"+nombres+"' se ha realizado para el día"+clase.getDia()+" a las "+clase.getHora()+".\nLe esperamos. Muchas gracias";
+		Message m=new Message(cliente.getEmail(),"Reserva clase "+nombres,texto);
+		mail.sendMail(m);
+		servicioClientes.save(cliente);
 		
 		return "ReservaRealizada";
 		

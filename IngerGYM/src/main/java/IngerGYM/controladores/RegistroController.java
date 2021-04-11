@@ -15,6 +15,8 @@ import IngerGYM.entidades.*;
 
 @Controller
 public class RegistroController {
+	@Autowired 
+	private MailService mail;
 
 	@Autowired
 	private ServicioClientes servicioClientes;
@@ -29,7 +31,9 @@ public class RegistroController {
 			return ("/errorRegistro");
 	
 		}else {
-			
+			String texto="Su registro con el nombre de usuario:"+name+" ha sido un éxito, ya puede disfrutar de IngerGym. Muchas gracias";
+			Message m=new Message(email,"Registro completado en IngerGYM",texto);
+			mail.sendMail(m);
 			servicioClientes.save(cliente);
 			return "usuarioRegistrado";	
 			
