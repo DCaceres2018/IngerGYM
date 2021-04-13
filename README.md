@@ -158,7 +158,7 @@ Antes que nada comprobaremos que todos los paquetes de nuestro sistema están ac
 `sudo apt update`
 `sudo apt upgrade`
 
-##Java 11 :package:
+## Java 11 :package:
 
 Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro terminal.
 `sudo apt install openjdk-11-jdk`
@@ -166,7 +166,7 @@ Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro
 Podremos comprobar que se ha instalado correctamente la versión.
 `java -version`
 
-##Instalación de MySQL server :package:
+## Instalación de MySQL server :package:
 
 -Para ello ejecutaremos el siguiente comando en nuestra terminal.
 `sudo apt install mysql-server  `
@@ -199,7 +199,7 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 -En el menú superior crearemos un esquema (“Create a new schema in the connected server”) cuyo nombre en este caso será ‘posts’.
 
-##Despliegue de la aplicación 🚀
+## Despliegue de la aplicación 🚀
 
 -En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando:
 `Git clone https://github.com/DCaceres2018/IngerGYM.git`
