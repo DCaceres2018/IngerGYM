@@ -3,10 +3,10 @@
 ![image](https://user-images.githubusercontent.com/78802315/111182794-90cc2100-85af-11eb-8592-9eb71d1e0eaa.png)
 
 
-# Descripción
+## Descripción
 La aplicación web simularia la gestión de un gimnasio y brindaría la oportunidad de elegir a sus clientes los horarios y las clases a las que quieren acceder respetando las medidas de aforo y sanidad impuestas. 
 
-# Temática: 
+## Temática: 
 
 Debido a las reestricciones por el covid y la limitación de aforo, una aplicación web para el control de las salas y las clases de un gimnasio. 
 - Públicas:
@@ -15,7 +15,7 @@ Ver horarios de clases, como contactar con el gimnasio, ver tarifas , inscribirt
 - Privadas:
 Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver profesores/monitores, ver pistas disponibles, darte de baja.
 
-# Entidades:
+## Entidades:
 
 - PERSONA(id VARCHAR2(25), contraseña VARCHAR2(25),edad NUMBER(2),situacion_Laboral VARCHAR2(25),Rol VARCHAR2(25),Tarifa VARCHAR2(25));
 
@@ -30,10 +30,10 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 - Tarifa(edad NUMBER(2),precio NUMBER(2),id VARCHAR2(25));
 (Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
 
-# Funcionalidad de servicio interno:
+## Funcionalidad de servicio interno:
 El servicio interno se encarga enviar por correo las confirmaciones de registro y de reserva de clases. 
 
-# Integrantes
+## Integrantes
 - Daniel Cáceres González; d.caceres.2018@alumnos.urjc.es
 github: DCaceres2018
 
@@ -41,7 +41,7 @@ github: DCaceres2018
 github: CarlosMbp
 
 
-# Imágenes de las pantallas principales
+### Imágenes de las pantallas principales
 
 Pantalla principal (1).
 
@@ -122,15 +122,15 @@ En caso de querer crear una clase (4.7)
 
 Deberiamos rellenar el formulario y se crearia una sala.
 
-# Diagrama de navegación
+### Diagrama de navegación
 
 ![image](https://user-images.githubusercontent.com/78802315/111177727-ce7a7b00-85aa-11eb-9cac-d557a41c405b.png)
 
-# Diagrama de clases
+### Diagrama de clases
 
 ![image](https://user-images.githubusercontent.com/78802315/111180451-582b4800-85ad-11eb-9c51-f11256c2eeee.png)
 
-# Diagrama Entidad/relacion
+### Diagrama Entidad/relacion
 
 ![image](https://user-images.githubusercontent.com/78802315/111182770-89a51300-85af-11eb-9402-dd9539f37810.png)
 
@@ -148,7 +148,7 @@ Y los templates relacionados con sus respectivos controladores.
 ![ControlladoresTemplates](https://user-images.githubusercontent.com/78802315/114550635-b443c380-9c62-11eb-94da-064f5b9af467.png)
 
 
-# Para el despliegue de la aplicación necesitaremos :computer:
+## Para el despliegue de la aplicación necesitaremos :computer:
 
 -Java 11 (**Muy importante**)
 -MySQL server 9.0.23
@@ -158,7 +158,7 @@ Antes que nada comprobaremos que todos los paquetes de nuestro sistema están ac
 `sudo apt update`
 `sudo apt upgrade`
 
-#Java 11 :package:
+##Java 11 :package:
 
 Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro terminal.
 `sudo apt install openjdk-11-jdk`
@@ -166,7 +166,7 @@ Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro
 Podremos comprobar que se ha instalado correctamente la versión.
 `java -version`
 
-#Instalación de MySQL server :package:
+##Instalación de MySQL server :package:
 
 -Para ello ejecutaremos el siguiente comando en nuestra terminal.
 `sudo apt install mysql-server  `
@@ -199,7 +199,7 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 -En el menú superior crearemos un esquema (“Create a new schema in the connected server”) cuyo nombre en este caso será ‘posts’.
 
-#Despliegue de la aplicación :rocket:
+##Despliegue de la aplicación :rocket:
 
 -En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando:
 `Git clone https://github.com/DCaceres2018/IngerGYM.git`
