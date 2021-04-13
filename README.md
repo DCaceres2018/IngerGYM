@@ -31,7 +31,7 @@ Ver tu propio horario, seleccionar clases, disponibilidad de salas/clases, ver p
 (Se relaciona con persona para poder llevar un control de quien hace sugerencias en este apartado.)
 
 # Funcionalidad de servicio interno:
-El servicio interno se encarga de la gestión del aforo , la reserva de las clases por parte de los usuarios y la aplicación de las tarifas en función del cliente. 
+El servicio interno se encarga enviar por correo las confirmaciones de registro y de reserva de clases. 
 
 # Integrantes
 - Daniel Cáceres González; d.caceres.2018@alumnos.urjc.es
