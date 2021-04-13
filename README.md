@@ -148,17 +148,17 @@ Y los templates relacionados con sus respectivos controladores.
 ![ControlladoresTemplates](https://user-images.githubusercontent.com/78802315/114550635-b443c380-9c62-11eb-94da-064f5b9af467.png)
 
 
-# Para el funcionamiento de la aplicación necesitaremos
+# Para el despliegue de la aplicación necesitaremos :computer:
 
 -Java 11 (**Muy importante**)
 -MySQL server 9.0.23
 -MySQL workbench 8.023
 
-Antes que nada comprobaremos que todos los paquetes de nuestro sistema están actualizados, para ello ejecutaremos los siguientes  comandos
+Antes que nada comprobaremos que todos los paquetes de nuestro sistema están actualizados, para ello ejecutaremos los siguientes  comandos.
 `sudo apt update`
 `sudo apt upgrade`
 
-#Java 11
+#Java 11 :package:
 
 Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro terminal.
 `sudo apt install openjdk-11-jdk`
@@ -166,39 +166,40 @@ Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro
 Podremos comprobar que se ha instalado correctamente la versión.
 `java -version`
 
-#Instalación de MySQL server
--Para ello ejecutaremos el siguiente comando en nuestra terminal:
-`sudo apt install mysql-server  `
+#Instalación de MySQL server :package:
 
+-Para ello ejecutaremos el siguiente comando en nuestra terminal.
+`sudo apt install mysql-server  `
 (En el proceso nos preguntara si estamos de acuerdo con el espacio total necesario)
--Comprobaremos que se ha instalado correctamente:
+
+-Comprobaremos que se ha instalado correctamente.
 `sudo mysql`
 
--Por ahora únicamente tendremos un usuario por defecto ‘root’, pero la contraseña para el aun no esta definida, para ello ejecutaremos el siguiente comando
+-Por ahora únicamente tendremos un usuario por defecto ‘root’, pero la contraseña para el aun no esta definida, para ello ejecutaremos el siguiente comando.
 `mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';`
 (Dónde ‘root’ es la contraseña que elegiremos, root en este caso).
 
--Para salir de la consola “mysql>” escribiremos el siguiente comando:  
+-Para salir de la consola “mysql>” escribiremos el siguiente comando.
 `mysql> exit;`
 
-#Instalación de MySQL workbecnh 8.0.23
+#Instalación de MySQL workbecnh 8.0.23 :package:
 
--Antes que nada comprobaremos que el MySQL community server esta ejecutándose a traves del siguiente comando:
+-Antes que nada comprobaremos que el MySQL community server esta ejecutándose a traves del siguiente comando.
 `systemctl status mysql.service`
 
--Acontinuacion instalaremos el MySQL workbench a traves del siguiente comando:
+-A continuación instalaremos el MySQL workbench a traves del siguiente comando.
 `sudo apt install mysql-workbench`
 
-Por último, para que la aplicación funcione deberemos seguir los siguientes pasos en nuestro MySQL workbench:
+Por último, para que la aplicación funcione deberemos seguir los siguientes pasos en nuestro MySQL workbench.
 
--Deberemos iniciar el workbench, para ello ejecutaremos el siguiente comando:
+-Deberemos iniciar el workbench, para ello ejecutaremos el siguiente comando.
 `mysql-workbench`
 
 -Nos conectaremos a la instancia local, con la contraseña seleccionada anteriormente (en nuestro caso “1234”).
 
 -En el menú superior crearemos un esquema (“Create a new schema in the connected server”) cuyo nombre en este caso será ‘posts’.
 
-#Despliegue de la aplicación
+#Despliegue de la aplicación :rocket:
 
 -En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando:
 `Git clone https://github.com/DCaceres2018/IngerGYM.git`
@@ -207,5 +208,5 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 `java -jar IngerGYM-spring-0.0.1-SNAPSHOT.jar`
 `java -jar internal_service-1.0.0.jar`
 
--![Por último, accederemos a la aplicación a través del navegador en el siguiente link]( https://localhost:8443/ ).
+-Por último, accederemos a la aplicación a través del navegador en el siguiente link ![https://localhost:8443/]( https://localhost:8443/ ).
 
