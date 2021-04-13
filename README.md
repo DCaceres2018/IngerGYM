@@ -182,7 +182,7 @@ Y los templates relacionados con sus respectivos controladores.
 * Para salir de la consola “mysql>” escribiremos el siguiente comando.
 `mysql> exit;`
 
-#Instalación de MySQL workbecnh 8.0.23 :package:
+# Instalación de MySQL workbecnh 8.0.23 :package:
 
 * Antes que nada comprobaremos que el MySQL community server esta ejecutándose a traves del siguiente comando.
 `systemctl status mysql.service`
