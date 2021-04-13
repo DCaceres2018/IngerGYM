@@ -65,8 +65,6 @@ Para iniciar sesion, usamos el nombre y la contraseña. (4)
 
 ![image](https://user-images.githubusercontent.com/78802315/114551682-046f5580-9c64-11eb-8d9a-013c3ccff81c.png)
 
-![image](https://user-images.githubusercontent.com/78802315/111185534-5ca62f80-85b2-11eb-8838-5dfc49993669.png)
-
 En función del rol que tengamos nos saldrá la web para admins :
 
 ![image](https://user-images.githubusercontent.com/78802315/114551764-21a42400-9c64-11eb-8fa8-d12890470ff3.png)
