@@ -131,6 +131,16 @@ Deberiamos rellenar el formulario y se crearia una sala.
 
 
 
+# FASE 3
+
+Primero de todo, este es nuestro diagrama de clases de ambas aplicaciones. 
+
+![DiagramaDAD](https://user-images.githubusercontent.com/78802315/114550566-a4c47a80-9c62-11eb-94b3-b213fcc97ec8.png)
+
+Y los templates relacionados con sus respectivos controladores.
+
+![ControlladoresTemplates](https://user-images.githubusercontent.com/78802315/114550635-b443c380-9c62-11eb-94da-064f5b9af467.png)
+
 
 
 
