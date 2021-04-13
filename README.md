@@ -155,44 +155,57 @@ Y los templates relacionados con sus respectivos controladores.
 -MySQL workbench 8.023
 
 * Antes que nada comprobaremos que todos los paquetes de nuestro sistema están actualizados, para ello ejecutaremos los siguientes  comandos.
+
 `sudo apt update`
+
 `sudo apt upgrade`
 
 ## Java 11 :package:
 
 * Insatalaremos  OpenJDK 11 en nuestro sistema, para ello ejecutaremos en  nuestro terminal.
+
 `sudo apt install openjdk-11-jdk`
 
 * Podremos comprobar que se ha instalado correctamente la versión.
+
 `java -version`
 
 ## Instalación de MySQL server :package:
 
 * Para ello ejecutaremos el siguiente comando en nuestra terminal.
+
 `sudo apt install mysql-server  `
+
 (En el proceso nos preguntara si estamos de acuerdo con el espacio total necesario)
 
 * Comprobaremos que se ha instalado correctamente.
+
 `sudo mysql`
 
 * Por ahora únicamente tendremos un usuario por defecto ‘root’, pero la contraseña para el aun no esta definida, para ello ejecutaremos el siguiente comando.
+
 `mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';`
+
 (Dónde ‘root’ es la contraseña que elegiremos, root en este caso).
 
 * Para salir de la consola “mysql>” escribiremos el siguiente comando.
+
 `mysql> exit;`
 
 # Instalación de MySQL workbecnh 8.0.23 :package:
 
 * Antes que nada comprobaremos que el MySQL community server esta ejecutándose a traves del siguiente comando.
+
 `systemctl status mysql.service`
 
 * A continuación instalaremos el MySQL workbench a traves del siguiente comando.
+
 `sudo apt install mysql-workbench`
 
 Por último, para que la aplicación funcione deberemos seguir los siguientes pasos en nuestro MySQL workbench.
 
 * Deberemos iniciar el workbench, para ello ejecutaremos el siguiente comando.
+
 `mysql-workbench`
 
 * Nos conectaremos a la instancia local, con la contraseña seleccionada anteriormente (en nuestro caso “1234”).
@@ -201,11 +214,14 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 ## Despliegue de la aplicación 🚀
 
-* En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando:
+* En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando
+
 `Git clone https://github.com/DCaceres2018/IngerGYM.git`
 
 * Accederemos a las carpetas target de “IngerGYM” e “internal_service” respectivamente y ejecutaremos los siguientes comandos.
+
 `java -jar IngerGYM-spring-0.0.1-SNAPSHOT.jar`
+
 `java -jar internal_service-1.0.0.jar`
 
 * Por último, accederemos a la aplicación a través del navegador en el siguiente link [https://localhost:8443/](https://localhost:8443/).
