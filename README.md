@@ -199,7 +199,7 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 -En el menú superior crearemos un esquema (“Create a new schema in the connected server”) cuyo nombre en este caso será ‘posts’.
 
-##Despliegue de la aplicación :rocket:
+##Despliegue de la aplicación 🚀
 
 -En primer lugar clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando:
 `Git clone https://github.com/DCaceres2018/IngerGYM.git`
