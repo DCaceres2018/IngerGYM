@@ -148,8 +148,15 @@ Y los templates relacionados con sus respectivos controladores.
 ![ControlladoresTemplates](https://user-images.githubusercontent.com/78802315/114550635-b443c380-9c62-11eb-94da-064f5b9af467.png)
 
 
+# Para el funcionamiento de la aplicación necesitaremos
 
+-Java 11 (**Muy importante**)
+-MySQL server 9.0.23
+-MySQL workbench 8.023
 
+Antees que nada comprobaremos que todos los paquetes de nuestro sistema están actualizados, para ello ejecutaremos los siguientes  comandos
 
-
+`sudo apt update
+sudo apt upgrade
+`
 
