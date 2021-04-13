@@ -150,9 +150,11 @@ Y los templates relacionados con sus respectivos controladores.
 
 ## Para el despliegue de la aplicación necesitaremos :computer:
 
--Java 11 (**Muy importante**)
--MySQL server 9.0.23
--MySQL workbench 8.023
+-_Java 11 (**Muy importante**)_
+
+-_MySQL server 9.0.23_
+
+-_MySQL workbench 8.023_
 
 * Antes que nada comprobaremos que todos los paquetes de nuestro sistema están actualizados, para ello ejecutaremos los siguientes  comandos.
 
