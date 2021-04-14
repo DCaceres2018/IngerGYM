@@ -1,4 +1,4 @@
-package IngerGYM.controladores;
+package IngerGYM.entidades;
 
 
 
@@ -22,7 +22,7 @@ package IngerGYM.controladores;
 			this.asunto = asunto;
 		}
 
-
+		
 		public String getEmail() {
 	        return email;
 	    }

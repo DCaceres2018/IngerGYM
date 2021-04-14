@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import IngerGYM.entidades.Clases;
 import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.ComponenteCliente;
+import IngerGYM.entidades.Message;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClientes;
+import IngerGYM.servicios.MailService;
 import IngerGYM.servicios.ServicioClases;
 import IngerGYM.servicios.ServicioClientes;
 

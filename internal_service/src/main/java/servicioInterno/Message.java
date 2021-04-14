@@ -1,4 +1,4 @@
-package es.codeurjc.items;
+package servicioInterno;
 
 public class Message {
 

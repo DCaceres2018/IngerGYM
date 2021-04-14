@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import IngerGYM.servicios.MailService;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.entidades.*;
 

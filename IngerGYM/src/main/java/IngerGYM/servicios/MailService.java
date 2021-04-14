@@ -1,10 +1,12 @@
-package IngerGYM.controladores;
+package IngerGYM.servicios;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import IngerGYM.entidades.Message;
 
 
 

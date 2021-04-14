@@ -1,4 +1,4 @@
-package es.codeurjc.items;
+package servicioInterno;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
