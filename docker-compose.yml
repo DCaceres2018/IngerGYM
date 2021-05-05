@@ -13,7 +13,7 @@ services:
   ingergym1:
     build: ./IngerGYM
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/posts?serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/posts?serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: "sa"
       SPRING_DATASOURCE_PASSWORD: "1234"
     ports:
