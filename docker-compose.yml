@@ -22,6 +22,17 @@ services:
       - mysql-standalone
     restart: on-failure
 
+ingergym2:
+    build: ./IngerGYM
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/posts?serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: "sa"
+      SPRING_DATASOURCE_PASSWORD: "1234"
+    ports:
+      - "8085:8080"
+    depends_on:
+      - mysql-standalone
+    restart: on-failure
 
 
 
