@@ -24,9 +24,9 @@ public class ServicioTarifas {
 		Tarifa tarifa2=new Tarifa(27);
 		Tarifa tarifa3=new Tarifa(67);
 
-		repositorioTarifa.save(tarifa2);
-		repositorioTarifa.save(tarifa1);
-		repositorioTarifa.save(tarifa3);
+		//repositorioTarifa.save(tarifa2);
+		//repositorioTarifa.save(tarifa1);
+		//repositorioTarifa.save(tarifa3);
 	}
 	
 	public List<Tarifa> findAll(){

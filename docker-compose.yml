@@ -8,6 +8,8 @@ services:
       - MYSQL_DATABASE=posts
       - MYSQL_USER=sa
       - MYSQL_PASSWORD=1234
+	volumes:
+      - ./esquemaMySQL/data.sql:/docker-entrypoint-initdb.d/esquemaMySQL.sql
     restart: always
  
   ingergym1:
