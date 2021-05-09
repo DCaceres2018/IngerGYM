@@ -43,9 +43,6 @@ public class OpinionController {
 		List<Opinion> opiniones = servicioOpiniones.findAll();
 		model.addAttribute("opinionesDisponibles",opiniones);
 		
-		
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken());   
 		return "opiniones";
 	}
 }

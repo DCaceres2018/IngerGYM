@@ -48,9 +48,6 @@ public class WebController {
 	@GetMapping("/login")
 	public String loginAcceder(Model model, HttpServletRequest request) {
 	
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken());   
-		
 		return "login";
 	}
 
@@ -63,15 +60,10 @@ public class WebController {
 	@GetMapping("/bienvenido")
 	public String login(Model model,HttpServletRequest request) {
 		
-		
-		
 		model.addAttribute("admin", request.isUserInRole("ADMIN"));
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken());  
+		
 		return "bienvenidos";
 	}
-	
-	
 	
 	@GetMapping("/usuariosDisponibles")
 	public String listarUsuarios(Model model) {

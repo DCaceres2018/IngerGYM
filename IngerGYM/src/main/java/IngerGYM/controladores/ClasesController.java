@@ -53,8 +53,6 @@ public class ClasesController {
 		}
 		
 		model.addAttribute("clasesDisponibles",copia);
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken());
 		return "clase";	
 	}
 	
@@ -131,10 +129,6 @@ public class ClasesController {
 	
 	@GetMapping("/crearClase")
 	public String crearClase(Model model, HttpServletRequest request){
-		
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken());  
-
 		
 		return "crearClase";
 	}

@@ -14,7 +14,7 @@ import IngerGYM.entidades.Message;
 public class MailService {
 
 
-    private static final String MAIL_SERVICE_URL = "http://localhost:9000";
+    private static final String MAIL_SERVICE_URL = "http://internal-service:9000";
 
     public void sendMail(Message message) {
 		

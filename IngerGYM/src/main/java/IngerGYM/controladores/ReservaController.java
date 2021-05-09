@@ -110,16 +110,12 @@ public class ReservaController {
 	@GetMapping("/gimnasio")
 	public String gimnasio(Model model,HttpServletRequest request) {
 
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken()); 
 		return "gimnasio";
 	}
 	
 	@GetMapping("/piscina")
 	public String piscina (Model model,HttpServletRequest request) {
 
-    	CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-    	model.addAttribute("token", token.getToken()); 
 		return "piscina";
 	}
 	
