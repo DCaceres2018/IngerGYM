@@ -43,4 +43,16 @@ ingergym2:
       -  ingergym2
     restart: on-failure
 
+lb:
+    image: 'haproxy:1.9.6'
+    ports:
+      - "8443:443"
+      - "8404:8404"
 
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./haproxy/ssl.pem:/usr/local/etc/ssl/ssl.pem:ro
+    depends_on:
+      - ingergym1
+      - ingergym2
+    restart: unless-stopped
