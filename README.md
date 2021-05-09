@@ -228,7 +228,9 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 * Por último, accederemos a la aplicación a través del navegador en el siguiente link [https://localhost:8443/](https://localhost:8443/).
 
-## Para el despliegue de la aplicación necesitaremos :computer:
+# FASE 4
+
+## Para el despliegue necesitaremos :computer:
 
 - Java 11 (**Muy importante**)_
 
@@ -238,7 +240,7 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 * Para ello, únicamente lo descargaremos a través del siguiente enlace [https://hub.docker.com/?overlay=onboarding](https://hub.docker.com/?overlay=onboarding)
 
-# Despliegue de la aplicación V2 FASE 4 🚀
+# Despliegue de la aplicación  🚀
 
 * En primer lugar, al igual que en en el anterior despliegue de la Fase 3, clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando
 
