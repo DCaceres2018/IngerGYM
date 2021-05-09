@@ -228,3 +228,20 @@ Por último, para que la aplicación funcione deberemos seguir los siguientes pa
 
 * Por último, accederemos a la aplicación a través del navegador en el siguiente link [https://localhost:8443/](https://localhost:8443/).
 
+# Despliegue de la aplicación V2 🚀
+
+* En primer lugar, al igual que en en el anterior despliegue de la Fase 3, clonaremos el repositorio de la aplicación, para ello ejecutaremos en la terminal el siguiente comando
+
+`Git clone https://github.com/DCaceres2018/IngerGYM.git`
+
+* En segundo lugar, accederemos al directorio en el que se encuentra el repositorio descargado a traves del siguiente comando:
+
+` cd "miDirectorio" `
+
+* Ahora, ejecutaremos la aplicación a través del siguiente comando: 
+
+` docker-compose -f .\docker-compose.yml up `
+
+* A partir de ahora,podres accederemos: *
+A la aplicación a través del navegador en el siguiente link [https://localhost:8443/](https://localhost:8443/).
+A las estadisticas del haProxy a través del navegador en el siguiente link [http://localhost:8404/stats](http://localhost:8404/stats).
