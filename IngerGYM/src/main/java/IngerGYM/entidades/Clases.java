@@ -5,11 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.persistence.Entity;
 
 @Entity
-public class Clases {
+public class Clases implements Serializable{
 	
 	private String profesor;
 	private String tipo; 
@@ -95,4 +97,63 @@ public class Clases {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + aforo;
+		result = prime * result + dia;
+		result = prime * result + hora;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((nombreSala == null) ? 0 : nombreSala.hashCode());
+		result = prime * result + ((profesor == null) ? 0 : profesor.hashCode());
+		result = prime * result + ((sala == null) ? 0 : sala.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Clases other = (Clases) obj;
+		if (aforo != other.aforo)
+			return false;
+		if (dia != other.dia)
+			return false;
+		if (hora != other.hora)
+			return false;
+		if (id != other.id)
+			return false;
+		if (nombreSala == null) {
+			if (other.nombreSala != null)
+				return false;
+		} else if (!nombreSala.equals(other.nombreSala))
+			return false;
+		if (profesor == null) {
+			if (other.profesor != null)
+				return false;
+		} else if (!profesor.equals(other.profesor))
+			return false;
+		if (sala == null) {
+			if (other.sala != null)
+				return false;
+		} else if (!sala.equals(other.sala))
+			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
+			return false;
+		return true;
+	}
+	
+	
+	
+	
 }

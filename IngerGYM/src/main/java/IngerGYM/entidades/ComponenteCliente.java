@@ -1,12 +1,14 @@
 package IngerGYM.entidades;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 
 @Component
 @SessionScope
-public class ComponenteCliente {
+public class ComponenteCliente implements Serializable{
 
 	private Cliente user;
 

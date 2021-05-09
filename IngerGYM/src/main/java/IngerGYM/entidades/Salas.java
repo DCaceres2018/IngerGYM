@@ -1,6 +1,7 @@
 package IngerGYM.entidades;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Salas {
+public class Salas implements Serializable{
 	
 	private int aforoMAX;
 	private String nombre;

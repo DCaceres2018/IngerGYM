@@ -31,7 +31,7 @@ public class ReservaController {
 	@Autowired
 	private ComponenteCliente userComponent;
 	@Autowired
-	private RepositorioClases cl;
+	private ServicioClases cl;
 	@Autowired
 	private RepositorioSalas salas;
 	@Autowired

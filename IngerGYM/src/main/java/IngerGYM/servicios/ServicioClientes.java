@@ -31,7 +31,7 @@ public class ServicioClientes {
 	private RepositorioSalas repositorioS;
 	
 	@Autowired
-	private RepositorioClases repositorioCl;
+	private ServicioClases servicioCl;
 	
 	@PostConstruct
 	public void init() {
@@ -110,7 +110,7 @@ public class ServicioClientes {
 
 	public void guardarClase(Clases clase) {
 		
-		repositorioCl.save(clase);
+		servicioCl.save(clase);
 	}
 
 	public int posSala(String nombre) {
@@ -136,14 +136,14 @@ public class ServicioClientes {
 	
 	public Clases getClase(int numero) {
 		
-		List <Clases> listaClase=repositorioCl.findAll();
+		List <Clases> listaClase=servicioCl.findAll();
 		Clases clase=listaClase.get(numero);
 		return clase;
 	}
 	
 	public int posClase(String nombre) {
 		
-		List <Clases> listaClase=repositorioCl.findAll();
+		List <Clases> listaClase=servicioCl.findAll();
 		boolean encontrado=false;
 		int pos=0;
 		for(Clases clase : listaClase) {

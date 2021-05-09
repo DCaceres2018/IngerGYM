@@ -1,5 +1,7 @@
 package IngerGYM.entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-public class Opinion {
+public class Opinion implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
