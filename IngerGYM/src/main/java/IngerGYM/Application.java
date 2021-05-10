@@ -42,23 +42,10 @@ public class Application {
         JoinConfig joinConfig = config.getNetworkConfig().getJoin();
 
         joinConfig.getMulticastConfig().setEnabled(true);
-//Necesario para la cache de Spring	
-        /*List<String> serversList = new ArrayList<String>();
-		
-		serversList.add("ingergym1");
-		serversList.add("ingergym2");
 
-		joinConfig.getTcpIpConfig().setEnabled(true).setMembers(serversList);
-		*/
 		return config;
     }
-//Cache de Spring
-   /* @Bean
-    public CacheManager cacheManager() {
-    	LOG.info("Activating cache...");
-    	return new ConcurrentMapCacheManager("cache");
-    }
-    */
+
     
  
     @Bean
