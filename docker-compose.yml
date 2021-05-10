@@ -37,7 +37,7 @@ services:
     restart: on-failure
 
   internal-service:
-    image: internal-service 
+    build: ./internal_service
     depends_on:
       -  ingergym1
       -  ingergym2
