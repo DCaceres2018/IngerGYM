@@ -137,7 +137,9 @@ Deberiamos rellenar el formulario y se crearia una sala.
 
 ![image](https://user-images.githubusercontent.com/78802315/111182770-89a51300-85af-11eb-9402-dd9539f37810.png)
 
+### Diagrama de la aplicación
 
+![image](https://user-images.githubusercontent.com/78802315/117667771-88eebe80-b1a5-11eb-8cf5-5e6ec356b6ac.png)
 
 
 # FASE 3
