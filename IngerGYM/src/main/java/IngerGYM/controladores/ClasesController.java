@@ -17,6 +17,7 @@ import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.ComponenteCliente;
 import IngerGYM.entidades.Message;
 import IngerGYM.entidades.Salas;
+import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
 import IngerGYM.servicios.MailService;
 import IngerGYM.servicios.ServicioClases;
@@ -53,6 +54,7 @@ public class ClasesController {
 		}
 		
 		model.addAttribute("clasesDisponibles",copia);
+
 		return "clase";	
 	}
 	

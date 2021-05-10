@@ -2,7 +2,6 @@ package IngerGYM.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import IngerGYM.entidades.Cliente;
 import IngerGYM.entidades.Tarifa;
 import IngerGYM.repositorios.RepositorioTarifa;
 
@@ -26,8 +25,7 @@ public class ServicioTarifas {
 
 		repositorioTarifa.save(tarifa2);
 		repositorioTarifa.save(tarifa1);
-		repositorioTarifa.save(tarifa3);
-		*/
+		repositorioTarifa.save(tarifa3);*/
 	}
 	
 	public List<Tarifa> findAll(){

@@ -11,9 +11,7 @@ import IngerGYM.entidades.ContadorAforo;
 import IngerGYM.entidades.Salas;
 import IngerGYM.repositorios.RepositorioClases;
 import IngerGYM.repositorios.RepositorioClientes;
-import IngerGYM.repositorios.RepositorioOpiniones;
 import IngerGYM.repositorios.RepositorioSalas;
-import IngerGYM.repositorios.RepositorioTarifa;
 
 
 @Service
@@ -31,13 +29,14 @@ public class ServicioClientes {
 	private RepositorioSalas repositorioS;
 	
 	@Autowired
-	private ServicioClases servicioCl;
+	private ServicioClases repositorioCl;
 	
 	@PostConstruct
 	public void init() {
 
-		/*Salas piscina=new Salas("Piscina",2);
-		 repositorioS.save(piscina);
+     /*
+		Salas piscina=new Salas("Piscina",2);
+		repositorioS.save(piscina);
 		
 		Salas gimnasio=new Salas("Gym",40);
 		repositorioS.save(gimnasio);
@@ -45,7 +44,7 @@ public class ServicioClientes {
 		Salas comun=new Salas("Zumba",50);
 		repositorioS.save(comun);
 		
-		public Clases (Salas sala,String prof,String tipo,int dia, int hora) {
+		//public Clases (Salas sala,String prof,String tipo,int dia, int hora)
 		
 		Clases AquaGym=new Clases(piscina,"Maria","AquaGYM",3,17);
 		repositorioCl.save(AquaGym);
@@ -55,33 +54,19 @@ public class ServicioClientes {
 		repositorioCl.save(Zumba);
 		Clases gym=new Clases(gimnasio,"-","gym");
 		repositorioCl.save(gym);
-		 Nado=new ContadorAforo(NadoLibre);
-		 Zumb=new ContadorAforo(Zumba);
-		 Gym=new ContadorAforo(gym);
-		 Aq=new ContadorAforo(AquaGym);
 	*/
 	}
 	
 	public boolean reservarPiscina(int d,int h) {
 		
-		if(Nado.hayHueco(d,h)==true) {
-			Nado.cogeAforo(d,h);
 			return true;
-		}
-		else {
-			return false;
-		}
+
 	}
 	
 	public boolean reservarGimnasio(int d,int h) {
 		
-		if(Gym.hayHueco(d,h)==true) {
-			Gym.cogeAforo(d,h);
 			return true;
-		}
-		else {
-			return false;
-		}
+
 	}	
 	
 	public int getPlazasZumba() {
@@ -110,7 +95,7 @@ public class ServicioClientes {
 
 	public void guardarClase(Clases clase) {
 		
-		servicioCl.save(clase);
+		repositorioCl.save(clase);
 	}
 
 	public int posSala(String nombre) {
@@ -136,14 +121,14 @@ public class ServicioClientes {
 	
 	public Clases getClase(int numero) {
 		
-		List <Clases> listaClase=servicioCl.findAll();
+		List <Clases> listaClase=repositorioCl.findAll();
 		Clases clase=listaClase.get(numero);
 		return clase;
 	}
 	
 	public int posClase(String nombre) {
 		
-		List <Clases> listaClase=servicioCl.findAll();
+		List <Clases> listaClase=repositorioCl.findAll();
 		boolean encontrado=false;
 		int pos=0;
 		for(Clases clase : listaClase) {

@@ -1,3 +1,4 @@
+IngerGYM\controladores\CacheController.class
 IngerGYM\entidades\Auxiliar.class
 IngerGYM\controladores\RegistroController.class
 IngerGYM\seguridad\UserRepositoryAuthProvider.class

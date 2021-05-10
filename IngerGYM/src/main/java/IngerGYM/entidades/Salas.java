@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Salas implements Serializable{
+public class Salas implements Serializable {
 	
 	private int aforoMAX;
 	private String nombre;

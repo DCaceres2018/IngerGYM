@@ -1,4 +1,3 @@
-  
 package IngerGYM;
 
 import java.util.ArrayList;
@@ -43,11 +42,8 @@ public class Application {
         JoinConfig joinConfig = config.getNetworkConfig().getJoin();
 
         joinConfig.getMulticastConfig().setEnabled(true);
-        
-        /*
-        Necesario para la cache de Spring	
-        
-        List<String> serversList = new ArrayList<String>();
+//Necesario para la cache de Spring	
+        /*List<String> serversList = new ArrayList<String>();
 		
 		serversList.add("ingergym1");
 		serversList.add("ingergym2");
@@ -56,11 +52,8 @@ public class Application {
 		*/
 		return config;
     }
-    
-    /*
-    Cache de Spring
-    
-    @Bean
+//Cache de Spring
+   /* @Bean
     public CacheManager cacheManager() {
     	LOG.info("Activating cache...");
     	return new ConcurrentMapCacheManager("cache");

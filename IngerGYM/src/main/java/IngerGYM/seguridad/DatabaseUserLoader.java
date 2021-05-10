@@ -17,9 +17,11 @@ public class DatabaseUserLoader {
 	@PostConstruct
 	public void init() {
 
-		//repositorioClientes.save(new Cliente("paco","paco@gmail.com",54,"pass","ROLE_USER"));
-		//repositorioClientes.save(new Cliente("admin","paco@gmail.com",54,"pass","ROLE_USER", "ROLE_ADMIN"));
-	}
+		// Sample users
+      /*
+		repositorioClientes.save(new Cliente("paco","paco@gmail.com",54,"pass","ROLE_USER"));
+		repositorioClientes.save(new Cliente("admin","paco@gmail.com",54,"pass","ROLE_USER", "ROLE_ADMIN"));
+	*/}
 
 }
 

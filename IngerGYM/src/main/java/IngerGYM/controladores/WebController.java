@@ -15,10 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import IngerGYM.entidades.Cliente;
-import IngerGYM.entidades.ComponenteCliente;
 import IngerGYM.entidades.Tarifa;
 import IngerGYM.servicios.ServicioClientes;
 import IngerGYM.servicios.ServicioOpiniones;
@@ -60,10 +58,13 @@ public class WebController {
 	@GetMapping("/bienvenido")
 	public String login(Model model,HttpServletRequest request) {
 		
-		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
+		
+		model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		return "bienvenidos";
 	}
+	
+	
 	
 	@GetMapping("/usuariosDisponibles")
 	public String listarUsuarios(Model model) {
@@ -99,13 +100,13 @@ public class WebController {
 	@GetMapping("/tarifa")
 	public String tarifa(Model model) {
 		
-		List<Tarifa> tarifas= servicioTarifas.findAll();
-		model.addAttribute("tarifas",tarifas);
+		model.addAttribute("tarifas",servicioTarifas.findAll());
 		
 		return "tarifa";
 	}
 	@GetMapping("/tarifas/{id}")
 	public String tarifa2(Model model,HttpSession sesion,@PathVariable long id) {
+	
 		
 		List<Tarifa> tarifas= servicioTarifas.findAll();
 		List<Cliente> clientes= servicioCliente.findAll();
