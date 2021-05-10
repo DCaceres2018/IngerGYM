@@ -40,6 +40,9 @@ github: DCaceres2018
 - Carlos Manuel Barrameda Portieles; cm.barrameda.2018@alumnos.urjc.es
 github: CarlosMbp
 
+## Video ejemplo del funcionamiento de la aplicación
+
+https://youtu.be/Ke6hOOuCuiw
 
 ### Imágenes de las pantallas principales
 
