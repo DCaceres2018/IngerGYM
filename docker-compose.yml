@@ -24,7 +24,7 @@ services:
       - mysql-standalone
     restart: on-failure
 
-ingergym2:
+  ingergym2:
     build: ./IngerGYM
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/posts?serverTimezone=UTC
@@ -43,7 +43,7 @@ ingergym2:
       -  ingergym2
     restart: on-failure
 
-lb:
+  lb:
     image: 'haproxy:1.9.6'
     ports:
       - "8443:443"
